@@ -43,7 +43,7 @@ nvm use v18.12.1
 
 
 ## Running the application
-- Make sure that backend is up and running, follow [backend instructions](https://gitlab.com/freemanco/blueprint/backend/-/blob/master/README.md)
+- Make sure that backend is up and running, as we will need data from backed to be used in UI. We may need some APIs and help us to run only UI only.
 - download or clone the repository
 - Run the following commands from `RoomUtilInfoSys` directory:
   ```
