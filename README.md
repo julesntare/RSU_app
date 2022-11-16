@@ -29,10 +29,14 @@ RoomUtilInfoSys is still in progress. we expect it to be finalized by this comin
 - This project is made by `Reactjs` , together with `SCSS/SASS` and `Bootstrap` as Front-End part.
 
 # Setting up development
-
-## Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Working with Environment variables
+- Inside the root of the Project write this code:
+```
+touch .env
+```
+- That code will create `.env file` in the root of your project.
+- Ask the developer to give you `.env` file to paste in the file you created.
+- This is for the app to work with the hidden credentials such as API key , and others.
 
 ## Node Installation
 Install Node.js `Lts version`  from https://nodejs.org/en/download/ or using nvm
@@ -40,7 +44,6 @@ Install Node.js `Lts version`  from https://nodejs.org/en/download/ or using nvm
 nvm install v18.12.1
 nvm use v18.12.1
 ```
-
 
 ## Running the application
 - Make sure that backend is up and running, as we will need data from backed to be used in UI. We may need some APIs and help us to run only UI only.
@@ -77,6 +80,10 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
 
 ### Code Splitting
