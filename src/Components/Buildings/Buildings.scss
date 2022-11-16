@@ -1,0 +1,12 @@
+@import "../../../public/scss/_color-variables/hover";
+
+.building-list{
+    cursor: pointer;
+    transition: all .5s ease;
+    &:hover{
+        background: $hover-bg ;
+    }
+    .location-link{
+        text-decoration: none;
+    }
+}

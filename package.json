@@ -3,13 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/poppins": "^4.5.10",
+    "@googlemaps/react-wrapper": "^1.1.35",
+    "@react-google-maps/api": "^2.17.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.10.2",
     "jquery": "^3.6.1",
     "popper.js": "^1.16.1",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.6.0",
+    "react-bootstrap-icons": "^1.9.1",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "sass": "^1.56.1",
@@ -20,12 +26,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
   },
   "browserslist": {
     "production": [

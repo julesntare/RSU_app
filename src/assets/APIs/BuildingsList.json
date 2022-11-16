@@ -1,0 +1,314 @@
+ [
+    {
+     "name": "Muhabura",
+     "id": 1,
+     "numberOfRooms": 50,
+     "location": "",
+     "rooms": [
+        {
+            "name": "MUHABURA_P001",
+            "id": "",
+            "seats": 300,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "MUHABURA_P008",
+            "id": "",
+            "seats": 220,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "MUHABURA_P009",
+            "id": "",
+            "seats": 200,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "MUHABURA_P0016",
+            "id": "",
+            "seats": 89,
+            "location": ""
+        },
+        {
+            "name": "MUHABURA_P0017",
+            "id": 1,
+            "seats": 200,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "MUHABURA_P104",
+            "id": "",
+            "seats": 99,
+            "location": "",
+            "use": "Lab"
+        },
+        {
+            "name": "MUHABURA_P106",
+            "id": "",
+            "seats": 200,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "MUHABURA_P107",
+            "id": "",
+            "seats": 200,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "MUHABURA_P112",
+            "id": "",
+            "seats": 500,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "MUHABURA_P113",
+            "id": "",
+            "seats": 200,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "MUHABURA_P204",
+            "id": "",
+            "seats": 223,
+            "location": ""
+        },
+        {
+            "name": "MUHABURA_P205",
+            "id": "",
+            "seats": 200,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "MUHABURA_P206",
+            "id": "",
+            "seats": 200,
+            "location": "",
+            "use": "Lab"
+        },
+        {
+            "name": "MUHABURA_P207",
+            "id": "",
+            "seats": 200,
+            "location": "",
+            "use": "Studying"
+        }
+     ]
+    },
+    {
+    "name": "Ikaze",
+     "id": 2,
+     "numberOfRooms": 8,
+     "location": "",
+     "rooms": [
+        {
+            "name": "IKAZE_Room A",
+            "id": "",
+            "seats": 230,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "IKAZE_Room B",
+            "id": "",
+            "seats": 100,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "IKAZE_Room F",
+            "id": "",
+            "seats": 150,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "IKAZE_Room G",
+            "id": "",
+            "seats": 133,
+            "location": ""
+        },
+        {
+            "name": "IKAZE_Room H",
+            "id": "",
+            "seats": 89,
+            "location": "",
+            "use": "Studying"
+        },
+        {
+            "name": "IKAZE_Room I",
+            "id": "",
+            "seats": 80,
+            "location": "",
+            "use": "Studying"
+        }
+
+     ]
+    },
+    {
+        "name": "Muhazi",
+        "id": 3,
+        "numberOfRooms": 50,
+        "location": "",
+        "rooms": [
+           {
+               "name": "MUHABURA_P001",
+               "id": "",
+               "seats": 300,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "MUHABURA_P008",
+               "id": "",
+               "seats": 220,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "MUHABURA_P009",
+               "id": "",
+               "seats": 200,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "MUHABURA_P0016",
+               "id": "",
+               "seats": 89,
+               "location": ""
+           },
+           {
+               "name": "MUHABURA_P0017",
+               "id": 1,
+               "seats": 200,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "MUHABURA_P104",
+               "id": "",
+               "seats": 99,
+               "location": "",
+               "use": "Lab"
+           },
+           {
+               "name": "MUHABURA_P106",
+               "id": "",
+               "seats": 200,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "MUHABURA_P107",
+               "id": "",
+               "seats": 200,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "MUHABURA_P112",
+               "id": "",
+               "seats": 500,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "MUHABURA_P113",
+               "id": "",
+               "seats": 200,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "MUHABURA_P204",
+               "id": "",
+               "seats": 223,
+               "location": ""
+           },
+           {
+               "name": "MUHABURA_P205",
+               "id": "",
+               "seats": 200,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "MUHABURA_P206",
+               "id": "",
+               "seats": 200,
+               "location": "",
+               "use": "Lab"
+           },
+           {
+               "name": "MUHABURA_P207",
+               "id": "",
+               "seats": 200,
+               "location": "",
+               "use": "Studying"
+           }
+        ]
+       },
+       {
+       "name": "Kalisimbi",
+        "id": 4,
+        "numberOfRooms": 8,
+        "location": "",
+        "rooms": [
+           {
+               "name": "IKAZE_Room A",
+               "id": "",
+               "seats": 230,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "IKAZE_Room B",
+               "id": "",
+               "seats": 100,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "IKAZE_Room F",
+               "id": "",
+               "seats": 150,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "IKAZE_Room G",
+               "id": "",
+               "seats": 133,
+               "location": ""
+           },
+           {
+               "name": "IKAZE_Room H",
+               "id": "",
+               "seats": 89,
+               "location": "",
+               "use": "Studying"
+           },
+           {
+               "name": "IKAZE_Room I",
+               "id": "",
+               "seats": 80,
+               "location": "",
+               "use": "Studying"
+           }
+   
+        ]
+       }
+]
+
+
+
+

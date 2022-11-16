@@ -1,18 +1,14 @@
+import React from 'react';
 import './App.scss';
+import NavigationBar from './Components/Navbar/Navbar';
+import Buildings from './Components/Buildings/Buildings';
+
 
 function App() {
   return (
-    <div className="app">
-      <h1>My app project here</h1>
-      <br></br>
-      <a className="btn btn-primary"
-             data-bs-toggle="collapse"
-             href="#collapseExample"
-             role="button"
-             aria-expanded="false"
-             aria-controls="collapseExample">
-            Bootstrap button
-        </a>
+    <div className="app container bg-secondary">
+      <NavigationBar />
+      <Buildings />
     </div>
   );
 }
