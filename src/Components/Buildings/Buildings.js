@@ -43,9 +43,9 @@ export default function Buildings (){
                             onClick={()=>handleBuildingClick(item)}
                         >
                             {item.name}
-                            <span className="badge mx-2 rounded-pill building-location text-dark"><button className="location-link" onClick={()=>showBuildingLocation(item)}><i className="bi bi-geo-alt mx-1 text-primary"> </i>Location</button></span>
+                            <span className="badge mx-2 rounded-pill building-location text-dark"><button className="location-link p-2 d-flex" onClick={()=>showBuildingLocation(item)}><i className="bi bi-geo-alt mx-1 text-primary"> </i>Location</button></span>
                             <span className="badge  rounded-pill bg-primary building-rooms">
-                                <span className="text-dark"> Number of Rooms: {item.numberOfRooms}</span>
+                                <span className="text-light"> Number of Rooms: {item.numberOfRooms}</span>
                             </span>
                         </li>
                     </ul>  

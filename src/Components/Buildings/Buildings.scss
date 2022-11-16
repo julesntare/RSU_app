@@ -7,6 +7,16 @@
         background: $hover-bg ;
     }
     .location-link{
-        text-decoration: none;
+        border: none;
+        transition: all .5s ease-in-out !important;
+        border-radius: 20px;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        
+        &:hover{
+            background-color: purple !important;
+            color: white !important;
+        }
     }
 }
