@@ -3,10 +3,13 @@
 
 .Rooms{
     inset:  0;
+    display: flex;
+    flex-wrap: wrap;
     background: $bg-body;
     overflow-x: hidden;
     overflow-y: auto;
     z-index: 20;
+    min-height: 100vh;
 }
 .room{
     border: $border-primary;
@@ -16,12 +19,21 @@
     &:hover{
     background: transparent;
     border: 2px solid purple;
-
-
+    
+        .card{
+            display: flex;
+            flex-direction: column;
+            height: fit-content;
+            
+        }
     }
 }
 
-.card{
+// .card{
+//     flex-direction: column;
+//     display: flex;
+// }
+.card-body{
     flex-direction: column;
 }
 .label-box{

@@ -21,7 +21,7 @@ const NavigationBar = () =>{
             <Navbar.Toggle aria-controls="responsive-navbar-nav"  />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="ms-auto mx-5">
-                <NavDropdown title="Buildings" id="collasible-nav-dropdown">
+                <NavDropdown title="Buildings"  className="text-light lead" id="collasible-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">See free Rooms</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
                     See all rooms
