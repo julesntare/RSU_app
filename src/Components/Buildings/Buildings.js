@@ -1,29 +1,21 @@
-import React, { useMemo }  from "react";
+import React, { useMemo, useState }  from "react";
 import "./Buildings.scss";
 import   BuildingsList from "../../assets/APIs/BuildingsList.json";
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+// import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import BuildingGoogleMap from "../Maps/BuildingGoogleMap";
 
 
 export default function Buildings (){
     //adding our buildings to google map:
+    const [locationMarker, setLocationMarker] = useState(false);
+    let latLong ={}
     const showBuildingLocation = (e)=>{
-        console.log(`${e.name} of ${e.id} is clicked`);
-
-    //     const {isLoaded} = useLoadScript({
-    //         googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
-    //     });
-    //       if (!isLoaded) return <div className="text-success lead">Loading...</div>;
-    //       return <Map />;
-    //     }
-        
-    //     function Map() {
-    //       const center = useMemo(() => ({ lat: 44, lng: -80 }), []);
-    //       return (
-    //         <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
-    //           <Marker position={center} />
-    //         </GoogleMap>
-    //       );
-    //     }
+        setLocationMarker(true);
+        latLong = {
+            lat: e.location.lat,
+            long: e.location.long
+        }
+        console.log(`Lat: ${latLong.lat}, long:  ${lat.long} `);
     }
 
     const handleBuildingClick = (e) =>{
@@ -33,7 +25,7 @@ export default function Buildings (){
     }
 
     return(
-        <div className="mt-3 container-fluid">
+        <div className="mt-3 container">
             <h3 className="h3 my-3"> Buildings</h3>
            {
             BuildingsList.map((item, i)=>{
@@ -44,14 +36,21 @@ export default function Buildings (){
                         >
                             {item.name}
                             <span className="badge mx-2 rounded-pill building-location text-dark"><button className="location-link p-2 d-flex" onClick={()=>showBuildingLocation(item)}><i className="bi bi-geo-alt mx-1 text-primary"> </i>Location</button></span>
-                            <span className="badge  rounded-pill bg-primary building-rooms">
-                                <span className="text-light"> Number of Rooms: {item.numberOfRooms}</span>
+                            <span className="badge  rounded-pill bg-primary building-rooms text-light p-2 d-flex  justify-content-center align-items-center me-2"
+                            >
+                                 {item.numberOfRooms} Rooms
                             </span>
                         </li>
                     </ul>  
                 )
             })
            }
+           {locationMarker &&
+           <BuildingGoogleMap
+                lat = {latLong.lat}
+                long = {latLong.long}
+            />
+            }
         </div>
     )
 }

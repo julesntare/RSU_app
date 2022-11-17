@@ -1,0 +1,9 @@
+@import "../../../public/scss/bg";
+
+#title-text-web{
+    color: $bg-body;
+    &hover{
+        color: $bg-hover-primary;
+        border: 2px stroke $bg-body;
+    }
+}

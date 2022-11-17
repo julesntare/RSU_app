@@ -3,7 +3,10 @@
      "name": "Muhabura",
      "id": 1,
      "numberOfRooms": 50,
-     "location": "",
+     "location": {
+        "lat": 70.345,
+        "long": -20
+     },
      "rooms": [
         {
             "name": "MUHABURA_P001",
@@ -107,7 +110,10 @@
     "name": "Ikaze",
      "id": 2,
      "numberOfRooms": 8,
-     "location": "",
+     "location": {
+        "lat": -40,
+        "long": -80
+     },
      "rooms": [
         {
             "name": "IKAZE_Room A",
@@ -157,7 +163,10 @@
         "name": "Muhazi",
         "id": 3,
         "numberOfRooms": 50,
-        "location": "",
+        "location": {
+            "lat": 110,
+            "long": 20.23002
+        },
         "rooms": [
            {
                "name": "MUHABURA_P001",
@@ -261,7 +270,10 @@
        "name": "Kalisimbi",
         "id": 4,
         "numberOfRooms": 8,
-        "location": "",
+        "location": {
+            "lat": 40,
+            "long": -50
+        },
         "rooms": [
            {
                "name": "IKAZE_Room A",

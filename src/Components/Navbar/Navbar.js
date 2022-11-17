@@ -7,7 +7,7 @@ import Logo from "../../assets/logo/urLogo.png"
 
 const NavigationBar = () =>{
     return (
-        <Navbar collapseOnSelect expand="lg" bg="primary" variant="primary" text="dark">
+        <Navbar collapseOnSelect expand="lg" bg="primary" variant="primary" className="container text-light lead">
           <Navbar.Brand href="#home" >
             <img
               alt=""
@@ -16,7 +16,7 @@ const NavigationBar = () =>{
               height="40"
               className="d-inline-block align-top rounded-pill me-3 me-lg-5"
             />
-            Book a room in CST
+            <span className=" p-2 d-3 d-sm-4 title-text-web" id="title-text-web">Book a room in CST</span>
           </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav"  />
             <Navbar.Collapse id="responsive-navbar-nav">

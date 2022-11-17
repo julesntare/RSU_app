@@ -1,0 +1,55 @@
+@import "./bg";
+@import "./borders";
+
+.btn-p{
+    background: linear-gradient(45deg, $bg-hover-primary rgb(186, 111, 186), rgb(255, 169, 182) ) repeat-y;
+    padding: .5em;
+    width: 2em;
+    height: 1.2em;
+    border-radius:  20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s ease-in-out;
+    border: $border-primary;
+    &:hover{
+    background: linear-gradient(45deg, $bg-hover-secondary, rgb(208, 202, 208), rgb(255, 227, 232) ) repeat-y ;
+    border: $border-secondary;
+    }
+}
+
+
+.btn-s{
+    padding: .5em;
+    background: linear-gradient(45deg, $bg-hover-secondary, rgb(208, 202, 208), rgb(255, 227, 232) ) repeat-y ;
+    border: $border-secondary;
+    width: 2em;
+    height: 1.2em;
+    border-radius:  20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s ease-in-out;
+    &:hover{
+    background: linear-gradient(45deg, $bg-hover-primary rgb(186, 111, 186), rgb(255, 169, 182) ) repeat-y;
+    border: $border-primary;
+    
+    }
+}
+
+.btn-transparent{
+    background: transparent;
+    border: 2px solid $border-primary;
+    border-radius:  15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s ease-in-out;
+    &:hover{
+    background: $bg-hover-secondary;
+    border: none;
+        
+        }
+
+}
+

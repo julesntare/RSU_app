@@ -1,10 +1,10 @@
-@import "../../../public/scss/_color-variables/hover";
+@import "../../../public/scss/bg";
 
 .building-list{
     cursor: pointer;
     transition: all .5s ease;
     &:hover{
-        background: $hover-bg ;
+        background: $bg-hover-secondary ;
     }
     .location-link{
         border: none;
@@ -15,8 +15,8 @@
         align-items: center;
         
         &:hover{
-            background-color: purple !important;
-            color: white !important;
+            background-color: $bg-hover-primary !important;
+            color: $bg-body !important;
         }
     }
 }

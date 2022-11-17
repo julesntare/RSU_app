@@ -1,0 +1,54 @@
+@import "../../../public/scss/bg";
+@import "../../../public/scss/borders";
+
+.footer{
+    background: $bg-hover-secondary;
+    transition: all .5s ease-in-out;
+    height: 20vh;
+    &:hover{
+        background: $bg-hover-primary;
+        .copy-right{
+            background: $bg-hover-secondary;
+            color:  $bg-hover-primary;
+        }
+    }
+    
+    .btn-transparent{
+        padding: .5em;
+        background: transparent;
+        border: 2px solid $border-primary;
+        border-radius:  15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all .4s ease-in-out;
+        &:hover{
+        background: $bg-hover-secondary;
+        border: none;
+            
+            }
+    }
+.copy-right{
+    background: $bg-hover-primary;
+    opacity: .6;
+}
+.bi-twitter{
+    color: rgb(0, 81, 255);
+}
+.bi-facebook{
+    color: rgb(0, 43, 134);
+}
+.bi-github{
+    color: rgb(0, 0, 0);
+}
+.bi-instagram{
+    color: rgb(255, 0, 191);
+}
+.bi-google{
+    color: rgb(255, 72, 0);
+}
+.bi-linkedin{
+    color: rgb(27, 42, 180);
+}
+
+}

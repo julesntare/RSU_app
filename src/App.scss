@@ -1,7 +1,23 @@
 @import "~bootstrap/scss/bootstrap";
+@import "../public/scss/bg";
+
+.body-animation{
+    font-family: "Poppins"  sans-serif !important;
+    scroll-behavior: smooth;
+
+}
+::-webkit-scrollbar{
+    width: .5vh;
+    color: pink;
+}
+
 .app {
+    position: relative;
     font-family: "Poppins"  sans-serif;
-    background:  white;
-    height: 100vh;
+    background:  $bg-body;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
     width: 100%;
 }
+
