@@ -2,7 +2,6 @@
     {
      "name": "Muhabura",
      "id": 1,
-     "numberOfRooms": 50,
      "location": {
         "lat": 70.345,
         "long": -20
@@ -109,8 +108,7 @@
     {
     "name": "Ikaze",
      "id": 2,
-     "numberOfRooms": 8,
-     "location": {
+    "location": {
         "lat": -40,
         "long": -80
      },
@@ -162,7 +160,6 @@
     {
         "name": "Muhazi",
         "id": 3,
-        "numberOfRooms": 50,
         "location": {
             "lat": 110,
             "long": 20.23002
@@ -269,8 +266,7 @@
        {
        "name": "Kalisimbi",
         "id": 4,
-        "numberOfRooms": 8,
-        "location": {
+         "location": {
             "lat": 40,
             "long": -50
         },

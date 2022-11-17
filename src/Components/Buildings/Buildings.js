@@ -1,25 +1,26 @@
 import React, { useMemo, useState }  from "react";
 import "./Buildings.scss";
 import   BuildingsList from "../../assets/APIs/BuildingsList.json";
-// import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
+import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import BuildingGoogleMap from "../Maps/BuildingGoogleMap";
 
 
-export default function Buildings (){
+export default function Buildings ({setGetClickedBuilding}){
     //adding our buildings to google map:
     const [locationMarker, setLocationMarker] = useState(false);
-    let latLong ={}
+    const  [latLong, setLatLong] = useState({})
     const showBuildingLocation = (e)=>{
         setLocationMarker(true);
-        latLong = {
+        setLatLong({
             lat: e.location.lat,
             long: e.location.long
-        }
-        console.log(`Lat: ${latLong.lat}, long:  ${lat.long} `);
+        })
     }
+    // console.log(latLong.lat, latLong.long);
 
     const handleBuildingClick = (e) =>{
-        console.log("cliked", e.id)
+        // console.log("cliked", e.id)
+        setGetClickedBuilding(e)
         //after getting the clicke link id, let use it to display its data
 
     }
@@ -35,10 +36,16 @@ export default function Buildings (){
                             onClick={()=>handleBuildingClick(item)}
                         >
                             {item.name}
-                            <span className="badge mx-2 rounded-pill building-location text-dark"><button className="location-link p-2 d-flex" onClick={()=>showBuildingLocation(item)}><i className="bi bi-geo-alt mx-1 text-primary"> </i>Location</button></span>
+                            <span className="badge mx-2 rounded-pill building-location text-dark">
+                                <button className="location-link p-2 d-flex" 
+                                    onClick={()=>showBuildingLocation(item)}
+                                >
+                                    <i className="bi bi-geo-alt mx-1 text-primary"> </i>Location
+                                    </button>
+                                </span>
                             <span className="badge  rounded-pill bg-primary building-rooms text-light p-2 d-flex  justify-content-center align-items-center me-2"
                             >
-                                 {item.numberOfRooms} Rooms
+                                 {item.rooms.length} Rooms
                             </span>
                         </li>
                     </ul>  

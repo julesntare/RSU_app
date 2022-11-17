@@ -5,6 +5,7 @@
     background: $bg-hover-secondary;
     transition: all .5s ease-in-out;
     height: 20vh;
+    opacity: 1 !important;
     &:hover{
         background: $bg-hover-primary;
         .copy-right{
@@ -12,9 +13,16 @@
             color:  $bg-hover-primary;
         }
     }
-    
+    .footer-medias{
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-shrink: 1;
+
+    }
+
     .btn-transparent{
-        padding: .5em;
+        padding: .1em;
         background: transparent;
         border: 2px solid $border-primary;
         border-radius:  15px;
@@ -25,6 +33,7 @@
         &:hover{
         background: $bg-hover-secondary;
         border: none;
+        opacity: 1 !important;
             
             }
     }

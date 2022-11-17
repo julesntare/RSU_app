@@ -1,0 +1,29 @@
+@import '../../../public/scss/bg';
+@import '../../../public/scss/borders';
+
+.Rooms{
+    inset:  0;
+    background: $bg-body;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: 20;
+}
+.room{
+    border: $border-primary;
+    background: $bg-hover-secondary;
+    border-radius: 15px !important;
+    transition: all .5s ease-in-out;
+    &:hover{
+    background: transparent;
+    border: 2px solid purple;
+
+
+    }
+}
+
+.card{
+    flex-direction: column;
+}
+.label-box{
+    flex-direction: column;
+}
