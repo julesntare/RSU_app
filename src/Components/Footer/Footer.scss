@@ -3,6 +3,10 @@
 
 .footer{
     background: $bg-hover-secondary;
+    z-index: 2;
+    position: sticky;
+    bottom: 0;
+    z-index: 5;
     transition: all .5s ease-in-out;
     height: 20vh;
     opacity: 1 !important;
@@ -10,7 +14,7 @@
         background: $bg-hover-primary;
         .copy-right{
             background: $bg-hover-secondary;
-            color:  $bg-hover-primary;
+            color:  $color-primary;
         }
     }
     .footer-medias{

@@ -1,9 +1,28 @@
 @import "../../../public/scss/bg";
 
-#title-text-web{
+.nav-web{
     color: $bg-body;
-    &hover{
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    flex-wrap: wrap;
+    height: max-content;
+    cursor: pointer;
+    border-bottom-right-radius: 5vw;
+    border-bottom-left-radius: 5vw;
+    background: $bg-hover-secondary;
+    transition: all .5s ease;
+    #title-text-web, #collasible-nav-dropdown{ 
+        color: $color-primary;
+        font-size: x-large;
+    }
+    
+    &:hover{
         color: $bg-hover-primary;
-        border: 2px stroke $bg-body;
+        background: $bg-hover-primary;
+        #title-text-web, #collasible-nav-dropdown{ 
+            color: $bg-body;
+    
+        }
     }
 }

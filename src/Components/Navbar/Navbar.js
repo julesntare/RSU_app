@@ -7,21 +7,19 @@ import Logo from "../../assets/logo/urLogo.png"
 
 const NavigationBar = () =>{
     return (
-        <Navbar collapseOnSelect expand="lg" bg="primary" variant="primary" className="container text-light lead">
-          <Navbar.Brand href="#home" >
+        <Navbar collapseOnSelect expand="lg" variant="primary" className="container nav-web text-white lead">
+          <Navbar.Brand href="#home"  className="d-flex justify-content-center align-items-center">
             <img
               alt=""
               src={Logo}
-              width="40"
-              height="40"
-              className="d-inline-block align-top rounded-pill me-3 me-lg-5"
+              className="d-inline-block  align-top rounded-pill me-3 img-fluid me-lg-5"
             />
-            <span className=" p-2 d-3 d-sm-4 title-text-web" id="title-text-web">Book a room in CST</span>
           </Navbar.Brand>
-            <Navbar.Toggle aria-controls="responsive-navbar-nav"  />
+            <Navbar.Toggle aria-controls="responsive-navbar-nav "  />
             <Navbar.Collapse id="responsive-navbar-nav">
+            <h1 className="text-center ms-auto  p-2 fs-4 fs-lg-5 d-sm-4 fw-bold" id="title-text-web">Book a room in CST</h1>
               <Nav className="ms-auto mx-5">
-                <NavDropdown title="Buildings"  className="text-light lead" id="collasible-nav-dropdown">
+                <NavDropdown title="Buildings" id="collasible-nav-dropdown">
                   <NavDropdown.Item href="#action/3.1">See free Rooms</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
                     See all rooms

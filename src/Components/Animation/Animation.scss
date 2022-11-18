@@ -1,24 +1,17 @@
-.animation-box{
-    inset: -1em;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    flex-grow: 1;
-    flex-shrink: 1;
-    background: transparent;
-    opacity: .8;
-}
-.svg-img{
-flex-grow: 1;
-flex-shrink: 1;
-width: 100%;
-border-bottom-left-radius:  20px;
-opacity: .3;
-}
+// .animation-box{
+//     inset: -1em;
+//     flex-direction: column;
+//     opacity: .8;
+    
+// }
+
+
 .animation-video{
-    flex-grow: 1;
-    flex-shrink: 1;
     width: 100%;
+    border-bottom-left-radius: 50vw;
+    border-top-right-radius: 50vw;
+    z-index: -1;
+    opacity: .8;
+    position: fixed;
+    top: 0;
 }
-
-

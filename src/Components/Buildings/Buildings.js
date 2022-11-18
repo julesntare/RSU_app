@@ -26,8 +26,8 @@ export default function Buildings ({setGetClickedBuilding}){
     }
 
     return(
-        <div className="mt-3 container">
-            <h3 className="h3 my-3"> Buildings</h3>
+        <div className="mt-3 container" id="building-container">
+            <h3 className="h3 my-3 text-dark titles-buildings fw-bold w-100 text-center"> Buildings</h3>
            {
             BuildingsList.map((item, i)=>{
                 return(

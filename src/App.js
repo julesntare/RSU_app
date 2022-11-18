@@ -18,7 +18,7 @@ function App() {
   const [getClickedBuilding, setGetClickedBuilding] = useState({})
 
   return (
-    <div className="app container-lg-fluid px-0 position-relative">
+    <div className="app container-lg-fluid bg-danger position-relative">
       <Animation />
       <NavigationBar />
       <Buildings 

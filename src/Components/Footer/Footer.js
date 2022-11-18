@@ -6,7 +6,7 @@ import './Footer.scss';
 
 export default  function Footer(){
     return(
-        <footer className="footer container  text-center text-light">
+        <footer className="footer mt-5 pt-3 container bg-primary text-center text-white">
             <section className="mb-2 d-flex  footer-medias">
                 <a
                     className="btn btn-transparent  btn-floating m-1"
