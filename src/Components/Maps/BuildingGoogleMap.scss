@@ -1,3 +1,4 @@
+@import "../../../public/scss/bg";
 
 .map-container{
     position: absolute;
@@ -6,4 +7,44 @@
     left: 0;
     right: 0;
     z-index: 10;
+    .close-map-box{
+        display: flex;
+        width: 100%;
+        flex-grow: 0;
+        background: transparent;
+        .close-btn{
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: $color-primary;
+            margin-left: auto;
+            &:hover{
+                color: $color-danger; 
+            }
+        }
+    }
+    
+}
+.loading-circle{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background: white;
+    
+    #loading-spinner{
+
+        animation: loading-spinner 1s linear infinite
+    }
+
+    @keyframes loading-spinner{
+
+        from{
+            transform: rotate(0deg)
+        }
+        to{
+            transform: rotate(360deg)
+        }
+    }
 }

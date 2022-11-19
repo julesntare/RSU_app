@@ -1,4 +1,5 @@
 @import "../../../public/scss/bg";
+@import "../../../public/scss/borders";
 
 
 #building-container{
@@ -12,21 +13,42 @@
     .building-list{
         cursor: pointer;
         transition: all .5s ease;
+        background: $bg-body;
+        border: $border-primary;
         &:hover{
             background: $bg-hover-secondary;
+            border: 1px solid transparent;
         }
-        .location-link{
-            border: none;
-            transition: all .5s ease-in-out !important;
-            border-radius: 20px;
-            cursor: pointer;
-            justify-content: center;
-            align-items: center;
-            
+        .building-rooms{
+            cursor: auto;
+        }
+        .see-rooms {
+            background: $bg-hover-secondary;
+            color: $color-primary;
+            transition: all .5s ease-in-out;
             &:hover{
-                background-color: $bg-hover-primary !important;
-                color: $bg-body !important;
+                background: $bg-hover-primary;
+                color: $bg-body;
+                .bi{
+                    color: $bg-body !important;
+                }
             }
+                 
+
+        }
+       
+    }
+    .location-link{
+        border: $border-primary;
+        transition: all .5s ease-in-out !important;
+        border-radius: 20px;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        
+        &:hover{
+            background-color: $bg-hover-primary !important;
+            color: $bg-body !important;
         }
     }
 

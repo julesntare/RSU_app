@@ -2,49 +2,55 @@
 @import "../../../public/scss/borders";
 
 .footer{
-    background: $bg-hover-secondary;
-    z-index: 2;
-    position: sticky;
-    bottom: 0;
-    z-index: 5;
+    background: $bg-hover-primary;
+    z-index: 5; 
+    border-top-right-radius: 5vw;
+    border-top-left-radius: 5vw;
     transition: all .5s ease-in-out;
     height: 20vh;
     opacity: 1 !important;
-    &:hover{
-        background: $bg-hover-primary;
-        .copy-right{
-            background: $bg-hover-secondary;
-            color:  $color-primary;
-        }
+    height: fit-content;
+    .copy-right{
+            opacity: .5;
+        
+        background: transparent !important;
+        a{
+            text-decoration: none;
+            opacity: 1 !important;
+            &:hover{
+
+                color:  $color-primary !important ;
+            }
+        }       
     }
     .footer-medias{
         justify-content: center;
         align-items: center;
         flex-wrap: nowrap;
-        flex-shrink: 1;
-
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
     }
 
     .btn-transparent{
-        padding: .1em;
+        padding: .5rem;
         background: transparent;
-        border: 2px solid $border-primary;
-        border-radius:  15px;
+        border: 2px solid $bg-body;
+        border-radius:  50%;
         display: flex;
         justify-content: center;
         align-items: center;
         transition: all .4s ease-in-out;
         &:hover{
         background: $bg-hover-secondary;
-        border: none;
         opacity: 1 !important;
             
             }
     }
-.copy-right{
-    background: $bg-hover-primary;
-    opacity: .6;
-}
+
 .bi-twitter{
     color: rgb(0, 81, 255);
 }

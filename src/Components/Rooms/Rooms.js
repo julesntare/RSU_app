@@ -1,42 +1,66 @@
 import React, { useState } from "react";
-import "./Rooms.scss"
+import "./Rooms.scss";
 
-export default function Rooms ({clickedHouseData}){
-    const roomsObj = clickedHouseData.rooms
-
-    if(!roomsObj) return; //if not clicked on the building link, then no rooms you can see in DOM    
-
-    let listRooms=(
-        <div className= "Rooms container d-flex position-absolute">
-            {
-                 roomsObj && roomsObj.map((item, i)=>{
-                    console.log(item)
-                    return (
-                <div className="row row-cols-1 m-2 row-cols-md-3 g-4" key={i} id={i}>
-                    <div className="col room w-100">
-                        <div className="card w-100 h-100">
-                            <img src="..." className="card-img-top" alt="..." />
-                            <div className="card-body d-flex">
-                                <h3 className="room-name card-title">{item.name}</h3>
-                                <div className="label-box">
-                                    <div className="details-box d-flex justify-content-between">
-                                            <label className="p-2 ">Seats: {item.seats} </label>
-                                            <label className="p-2 ">Use: {item.use} </label>
+export default function Rooms ({clickedHouseData, closeRoomsTab, allowRoomsRerender}){
+    const roomsObj = clickedHouseData.rooms;
+    
+    const closeMap = () =>{
+        closeRoomsTab(false);
+    }
+      
+    if( !roomsObj || !allowRoomsRerender) return;
+       let listRooms=(
+            <div className= "Rooms  container d-flex   position-absolute">
+               <div className="w-100 close-map-box mt-4 pe-2 pe-lg-4">
+                <i className="bi bi-x-octagon-fill close-btn " onClick={()=>closeMap()}></i>
+              </div>
+              <div className="row g-3 mt-2" id="rooms-box">
+                    {
+                        roomsObj && roomsObj.map((item, i)=>{
+                            return (
+                            <div className="card col-12 col-md-6 col-lg-4 col-xxl-3  room" key={i} id={i}>
+                                    <div className="card-body d-flex" id="card-body">
+                                        {item.name &&
+                                            <h3 className="room-name my-1 h4 d-flex justify-content-center align-items-center w-100 card-title">{item.name}</h3>}
+                                        {item.location &&
+                                            <p className="card-text room-location mt-1 d-flex w-100">
+                                                <span className="fw-bold my-1">Location: </span> 
+                                                 {item.location}
+                                            </p>
+                                         } 
+                                        
+                                        {item.seats && item.use &&
+                                            <div className="label-box w-100 d-flex  flex-column">
+                                                <div className="details-box w-100 d-flex w-100 p-1 flex-column">
+                                                    <p className="room-seats my-1">
+                                                        <span className="fw-bold">Seats: </span> 
+                                                        {item.seats}
+                                                    </p>
+                                                    <p className="room-use">
+                                                        <span className="fw-bold">Use: </span> 
+                                                        {item.use}
+                                                    </p>
+                                                </div>
+                                                <div className="status-btns p-1 d-flex mt-1 justify-content-between">
+                                                    <a href="#">
+                                                        <button className="text-success fw-bold btn btn-light">Free</button>
+                                                    </a>
+                                                    <a href="#">
+                                                        <button className="text-danger fw-bold btn btn-light">Occupied</button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        }
                                     </div>
-                                    <div className="status p-1 d-flex mt-1 justify-content-between">
-                                        <button className="text-success btn btn-light">Free</button>
-                                        <button className="text-danger btn btn-light">Occupied</button>
-                                    </div>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                 </div>  
-                  ) })
-            }
-                 
-        </div>
-    )
+                        ) })
+                   }   
+              </div>
+                  
+            </div>
+        )
 
+
+   
  return listRooms;
 }

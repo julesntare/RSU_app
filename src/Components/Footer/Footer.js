@@ -5,18 +5,21 @@ import './Footer.scss';
 
 
 export default  function Footer(){
+    let date = new Date()
+    const year = date.getFullYear();
+
     return(
-        <footer className="footer mt-5 pt-3 container bg-primary text-center text-white">
+        <footer className="footer mt-5 pt-3 container text-center text-white">
             <section className="mb-2 d-flex  footer-medias">
                 <a
-                    className="btn btn-transparent  btn-floating m-1"
+                    className="btn btn-transparent   btn-lg btn-floating m-1"
                     href="#!"
                     role="button"
                     >
                         <i className="bi bi-facebook"></i>
                 </a>
                 <a
-                    className="btn btn-transparent  btn-floating m-1"
+                    className="btn btn-transparent  btn-lg  btn-floating m-1"
                     href="#!"
                     role="button"
                     >
@@ -24,7 +27,7 @@ export default  function Footer(){
                 </a>
 
                 <a
-                    className="btn  btn-transparent btn-floating m-1"
+                    className="btn  btn-transparent   btn-lg btn-floating m-1"
                     href="#!"
                     role="button"
                     >
@@ -32,7 +35,7 @@ export default  function Footer(){
                 </a>
 
                 <a
-                    className="btn btn-transparent btn-floating m-1"
+                    className="btn btn-transparent  btn-lg btn-floating m-1"
                     href="#!"
                     role="button"
                     >
@@ -40,14 +43,14 @@ export default  function Footer(){
                 </a>
 
                 <a
-                    className="btn btn-transparent  btn-floating m-1"
+                    className="btn btn-transparent    btn-lg btn-floating m-1"
                     href="#!"
                     role="button"
                     >
                         <i className="bi bi-linkedin"></i>
                 </a>
                 <a
-                    className="btn btn-transparent  btn-floating m-1"
+                    className="btn btn-transparent   btn-lg btn-floating m-1"
                     href="#!"
                     role="button"
                     >
@@ -55,9 +58,16 @@ export default  function Footer(){
                 </a>
             </section>
 
-            <div className="text-center p-3 copy-right">
-                © 2020 Copyright:
-                <a className="text-white mx-2 lead" href="https://mdbootstrap.com/">CST</a>
+            <div className="text-center p-3 d-flex flex-column copy-right">
+                <p>
+                    ©  {year} All Rights Reserved
+                    <a className="text-white ms-2 " href="https://ur.ac.rw" target="_blank">College of Science and Technology (CST)</a>
+                </p>
+                <p>
+                    Made by <i className="bi bi-bag-heart text-white fw-bold "></i> with 
+                    <a className="text-white ms-2  " href="https://www.github.com/Kress2000" target="_blank">Nsanzimfura Eric</a>
+                </p>
+
             </div>
         </footer>
     )

@@ -1,288 +1,667 @@
- [
-    {
-     "name": "Muhabura",
-     "id": 1,
-     "location": {
-        "lat": 70.345,
-        "long": -20
-     },
-     "rooms": [
-        {
-            "name": "MUHABURA_P001",
-            "id": "",
-            "seats": 300,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "MUHABURA_P008",
-            "id": "",
-            "seats": 220,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "MUHABURA_P009",
-            "id": "",
-            "seats": 200,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "MUHABURA_P0016",
-            "id": "",
-            "seats": 89,
-            "location": ""
-        },
-        {
-            "name": "MUHABURA_P0017",
-            "id": 1,
-            "seats": 200,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "MUHABURA_P104",
-            "id": "",
-            "seats": 99,
-            "location": "",
-            "use": "Lab"
-        },
-        {
-            "name": "MUHABURA_P106",
-            "id": "",
-            "seats": 200,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "MUHABURA_P107",
-            "id": "",
-            "seats": 200,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "MUHABURA_P112",
-            "id": "",
-            "seats": 500,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "MUHABURA_P113",
-            "id": "",
-            "seats": 200,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "MUHABURA_P204",
-            "id": "",
-            "seats": 223,
-            "location": ""
-        },
-        {
-            "name": "MUHABURA_P205",
-            "id": "",
-            "seats": 200,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "MUHABURA_P206",
-            "id": "",
-            "seats": 200,
-            "location": "",
-            "use": "Lab"
-        },
-        {
-            "name": "MUHABURA_P207",
-            "id": "",
-            "seats": 200,
-            "location": "",
-            "use": "Studying"
-        }
-     ]
-    },
-    {
-    "name": "Ikaze",
-     "id": 2,
+[
+  {
+    "id": 1,
+    "name": "Muhabura",
+    "other_names": "",
+    "img_path":"",
+    "numberOfRooms": 25,
     "location": {
-        "lat": -40,
-        "long": -80
-     },
-     "rooms": [
-        {
-            "name": "IKAZE_Room A",
-            "id": "",
-            "seats": 230,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "IKAZE_Room B",
-            "id": "",
-            "seats": 100,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "IKAZE_Room F",
-            "id": "",
-            "seats": 150,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "IKAZE_Room G",
-            "id": "",
-            "seats": 133,
-            "location": ""
-        },
-        {
-            "name": "IKAZE_Room H",
-            "id": "",
-            "seats": 89,
-            "location": "",
-            "use": "Studying"
-        },
-        {
-            "name": "IKAZE_Room I",
-            "id": "",
-            "seats": 80,
-            "location": "",
-            "use": "Studying"
-        }
-
-     ]
+      "lat": -1.962621,
+      "long": 30.064461
     },
-    {
-        "name": "Muhazi",
-        "id": 3,
-        "location": {
-            "lat": 110,
-            "long": 20.23002
-        },
-        "rooms": [
-           {
-               "name": "MUHABURA_P001",
-               "id": "",
-               "seats": 300,
-               "location": "",
-               "use": "Studying"
-           },
-           {
-               "name": "MUHABURA_P008",
-               "id": "",
-               "seats": 220,
-               "location": "",
-               "use": "Studying"
-           },
-           {
-               "name": "MUHABURA_P009",
-               "id": "",
-               "seats": 200,
-               "location": "",
-               "use": "Studying"
-           },
-           {
-               "name": "MUHABURA_P0016",
-               "id": "",
-               "seats": 89,
-               "location": ""
-           },
-           {
-               "name": "MUHABURA_P0017",
-               "id": 1,
-               "seats": 200,
-               "location": "",
-               "use": "Studying"
-           },
-           {
-               "name": "MUHABURA_P104",
-               "id": "",
-               "seats": 99,
-               "location": "",
-               "use": "Lab"
-           },
-           {
-               "name": "MUHABURA_P106",
-               "id": "",
-               "seats": 200,
-               "location": "",
-               "use": "Studying"
-           },
-           {
-               "name": "MUHABURA_P107",
-               "id": "",
-               "seats": 200,
-               "location": "",
-               "use": "Studying"
-           },
-           {
-               "name": "MUHABURA_P112",
-               "id": "",
-               "seats": 500,
-               "location": "",
-               "use": "Studying"
-           }
-        ]
-       },
-       {
-       "name": "Kalisimbi",
-        "id": 4,
-         "location": {
-            "lat": 40,
-            "long": -50
-        },
-        "rooms": [
-           {
-               "name": "IKAZE_Room A",
-               "id": "",
-               "seats": 230,
-               "location": "",
-               "use": "Studying"
-           },
-           {
-               "name": "IKAZE_Room B",
-               "id": "",
-               "seats": 100,
-               "location": "",
-               "use": "Studying"
-           },
-           {
-               "name": "IKAZE_Room F",
-               "id": "",
-               "seats": 150,
-               "location": "",
-               "use": "Studying"
-           },
-           {
-               "name": "IKAZE_Room G",
-               "id": "",
-               "seats": 133,
-               "location": ""
-           },
-           {
-               "name": "IKAZE_Room H",
-               "id": "",
-               "seats": 89,
-               "location": "",
-               "use": "Studying"
-           },
-           {
-               "name": "IKAZE_Room I",
-               "id": "",
-               "seats": 80,
-               "location": "",
-               "use": "Studying"
-           }
-   
-        ]
-       }
+    "rooms": [
+      {
+        "name": "MUHABURA_P001",
+        "id": "",
+        "seats": 300,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P008",
+        "id": "",
+        "seats": 220,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P009",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P0016",
+        "id": "",
+        "seats": 89,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P0017",
+        "id": 1,
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P106",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P107",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P112",
+        "id": "",
+        "seats": 500,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P113",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P204",
+        "id": "",
+        "seats": 223,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P205",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P206",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "Lab"
+      },
+      {
+        "name": "MUHABURA_P207",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P212",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P213",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P304",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P305",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P306",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P307",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P310",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P312",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P313",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P405",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P406",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHABURA_P407",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Ikaze",
+    "other_names": "CMHS",
+    "img_path":"",
+    "numberOfRooms": 6,
+    "location": {
+      "lat": -1.95486,
+      "long": 30.063506
+    },
+    "rooms": [
+      {
+        "name": "IKAZE_Room A",
+        "id": "",
+        "seats": 230,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "IKAZE_Room B",
+        "id": "",
+        "seats": 100,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "IKAZE_Room F",
+        "id": "",
+        "seats": 150,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "IKAZE_Room G",
+        "id": "",
+        "seats": 133,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "IKAZE_Room H",
+        "id": "",
+        "seats": 89,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "IKAZE_Room I",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Muhazi",
+    "other_names": "Lecture rooms",
+    "img_path":"",
+    "numberOfRooms": 5,
+    "location": {
+      "lat": -1.954861,
+      "long": 30.063507
+    },
+    "rooms": [
+      {
+        "name": "MUHAZI_Conference Hall",
+        "id": "",
+        "seats": 300,
+        "location": "",
+        "use": "General classroom, Conferences, Events"
+      },
+      {
+        "name": "MUHAZI_Room 6",
+        "id": "",
+        "seats": 220,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHAZI_Room 7",
+        "id": "",
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "MUHAZI_Room 8",
+        "id": "",
+        "seats": 89,
+        "location": "",
+        "use": "General classroom"
+
+      },
+      {
+        "name": "MUHAZI_Room 9",
+        "id": 1,
+        "seats": 200,
+        "location": "",
+        "use": "General classroom"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Kalisimbi",
+    "other_names": "KIST 4",
+    "img_path":"",
+    "numberOfRooms": 10,
+    "location": {
+      "lat": -1.958653,
+      "long": 30.064141
+    },
+    "rooms": [
+      {
+        "name": "KARISIMBI_Ground floor 01",
+        "id": "",
+        "seats": 230,
+        "location": "",
+        "use": "Laboratory"
+      },
+      {
+        "name": "KARISIMBI_Ground floor BR01",
+        "id": "",
+        "seats": 100,
+        "location": "",
+        "use": "Laboratory"
+      },
+      {
+        "name": "KARISIMBI_IF-24 Mechanics lab",
+        "id": "",
+        "seats": 150,
+        "location": "",
+        "use": "Laboratory"
+      },
+      {
+        "name": "KARISIMBI_Lab CIT 3F-03",
+        "id": "",
+        "seats": 133,
+        "location": "",
+        "use": "Laboratory"
+      },
+      {
+        "name": "KARISIMBI_Lab CIT 3F-04",
+        "id": "",
+        "seats": 89,
+        "location": "",
+        "use": "Laboratory"
+      },
+      {
+        "name": "KARISIMBI_Lab CIT 3F-09",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "Laboratory"
+      },
+      {
+        "name": "KARISIMBI_Lab CIT 3F-10",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "Laboratory"
+      },
+      {
+        "name": "KARISIMBI_Lab CIT 3F-22",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "Laboratory"
+      },
+      {
+        "name": "KARISIMBI_Lab CIT 3F-23",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "Laboratory"
+      },
+      {
+        "name": "KARISIMBI_Lab_Analytical Chemistry",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "Laboratory"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Sabyinyo",
+    "other_names": "SABE",
+    "img_path":"",
+    "numberOfRooms": 19,
+    "location": {
+      "lat": -1.960752,
+      "long": 30.063153
+    },
+    "rooms": [
+      {
+        "name": "SABYINYO_Area 2 - 1",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 2 - 2",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 2 - 4",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 2 - 6",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 2 - A",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 2 - B",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 2 - C",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 3 - A",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 4 - 5",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 4 - 6",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 4 - A",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 4 - B",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 4 - C",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 5 - A",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 5 - B",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 5 - C",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Area 5 - D",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "SABYINYO_Auditorium",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom, Conferences, Events"
+      },
+      {
+        "name": "SABYINYO_Lab",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "Laboratory"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Einstein",
+    "other_names": "KIST 2",
+    "img_path":"",
+    "numberOfRooms": 4,
+    "location": {
+      "lat": -1.957974,
+      "long": 30.064292
+    },
+    "rooms": [
+      {
+        "name": "EINSTEIN_AUD 1",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom, Conferences, Events"
+      },
+      {
+        "name": "EINSTEIN_AUD 2",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom, Conferences, Events"
+      },
+      {
+        "name": "EINSTEIN_AUD 3",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom, Conferences, Events"
+      },
+      {
+        "name": "EINSTEIN_AUD 4",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom, Conferences, Events"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Camp Kigali",
+    "other_names": "",
+    "img_path":"",
+    "numberOfRooms": 7,
+    "location": {
+      "lat": -1.959634,
+      "long": 30.063216
+    },
+    "rooms": [
+      {
+        "name": "CAMP KIGALI_Room 03",
+        "id": "",
+        "seats": 230,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "CAMP KIGALI_Room 04",
+        "id": "",
+        "seats": 100,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "CAMP KIGALI_Room 05",
+        "id": "",
+        "seats": 150,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "CAMP KIGALI_Room 06",
+        "id": "",
+        "seats": 133,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "CAMP KIGALI_Room 11",
+        "id": "",
+        "seats": 89,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "CAMP KIGALI_Room 12",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      },
+      {
+        "name": "CAMP KIGALI_Room 13",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "General classroom"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Agaciro",
+    "other_names": "KIST 1",
+    "img_path":"",
+    "numberOfRooms": 4,
+    "location": {
+      "lat": -1.957935,
+      "long": 30.064344
+    },
+    "rooms": [
+      {
+        "name": "AGACIRO_Hardware Lab",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "Computer Laboratory"
+      },
+      {
+        "name": "AGACIRO_Lab 215",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "Computer Laboratory"
+      },
+      {
+        "name": "AGACIRO_Monitoring Lab",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "Computer Laboratory"
+      },
+      {
+        "name": "AGACIRO_Software Lab",
+        "id": "",
+        "seats": 80,
+        "location": "",
+        "use": "Computer Laboratory"
+      }
+    ]
+  }
 ]
-
-
-
-

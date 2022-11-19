@@ -4,38 +4,93 @@
 .Rooms{
     inset:  0;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     background: $bg-body;
     overflow-x: hidden;
     overflow-y: auto;
     z-index: 20;
     min-height: 100vh;
-}
-.room{
-    border: $border-primary;
-    background: $bg-hover-secondary;
-    border-radius: 15px !important;
-    transition: all .5s ease-in-out;
-    &:hover{
-    background: transparent;
-    border: 2px solid purple;
-    
-        .card{
-            display: flex;
-            flex-direction: column;
-            height: fit-content;
-            
+    //close room box
+    .close-map-box{
+        display: flex;
+        width: 100%;
+        flex-grow: 0;
+        background: transparent;
+        .close-btn{
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: $color-primary;
+            margin-left: auto;
+            &:hover{
+                color: $color-danger; 
+            }
         }
     }
-}
+    //rooms box
+    #rooms-box {
+        flex: 1 1 80%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        background: transparent;
+        flex-wrap: wrap;
+        .room{
+            transition: all .5s ease-in-out;
+            border: $border-primary;
+            background: $bg-body;
+            cursor: pointer;
+            border-radius: 15px !important;
+            margin: .5rem;
+            &:hover {
+                    background: $bg-hover-secondary; 
+            }
+            .card-body{
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                .room-name{
+                    flex-wrap: wrap;
+                    flex-shrink: 1;
+                    height: fit-content;
+                }
+            .status-btns{
+                a{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    box-sizing: border-box;
+                   
+                    .text-success{
+                        border: 2px solid green;
+                        background: white;
+                        &:hover{
+                            background: green !important;
+                            border: 2px solid white !important;
+                            color: $bg-body !important;
 
-// .card{
-//     flex-direction: column;
-//     display: flex;
-// }
-.card-body{
-    flex-direction: column;
-}
-.label-box{
-    flex-direction: column;
+                        }
+
+                    }
+                    .text-danger{
+                        border: 2px solid red;
+                        background: white;
+                        cursor: auto;
+                        &:hover{
+                            background: none;
+                        }
+                    }
+
+                }
+
+            }
+
+            }  
+        }
+    }
+    
+    
+
 }
