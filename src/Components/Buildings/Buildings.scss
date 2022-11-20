@@ -12,6 +12,7 @@
 
     .building-list{
         cursor: pointer;
+        flex-direction: column;
         transition: all .5s ease;
         background: $bg-body;
         border: $border-primary;

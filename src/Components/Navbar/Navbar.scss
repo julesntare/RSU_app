@@ -1,28 +1,76 @@
 @import "../../../public/scss/bg";
+@import "../../../public/scss/borders";
+
 
 .nav-web{
     color: $bg-body;
     position: sticky;
     top: 0;
     z-index: 5;
-    flex-wrap: wrap;
     height: max-content;
     cursor: pointer;
-    border-bottom-right-radius: 5vw;
-    border-bottom-left-radius: 5vw;
+    border-bottom-right-radius: 4vw;
+    border-bottom-left-radius: 4vw;
     background: $bg-hover-secondary;
     transition: all .5s ease;
     #title-text-web, #collasible-nav-dropdown{ 
         color: $color-primary;
-        font-size: x-large;
+        font-size: 2rem;
     }
     
     &:hover{
         color: $bg-hover-primary;
-        background: $bg-hover-primary;
+        background: #0a3b80c4;
         #title-text-web, #collasible-nav-dropdown{ 
             color: $bg-body;
     
         }
+    }
+}
+.filter{
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    .form{
+        // background: green;
+        border-radius: 15px;
+    .input-box {
+        width: 90%;
+        border-radius: 15px;
+    }
+}
+
+    
+    .filter-text{
+        text-align: start;
+        width: 20%;
+        padding: .3rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        color: $color-primary;
+    }
+    .box-filter{
+        border-radius: 1.5rem;
+        border: $border-primary;
+        padding-left: 2vw;
+        
+    }
+}
+.btn-p{
+    background: linear-gradient(45deg, $bg-hover-primary rgb(71, 137, 175), rgb(142, 4, 255) ) !important;
+    border-radius:  15px;
+    width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s ease-in-out;
+    color: $color-primary;
+    border: $border-primary;
+    &:hover{
+    background: linear-gradient(45deg, $bg-hover-secondary, rgb(208, 202, 208), rgb(4, 252, 210) ) repeat-y ;
+    border: $border-secondary;
     }
 }

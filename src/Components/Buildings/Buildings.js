@@ -32,40 +32,40 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
     return(
         <div className="mt-3 container" id="building-container">
             <h3 className="h3 my-3 text-dark titles-buildings fw-bold w-100 text-center"> Buildings</h3>
-           {
-            BuildingsList.map((item, i)=>{
-                return(
-                    <div className="d-flex  my-2" key={item.id}>
-                        <ul className="list-group w-100">
-                            <li className="list-group-item w-100 d-flex justify-content-between building-list align-items-center my-1"  
-                                id={item.id} 
-                                onClick={()=>handleBuildingClick(item)}
-                            >
-                            <span> {item.name }{ item.other_names?  <span className="ms-1 text-sm ">( {item.other_names} )</span>: ""}</span>
-                            <span className="badge  rounded-pill bg-primary building-rooms text-light p-2 d-flex  justify-content-center align-items-center me-2"
-                                    >
-                                    {item.rooms.length} Rooms
-                            </span>
-                            <span className="badge see-rooms  rounded-pill p-2 d-flex  justify-content-center align-items-center me-2"
-                                    >
-                                    <i className="bi text-primary fw-bold  fs-4 bi-eye me-2"></i>See Rooms
-                            </span>
-                                
-                            
-                            </li>
-                        </ul>
-                         <span className="badge ms-auto d-flex justify-content-center align-items-center rounded-pill building-location text-dark">
-                                <button className="location-link  btn p-2 d-flex" 
-                                id={i}
-                                onClick={(e)=> e.target.id?showBuildingLocation(item, e.target.id) : null}
+            <div   className="my-2 d-flex w-100  pt-3 row g-3 mt-2">
+                {
+                    BuildingsList.map((item, i)=>{
+                        return(
+                            <div className=" card m-1 col-12 me-3 mb-3 bd-none col-md-5" key={item.id}>
+                                <div className="d-flex card p-2 building-list  my-1"  
+                                    id={item.id} 
                                 >
-                                    <i className="bi bi-geo-alt mx-1 text-primary"> </i>Location
-                                </button>
-                            </span>
-                    </div>  
-                )
-            })
-           }
+                                    <h2 className="text-center fw-bold my-2"> {item.name }{ item.other_names?  <span className="ms-1 text-sm ">( {item.other_names} )</span>: ""}</h2>
+                                    <div className="d-flex mb-2 justify-content-between">
+                                            <span className=" rounded-pill bg-primary building-rooms text-light p-2 d-flex  justify-content-center align-items-center me-2"
+                                                    >
+                                                    {item.rooms.length} Rooms
+                                            </span>
+                                            <span className="badge see-rooms  rounded-pill p-2 d-flex  justify-content-center align-items-center me-2"
+                                            onClick={()=>handleBuildingClick(item)}
+                                                    >
+                                                    <i className="bi text-primary fw-bold  fs-4 bi-eye me-2"></i>See Rooms
+                                            </span>
+                                    </div>
+                                    <span className="badge my-2 d-flex justify-content-center align-items-center rounded-pill building-location text-dark">
+                                        <button className="location-link  btn p-2 d-flex" 
+                                        id={i}
+                                        onClick={(e)=> e.target.id?showBuildingLocation(item, e.target.id) : null}
+                                        >
+                                            <i className="bi bi-geo-alt mx-1 text-primary"> </i>Location
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>  
+                        )
+                    })
+                }
+           </div>
            {locationMarker &&
            <BuildingGoogleMap
                 lat = {latLong.lat}

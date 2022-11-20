@@ -199,42 +199,42 @@
     },
     "rooms": [
       {
-        "name": "IKAZE_Room A",
+        "name": "Room A",
         "id": "",
         "seats": 230,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "IKAZE_Room B",
+        "name": "Room B",
         "id": "",
         "seats": 100,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "IKAZE_Room F",
+        "name": "Room F",
         "id": "",
         "seats": 150,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "IKAZE_Room G",
+        "name": "Room G",
         "id": "",
         "seats": 133,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "IKAZE_Room H",
+        "name": "Room H",
         "id": "",
         "seats": 89,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "IKAZE_Room I",
+        "name": "Room I",
         "id": "",
         "seats": 80,
         "location": "",
@@ -254,28 +254,28 @@
     },
     "rooms": [
       {
-        "name": "MUHAZI_Conference Hall",
+        "name": "Conference Hall",
         "id": "",
         "seats": 300,
         "location": "",
         "use": "General classroom, Conferences, Events"
       },
       {
-        "name": "MUHAZI_Room 6",
+        "name": "Room 6",
         "id": "",
         "seats": 220,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "MUHAZI_Room 7",
+        "name": "Room 7",
         "id": "",
         "seats": 200,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "MUHAZI_Room 8",
+        "name": "Room 8",
         "id": "",
         "seats": 89,
         "location": "",
@@ -283,7 +283,7 @@
 
       },
       {
-        "name": "MUHAZI_Room 9",
+        "name": "Room 9",
         "id": 1,
         "seats": 200,
         "location": "",
@@ -303,70 +303,70 @@
     },
     "rooms": [
       {
-        "name": "KARISIMBI_Ground floor 01",
+        "name": "Ground floor 01",
         "id": "",
         "seats": 230,
         "location": "",
         "use": "Laboratory"
       },
       {
-        "name": "KARISIMBI_Ground floor BR01",
+        "name": "Ground floor BR01",
         "id": "",
         "seats": 100,
         "location": "",
         "use": "Laboratory"
       },
       {
-        "name": "KARISIMBI_IF-24 Mechanics lab",
+        "name": "IF-24 Mechanics lab",
         "id": "",
         "seats": 150,
         "location": "",
         "use": "Laboratory"
       },
       {
-        "name": "KARISIMBI_Lab CIT 3F-03",
+        "name": "Lab CIT 3F-03",
         "id": "",
         "seats": 133,
         "location": "",
         "use": "Laboratory"
       },
       {
-        "name": "KARISIMBI_Lab CIT 3F-04",
+        "name": "Lab CIT 3F-04",
         "id": "",
         "seats": 89,
         "location": "",
         "use": "Laboratory"
       },
       {
-        "name": "KARISIMBI_Lab CIT 3F-09",
+        "name": "Lab CIT 3F-09",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "Laboratory"
       },
       {
-        "name": "KARISIMBI_Lab CIT 3F-10",
+        "name": "Lab CIT 3F-10",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "Laboratory"
       },
       {
-        "name": "KARISIMBI_Lab CIT 3F-22",
+        "name": "Lab CIT 3F-22",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "Laboratory"
       },
       {
-        "name": "KARISIMBI_Lab CIT 3F-23",
+        "name": "Lab CIT 3F-23",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "Laboratory"
       },
       {
-        "name": "KARISIMBI_Lab_Analytical Chemistry",
+        "name": "Lab_Analytical Chemistry",
         "id": "",
         "seats": 80,
         "location": "",
@@ -386,77 +386,77 @@
     },
     "rooms": [
       {
-        "name": "SABYINYO_Area 2 - 1",
+        "name": "Area 2 - 1",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 2 - 2",
+        "name": "Area 2 - 2",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 2 - 4",
+        "name": "Area 2 - 4",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 2 - 6",
+        "name": "Area 2 - 6",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 2 - A",
+        "name": "Area 2 - A",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 2 - B",
+        "name": "Area 2 - B",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 2 - C",
+        "name": "Area 2 - C",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 3 - A",
+        "name": "Area 3 - A",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 4 - 5",
+        "name": "Area 4 - 5",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 4 - 6",
+        "name": "Area 4 - 6",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 4 - A",
+        "name": "Area 4 - A",
         "id": "",
         "seats": 80,
         "location": "",
@@ -470,49 +470,49 @@
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 4 - C",
+        "name": "Area 4 - C",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 5 - A",
+        "name": "Area 5 - A",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 5 - B",
+        "name": "Area 5 - B",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 5 - C",
+        "name": "Area 5 - C",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Area 5 - D",
+        "name": "Area 5 - D",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "SABYINYO_Auditorium",
+        "name": "Auditorium",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom, Conferences, Events"
       },
       {
-        "name": "SABYINYO_Lab",
+        "name": "Lab",
         "id": "",
         "seats": 80,
         "location": "",
@@ -532,28 +532,28 @@
     },
     "rooms": [
       {
-        "name": "EINSTEIN_AUD 1",
+        "name": "AUD 1",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom, Conferences, Events"
       },
       {
-        "name": "EINSTEIN_AUD 2",
+        "name": "AUD 2",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom, Conferences, Events"
       },
       {
-        "name": "EINSTEIN_AUD 3",
+        "name": "AUD 3",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom, Conferences, Events"
       },
       {
-        "name": "EINSTEIN_AUD 4",
+        "name": "AUD 4",
         "id": "",
         "seats": 80,
         "location": "",
@@ -573,49 +573,49 @@
     },
     "rooms": [
       {
-        "name": "CAMP KIGALI_Room 03",
+        "name": "Room 03",
         "id": "",
         "seats": 230,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "CAMP KIGALI_Room 04",
+        "name": "Room 04",
         "id": "",
         "seats": 100,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "CAMP KIGALI_Room 05",
+        "name": "Room 05",
         "id": "",
         "seats": 150,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "CAMP KIGALI_Room 06",
+        "name": "Room 06",
         "id": "",
         "seats": 133,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "CAMP KIGALI_Room 11",
+        "name": "Room 11",
         "id": "",
         "seats": 89,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "CAMP KIGALI_Room 12",
+        "name": "Room 12",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "General classroom"
       },
       {
-        "name": "CAMP KIGALI_Room 13",
+        "name": "Room 13",
         "id": "",
         "seats": 80,
         "location": "",
@@ -635,28 +635,28 @@
     },
     "rooms": [
       {
-        "name": "AGACIRO_Hardware Lab",
+        "name": "Hardware Lab",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "Computer Laboratory"
       },
       {
-        "name": "AGACIRO_Lab 215",
+        "name": "Lab 215",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "Computer Laboratory"
       },
       {
-        "name": "AGACIRO_Monitoring Lab",
+        "name": "Monitoring Lab",
         "id": "",
         "seats": 80,
         "location": "",
         "use": "Computer Laboratory"
       },
       {
-        "name": "AGACIRO_Software Lab",
+        "name": "Software Lab",
         "id": "",
         "seats": 80,
         "location": "",

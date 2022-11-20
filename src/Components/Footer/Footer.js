@@ -65,7 +65,8 @@ export default  function Footer(){
                 </p>
                 <p>
                     Made by <i className="bi bi-bag-heart text-white fw-bold "></i> with 
-                    <a className="text-white ms-2  " href="https://www.github.com/Kress2000" target="_blank">Nsanzimfura Eric</a>
+                    <a className="text-white ms-2 me-5  " href="https://www.github.com/Kress2000" target="_blank">Nsanzimfura Eric</a>And
+                    <a className="text-white ms-5  " href="https://github.com/julesntare" target="_blank">Jules Ntare</a>
                 </p>
 
             </div>
