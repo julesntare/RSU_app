@@ -35,7 +35,7 @@ export default  function BuildingGoogleMap ({lat, long, id}) {
   function Map() {
     // const center = useMemo(() => ({ lat: lat, lng: long }), []);
     return (
-        <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
+        <GoogleMap zoom={10} center={center} mapContainerClassName="map-container bg-danger">
           <div className="w-100 close-map-box">
             <i className="bi bi-x-octagon-fill close-btn text-primary" onClick={closeMap}></i>
           </div>

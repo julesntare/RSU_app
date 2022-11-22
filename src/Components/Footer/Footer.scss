@@ -4,70 +4,23 @@
 .footer{
     background: $bg-hover-primary;
     z-index: 5; 
-    border-top-right-radius: 5vw;
-    border-top-left-radius: 5vw;
+    border-top-right-radius: 3vw;
+    border-top-left-radius: 3vw;
     transition: all .5s ease-in-out;
-    height: 20vh;
     opacity: 1 !important;
     height: fit-content;
     .copy-right{
             opacity: .5;
-        
-        background: transparent !important;
-        a{
-            text-decoration: none;
-            opacity: 1 !important;
-            &:hover{
-
-                color:  $color-primary !important ;
-            }
-        }       
+            flex-wrap: wrap;
+         background: transparent !important;          
     }
-    .footer-medias{
-        justify-content: center;
-        align-items: center;
-        flex-wrap: nowrap;
-        a{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-        }
-    }
-
-    .btn-transparent{
-        padding: .5rem;
-        background: transparent;
-        border: 2px solid $bg-body;
-        border-radius:  50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: all .4s ease-in-out;
+    a{
+        text-decoration: none;
+        opacity: .5;
         &:hover{
-        background: $bg-hover-secondary;
-        opacity: 1 !important;
-            
-            }
-    }
-
-.bi-twitter{
-    color: rgb(0, 81, 255);
-}
-.bi-facebook{
-    color: rgb(0, 43, 134);
-}
-.bi-github{
-    color: rgb(0, 0, 0);
-}
-.bi-instagram{
-    color: rgb(255, 0, 191);
-}
-.bi-google{
-    color: rgb(255, 72, 0);
-}
-.bi-linkedin{
-    color: rgb(27, 42, 180);
-}
+            color:  $color-primary !important ;
+        }
+    } 
+  
 
 }

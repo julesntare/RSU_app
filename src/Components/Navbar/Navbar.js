@@ -1,8 +1,5 @@
 import React from "react";
 import "./Navbar.scss";
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo from "../../assets/logo/urLogo.png";
 
 
@@ -18,22 +15,33 @@ const NavigationBar = () =>{
   const handleSubmit = (data) =>{
     console.log(data);
   }
-
     return (
       <>
-        <nav className="navbar container  nav-web text-white  d-flex lead expand-lg mt-0 mb-1">
+            {/* big navbar menu */}
+        <nav className="navbar container navbar-expand-lg nav-web text-white px-3  d-flex mt-0 mb-1">
             <img
               alt=""
               width="50px"
               height ="50px"
               src={Logo}
-              className="d-inline-block  align-top rounded-pill ms-3 img-fluid ms-lg-5"
+              className="d-inline-block align-top me-lg-5 rounded-pill mg-fluid "
             />
-          <h1 className="text-center me-auto ms-auto  fw-bold" id="title-text-web"
-          >
-            Book a room in CST
-          </h1>
+            <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div className="navbar-nav  w-100 me-auto d-flex ">
+                  <a className="nav-link active ms-lg-5" aria-current="page" href="#">Home</a>
+                  <a className="nav-link ms-lg-5" href="#">Rooms</a>
+                  <a className="nav-link ms-lg-5" href="#">Timetable</a>
+                  <a className="nav-link ms-lg-5 " href="#">Bookings</a>
+                  <a className="nav-link ms-lg-5" href="#">Maps</a>
+                  <a className="nav-link ms-lg-5" href="#">Enquiry</a>
+                  <a href="#" className="account-user nav-link me-lg-5">Login <i className="bi ms-3 bi-person-circle"></i></a>
+              </div>
+          </div>
         </nav>
+        {/* Filters down */}
         <nav className="navbar container filter  p-2 m mt-3 sticky-filter bg-none">
             <h3 className="lead bg-none fw-bold  text-start  m-0 filter-text">Filters</h3>
             <form className="d-flex w-100 align-items-center form m-0 " role="filter" onSubmit={handleSubmit}>
@@ -58,10 +66,9 @@ const NavigationBar = () =>{
                   <option value="02:00 - 05:00">02:00 - 05:00</option>
                 </select>
               </div>
-              <button className="btn-p  btn-sm w-10" type="submit">Filter</button>
+              <button className="btn-p  w-10" type="submit">Filter</button>
             </form>
-      </nav>
-        
+      </nav>     
       </>
     );
 
