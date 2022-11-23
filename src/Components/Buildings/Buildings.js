@@ -40,8 +40,8 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
                                 <div className="d-flex  p-2 building-list  my-1"  
                                     id={item.id} 
                                 >
-                                    <h2 className="text-center  my-2"> {item.name }{ item.other_names?  <span className="ms-1 text-sm ">( {item.other_names} )</span>: ""}</h2>
-                                    <div className="d-flex align-items-center mb-2 justify-content-between">
+                                    <h3 className="text-center  my-2"> {item.name }{ item.other_names?  <span className="ms-1 text-sm ">( {item.other_names} )</span>: ""}</h3>
+                                    <div className="d-flex align-items-center py-3 btn-box justify-content-between">
                                             <span className=" rounded-pill  btn number-rooms text-light p-2 d-flex  justify-content-center align-items-center me-2"
                                                     >
                                                     {item.rooms.length} Rooms
