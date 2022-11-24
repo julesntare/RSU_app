@@ -1,34 +1,24 @@
 import React  from "react";
 import "./BuildingGoogleMap.scss";
-import {
-  useJsApiLoader,
-  GoogleMap,
-  Marker
-} from '@react-google-maps/api';
+import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api';
 
 export default  function BuildingGoogleMap ({latLong,showMaps}) {
   //coordinates
   const lat = latLong.lat;
   const long = latLong.long;
   console.log(long, lat,  "aos")
-  //  const API_KEY = "AIzaSyD5HkXo_Q5UugZzWZjKJRxprUn2yPni1VE"
  //close our map
   const closeMap = () =>{
     showMaps(false);
 }
-
 //load map
   function Map() {
     const { isLoaded } = useJsApiLoader({
       googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
     })
+    //when not loaded!
     if (!isLoaded) {
-      return (
-
-        <div className="d-flex justify-content-center bg-light align-items-center position-absolute t-0 b-0 w-100 h-100">
-           <span className="lead h1 text-center fw-blod text-success"> Loading ...</span>
-        </div>
-      )
+      return <div className="text-primary h1 text-center fw-bold pt-5"> Loading ...</div>
     }
   
     return (
