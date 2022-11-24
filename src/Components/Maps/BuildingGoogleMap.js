@@ -1,39 +1,58 @@
-import React, { useMemo, useState, useRef, useEffect }  from "react";
+import React  from "react";
 import "./BuildingGoogleMap.scss";
-import { GoogleMapsProvider, useGoogleMap } from "@ubilabs/google-maps-react-hooks";
+import {
+  useJsApiLoader,
+  GoogleMap,
+  Marker
+} from '@react-google-maps/api';
 
 export default  function BuildingGoogleMap ({latLong,showMaps}) {
   //coordinates
   const lat = latLong.lat;
   const long = latLong.long;
   console.log(long, lat,  "aos")
-   const API_KEY = "AIzaSyD5HkXo_Q5UugZzWZjKJRxprUn2yPni1VE"
-
+  //  const API_KEY = "AIzaSyD5HkXo_Q5UugZzWZjKJRxprUn2yPni1VE"
+ //close our map
   const closeMap = () =>{
     showMaps(false);
 }
-// const center = useMemo(() => ({ lat: lat, lng: long }), []);
-// console.log(center, "aiyoo center");
-const mapOptions = {
-  zoom: 10,
-  center:  useMemo(() => ({ lat: lat, lng: long }), [])
-}
+
+//load map
   function Map() {
-    // const center = useMemo(() => ({ lat: lat, lng: long }), []);
-    const [mapContainer, setMapContainer] = useState(null);
-  console.log(mapOptions.center);
+    const { isLoaded } = useJsApiLoader({
+      googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    })
+    if (!isLoaded) {
+      return (
+
+        <div className="d-flex justify-content-center bg-light align-items-center position-absolute t-0 b-0 w-100 h-100">
+           <span className="lead h1 text-center fw-blod text-success"> Loading ...</span>
+        </div>
+      )
+    }
+  
     return (
       <div className=" map-container ">
           <div className="w-100 close-map-box w-100">
                   <i className="bi bi-x-octagon-fill me-3 close-btn " onClick={()=>closeMap()}></i>
           </div>
-          <GoogleMapsProvider
-            googleMapsAPIKey={API_KEY}
-            options = {mapOptions}
-            mapContainer = {mapContainer}
-          >
-            <div ref={node => setMapContainer(node)} className = "w-100 h-100" />
-        </GoogleMapsProvider>
+          <div className="w-100 h-100">
+          <GoogleMap
+          center={{   lat: lat,
+            lng: long}}
+          zoom={15}
+          mapContainerStyle={{ width: '100%', height: '100%' }}
+          options={{
+            zoomControl: true,
+            streetViewControl: true,
+            mapTypeControl: true,
+            fullscreenControl: true,
+          }}
+        >
+          <Marker position={{   lat: lat,
+                lng: long}} />
+        </GoogleMap>
+          </div>
       </div>
       );
 }
