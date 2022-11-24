@@ -1,16 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.scss";
 import Logo from "../../assets/logo/urLogo.png";
 
 
 const NavigationBar = () =>{
   const time = new Date();
-  const placeholderTime = `${time.getDate()}-${time.getMonth()}-${time.getFullYear()} `;
+  const placeholderTime = `${time.getFullYear()}-${time.getMonth()}-${time.getDate()}`;
+  const [selectRoom, setSelectRoom] =  useState("");
+  const [selectDate, setSelectDate] =  useState("");
+  const [selectHour, setSelectHour] =  useState("");
+  const [selectCapacity, setSelectCapacity] =  useState("");
 
 //on input/select change
-  const handleChange = (value) =>{
-    console.log(value);
-  }
+  // const handleChange = (e) =>{
+  // }
+  // console.log(selectValue);
   //submit data
   const handleSubmit = (data) =>{
     console.log(data);
@@ -46,24 +50,29 @@ const NavigationBar = () =>{
             <h3 className="lead bg-none fw-bold  text-start  m-0 filter-text">Filters</h3>
             <form className="d-flex w-100 align-items-center form m-0 " role="filter" onSubmit={handleSubmit}>
               <div className=" d-flex input-box me-2 h-100 justify-content-between align-items-center">
-                <select  value="" onChange={handleChange}   className="form-select box-filter form-select-sm  me-2"  aria-label=".form-select-lg example">
+                <select   id="1" onChange={e=>{setSelectRoom(); console.log(e.target.value)}}   className="form-select box-filter form-select-sm  me-2"  aria-label=".form-select-lg example">
                   <option selected disabled className="select-placeholder">Room name</option>
-                  <option value="1">Audi 1</option>
-                  <option value="2">Muhazi room 2</option>
-                  <option value="3">Karisimbi lab</option>
+                  <option value={selectRoom}>Audi 1</option>
+                  <option value={selectRoom}>Muhazi room 2</option>
+                  <option value={selectRoom}>Karisimbi lab</option>
                 </select>
-                <select onChange={handleChange} value="Room Capacity"className="form-select box-filter form-select-sm me-2" aria-label=".form-select-sm example">
-                <option selected disabled className="select-placeholder">Room Capacity</option>
-                  <option value="&lt;300">&lt;300</option>
-                  <option value="&lt;200">&lt;200</option>
-                  <option value="&lt;100">&lt;100</option>
-                  <option value="&lt;50">&lt;50</option>
+                <select  id="2"  onChange={e=>{setSelectCapacity(); console.log(e.target.value)}} className="form-select box-filter form-select-sm me-2" aria-label=".form-select-sm example">
+                  <option selected disabled className="select-placeholder">Room Capacity</option>
+                  <option value={selectCapacity}>&lt;300</option>
+                  <option value={selectCapacity}>&lt;200</option>
+                  <option value={selectCapacity}>&lt;100</option>
+                  <option value={selectCapacity}>&lt;50</option>
                 </select>
-                <input onChange={handleChange}  className="form-control form-select-sm box-filter me-2" value={placeholderTime} type="date"  aria-label="time" />
-                <select  onChange={handleChange} className="form-select form-select-sm box-filter me-2" aria-label=".form-select-sm example">
-                  <option value="08:00 - 11:00">08:00 - 11:00</option>
-                  <option value="11:00 - 02:00">11:00 - 02:00</option>
-                  <option value="02:00 - 05:00">02:00 - 05:00</option>
+                <input id="3" 
+                   onChange={e=>{setSelectDate(e.target.value); console.log(selectDate)}}  
+                   className="form-control form-select-sm box-filter me-2"
+                   value ={selectDate} 
+                   type="date"  aria-label="time" 
+                   />
+                <select  onChange={e=>{setSelectHour(); console.log(e.target)}}  id="4" className="form-select form-select-sm box-filter me-2" aria-label=".form-select-sm example">
+                  <option value={selectHour}>08:00 - 11:00</option>
+                  <option value={selectHour}>11:00 - 02:00</option>
+                  <option value={selectHour}>02:00 - 05:00</option>
                 </select>
               </div>
               <button className="btn-p  w-10" type="submit">Filter</button>

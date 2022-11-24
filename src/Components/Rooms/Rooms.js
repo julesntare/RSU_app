@@ -12,7 +12,7 @@ export default function Rooms ({clickedHouseData, closeRoomsTab, allowRoomsReren
        let listRooms=(
             <div className= "Rooms  container d-flex   position-absolute">
                <div className="w-100 close-map-box mt-4 pe-5">
-                <i className="bi bi-x-octagon-fill me-5 close-btn " onClick={()=>closeMap()}></i>
+                <i className="bi bi-x-octagon-fill me-lg-5 close-btn " onClick={()=>closeMap()}></i>
               </div>
               <div className="w-100  d-flex justify-content-center align-items-center mt-4 mb-2">
                 <h1 className="h3 text-bold " >{clickedHouseData.name}</h1>

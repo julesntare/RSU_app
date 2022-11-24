@@ -10,16 +10,14 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
 
     const  [latLong, setLatLong] = useState({})
 
-    const showBuildingLocation = (item, e)=>{
-        // console.log(`CLICKED LOCATION OF ID ${e} , OF BUILDING ${item.id} `);
+    const showBuildingLocation = (item)=>{
         setLocationMarker(true);
         setLatLong({
             lat: item.location.lat,
-            long: item.location.long,
-            id: e
-            
+            long: item.location.long,  
         })
     }
+    // console.log(latLong, "aisooo");
 
     const handleBuildingClick = (e) =>{
         // console.log("clicked Link", e.id)
@@ -51,10 +49,12 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
                                             >
                                                     <i className="bi text-primary fw-bold  fs-4 bi-eye me-2"></i>See Rooms
                                             </span>
-                                            <span className="badge my-2 d-flex justify-content-center align-items-center rounded-pill building-location text-dark">
-                                                <button className="location-link  btn p-2 d-flex" 
-                                                    id={i}
-                                                     onClick={(e)=> e.target.id?showBuildingLocation(item, e.target.id) : null}
+                                            <span 
+                                             className=" my-2 d-flex justify-content-center align-items-center rounded-pill building-location text-dark"
+                                             >
+                                                <button className="location-link  btn p-2 d-flex"
+                                                 id={i}
+                                                 onClick={(e)=> e.target.id?showBuildingLocation(item) : null}
                                                 >
                                                     <i className="bi bi-geo-alt mx-1 text-primary"> </i>Location
                                                 </button>
@@ -68,11 +68,10 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
                 }
            </div>
            {locationMarker &&
-           <BuildingGoogleMap
-                lat = {latLong.lat}
-                long = {latLong.long}
-                id = {latLong.id}
-            />
+            <BuildingGoogleMap
+                    latLong = {latLong}
+                    showMaps = {setLocationMarker}
+                />
             }
         </div>
     )

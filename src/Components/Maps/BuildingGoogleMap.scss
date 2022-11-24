@@ -11,7 +11,9 @@
         display: flex;
         width: 100%;
         flex-grow: 0;
-        background: transparent;
+        background: $bg-hover-secondary;
+        border-top-left-radius: 3vw;
+        border-top-right-radius: 3vw;
         .close-btn{
             font-size: 1.5rem;
             cursor: pointer;
@@ -24,27 +26,27 @@
     }
     
 }
-.loading-circle{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    background: white;
+// .loading-circle{
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//     z-index: 10;
+//     background: white;
     
-    #loading-spinner{
+//     #loading-spinner{
 
-        animation: loading-spinner 1s linear infinite
-    }
+//         animation: loading-spinner 1s linear infinite
+//     }
 
-    @keyframes loading-spinner{
+//     @keyframes loading-spinner{
 
-        from{
-            transform: rotate(0deg)
-        }
-        to{
-            transform: rotate(360deg)
-        }
-    }
-}
+//         from{
+//             transform: rotate(0deg)
+//         }
+//         to{
+//             transform: rotate(360deg)
+//         }
+//     }
+// }

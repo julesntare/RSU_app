@@ -4,7 +4,6 @@ import Animation from "./Components/Animation/Animation";
 import NavigationBar from './Components/Navbar/Navbar';
 import Buildings from './Components/Buildings/Buildings';
 import Footer from './Components/Footer/Footer';
-import { GoogleMap, useLoadScript, Marker } from "@react-google-maps/api";
 import Rooms from './Components/Rooms/Rooms';
 
 
