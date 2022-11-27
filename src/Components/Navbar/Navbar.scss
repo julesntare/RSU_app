@@ -6,19 +6,17 @@
     color: $bg-body;
     position: relative;
     height: max-content;
-    border-bottom-right-radius: 3vw;
-    border-bottom-left-radius: 3vw;
-    background: $bg-hover-secondary;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    background: $bg-body;
     transition: all .5s ease;
     box-shadow: rgba(50, 50, 93, 0.23) 0px 30px 30px -20px;
 
     .active{
-        color: rgba(85, 94, 11, 0.918) !important;
-        font-weight: bold !important;
-        background: rgba(134, 134, 134, 0.836);
-        border-radius: 5px;
+        color: blue !important;
+        font-weight: bolder;
         &:hover{
-            color: $bg-hover-secondary !important;
+            color: blue !important;
         }
     }
     .navbar-toggler{
@@ -32,19 +30,28 @@
         flex-wrap: wrap;
         .nav-link{
             cursor: pointer;
-            color: $color-primary;
             font-size: 1.1rem;
             &:hover{
-                color: $bg-body;
+                color: blue !important;
+                font-weight: bold;
+            }
+        }
+        .btn-login{
+            background: $bg-hover-primary;
+            border-radius: 2rem;
+            display: flex;
+            font-weight: bold;
+            justify-content: center;
+            transition: all .5s ease-in-out;
+            align-items: center;
+            border: none;
+            &:hover{
+                border: $border-primary;
+                background: $bg-body;
             }
         }
     }
-    .account-user {
-        margin-left: auto !important;
-    }
-    &:hover {
-        background: $bg-hover-primary;  
-    }
+    
 }
   .sticky{
     position: fixed;

@@ -6,6 +6,12 @@ import Filter from '../Filter/Filter';
 
 
 export default function NavBar  () {
+  const [logedIn, setLogedIn] =useState(true);
+
+
+  // if(loginPersonInfo){
+  //   setLogedIn(true);
+  // } 
 
     return (
       <>
@@ -21,7 +27,7 @@ export default function NavBar  () {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <ul className="navbar-nav navbar-nav ps-lg-5 w-100 d-flex">
+              <ul className="navbar-nav  ps-lg-5 w-100 d-flex">
                   <li className="nav-item ms-3 ms-xl-5" >
                     <ActiveLink to ="/">Home</ActiveLink>
                   </li>
@@ -41,7 +47,11 @@ export default function NavBar  () {
                     <ActiveLink to ="/enquiry">Enquiry</ActiveLink>
                   </li>
                   <li className="nav-item  ms-auto">
-                    <ActiveLink to ="/login">Login  <i className="bi ms-1 bi-person-circle"></i></ActiveLink>
+                    <button className=" text-white btn-login">
+                      <ActiveLink to ="/login">
+                        {logedIn? "Login " : <i className="bi ms-1 bi-person-circle"></i>}
+                      </ActiveLink>
+                    </button>
                   </li>
                 </ul>
           </div>

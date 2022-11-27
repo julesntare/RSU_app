@@ -28,7 +28,7 @@ export default  function BuildingGoogleMap ({latLong,showMaps}) {
           <GoogleMap
           center={{   lat: lat,
             lng: long}}
-          zoom={15}
+          zoom={20}
           mapContainerStyle={{ width: '100%', height: '100%' }}
           options={{
             zoomControl: true,

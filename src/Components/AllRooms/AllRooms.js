@@ -1,15 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AllRooms.scss"
 import   BuildingsList from "../../assets/APIs/BuildingsList.json";
-// import NavBar from "../Navbar/Navbar";
-// import Footer from "../Footer/Footer";
-
 
 const AllRooms = () => {
+
     const  rooms = BuildingsList.map((building)=>building.rooms.map((room, i )=>(
-      <div className="card text-sm col-12 col-md-4 col-lg-3 col-xxl-3 shadow-sm room" key={i} id={i}>
-              <div className="W-100 line mt-0 mb-2 h-1 "  id={i}></div>
-              <div className="card-body d-flex" id="card-body">
+    <div className="card text-sm col-12 col-md-4 col-lg-3 col-xxl-3 shadow-sm room-card" key={i} id={i}>
+        {i%2===0?<div className="W-100 line line-danger bg-danger mt-0 mb-2 h-1 "></div>: <div className="W-100 line line-success mt-0 mb-2 h-1 "></div>}
+              <div className="card-body" id="card-body">
                   {room.name &&
                       <h3 className="room-name my-1 h4 d-flex justify-content-center align-items-center w-100 card-title">{room.name}</h3>}
                   {room.location &&
@@ -32,22 +30,21 @@ const AllRooms = () => {
                                   <small className="fs-sm">{room.use}</small>
                               </p>
                           </div>
-                          <div className="status-btns d-flex justify-content-between">
-                              <a href="#">
-                                  <button className="text-success fw-bold btn btn-sm btn-light">Free</button>
-                              </a>
-                              <a href="#">
-                                  <button className="text-danger fw-bold btn  btn-smbtn-light">Occupied</button>
-                              </a>
+                          <div className="status-btns d-flex justify-content-center aligh-items-center p-2">
+                            {i%2===0?<button className="text-danger danger-btn fw-bold btn  btn-sm btn-light">Occupied <i className="bi bi-exclamation-circle"></i></button>: 
+                            <a href="#" className="nav-link d-flex flex-column w-100">
+                            <button className="text-success free-btn btn fw-bold mb-2 btn-sm">Free</button>
+                            <button className="text-Success booking-btn fw-bold btn  btn-sm text-success">Book a Room</button>
+                          </a>
+                          } 
                           </div>
                       </div>
                       }
                   </div>
-                            </div>
+                </div>
+     )
+     ));
 
-    )
-
-    ));
 
   return (
       <div className='container-fluid h-100 w-100'>

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./Filter.scss";
+import BuildingsList from "../../assets/APIs/BuildingsList.json"
 
 
 export default function Filter(){
@@ -11,13 +12,13 @@ export default function Filter(){
   const placeholderTime = `${time.getFullYear()}-${time.getMonth()}-${time.getDate()}`;
     
   window.onscroll = ()=> myFunction();
-  const [sticky, setSticky] = useState("navbar container filter  d-flex  p-2 w-100")
+  const [sticky, setSticky] = useState("navbar container filter  d-flex  p-2 mt-5 w-100")
 
 function myFunction() {
   if (window.pageYOffset >= 90) {
     setSticky(" navbar container filter  d-flex  p-2  w-100 sticky ");
   } else {
-    setSticky("navbar container filter  d-flex w-100 p-2 mt-3");
+    setSticky("navbar container filter mt-5  d-flex w-100 p-2 mt-3");
 
   }
 }
@@ -25,19 +26,20 @@ function myFunction() {
         data.preventDefault();
         console.log(data);
       }
+      const  roomNames = BuildingsList.map((building)=>building.rooms.map((room, i )=>(
+                    <option value={selectRoom} key={i}>{room.name}</option>
+      )))
      return(
         <nav className={sticky}>
             <h3 className="lead bg-none fw-bold text-start  m-0 filter-text">Filters</h3>
             <form className="d-flex align-items-center form " role="filter" onSubmit={handleSubmit}>
               <div className=" d-flex input-box me-2 h-100 justify-content-between align-items-center">
-                <select   id="1" onChange={e=>{setSelectRoom(); console.log(e.target.value)}}   className="form-select box-filter form-select-sm  me-2"  aria-label=".form-select-lg example">
-                  <option selected disabled className="select-placeholder">Room name</option>
-                  <option value={selectRoom}>Audi 1</option>
-                  <option value={selectRoom}>Muhazi room 2</option>
-                  <option value={selectRoom}>Karisimbi lab</option>
+                <select   id="1" onChange={e=>{setSelectRoom(); console.log(e.target.value)}}   className="form-select box-filter text-dark form-select-sm p-2 me-2"  aria-label=".form-select-lg example">
+                  <option selected disabled>Room name</option>
+                    {roomNames}
                 </select>
-                <select  id="2"  onChange={e=>{setSelectCapacity(); console.log(e.target.value)}} className="form-select box-filter form-select-sm me-2" aria-label=".form-select-sm example">
-                  <option selected disabled className="select-placeholder">Room Capacity</option>
+                <select  id="2"  onChange={e=>{setSelectCapacity(); console.log(e.target.value)}} className="form-select box-filter form-select-sm p-2 me-2" aria-label=".form-select-sm example">
+                  <option selected disabled >Room Capacity</option>
                   <option value={selectCapacity}>&lt;300</option>
                   <option value={selectCapacity}>&lt;200</option>
                   <option value={selectCapacity}>&lt;100</option>
@@ -45,17 +47,18 @@ function myFunction() {
                 </select>
                 <input id="3" 
                    onChange={e=>{setSelectDate(e.target.value); console.log(selectDate)}}  
-                   className="form-control form-select-sm box-filter me-2"
+                   className="form-control form-select-sm p-2 box-filter me-2"
                    value ={selectDate} 
                    type="date"  aria-label="time" 
                    />
-                <select  onChange={e=>{setSelectHour(); console.log(e.target)}}  id="4" className="form-select form-select-sm box-filter me-2" aria-label=".form-select-sm example">
+                <select  onChange={e=>{setSelectHour(); console.log(e.target)}}  id="4" className="form-select form-select-sm bg-white p-2 box-filter me-2" aria-label=".form-select-sm example">
+                <option selected disabled >Duration</option>
                   <option value={selectHour}>08:00 - 11:00</option>
                   <option value={selectHour}>11:00 - 02:00</option>
                   <option value={selectHour}>02:00 - 05:00</option>
                 </select>
               </div>
-              <button className="btn-p d-flex justify-content-center align-items-center " type="submit"><i className="bi text-primary bi-search"></i></button>
+              <button className="btn-p d-flex justify-content-center px-3 py-1 align-items-center " type="submit"><i className="bi text-primary bi-search"></i></button>
             </form>
       </nav>   
      )

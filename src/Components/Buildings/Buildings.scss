@@ -7,25 +7,27 @@
     z-index: 5;
     opacity: 1 !important;
 
-    .btn-box{
-        flex-wrap: wrap;
-    }
-
-    .btn{
-        display: flex;
-        border-radius: 20px !important;
-        justify-content: center;
-        align-items: center;
-
+   
+.building-card{
+    border-radius: 15px !important;
+    transition: all .5s ease-in-out;
+    &:hover{
+        background: $bg-hover-secondary !important;
     }
     .building-list{
         flex-direction: column;
-        transition: all .5s ease-in-out;
-        background: $bg-body;
-        border-radius: 15px;
-        border: $border-primary;
+        background: none;
+        .btn-box{
+            flex-wrap: wrap;
+        }
+        .btn{
+            display: flex;
+            border-radius: 20px !important;
+            justify-content: center;
+            align-items: center;
+    
+        }
         &:hover{
-            background: $bg-hover-secondary;
             .see-rooms{
             background: $bg-body;
 
@@ -59,5 +61,6 @@
             }
         }
     }
+}
 
 }
