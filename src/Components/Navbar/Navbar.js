@@ -6,19 +6,6 @@ import Filter from '../Filter/Filter';
 
 
 export default function NavBar  () {
-  window.onscroll = ()=> myFunction();
-  const [sticky, setSticky] = useState("navbar container filter  d-flex  p-2 w-100")
-
-
-
-function myFunction() {
-  if (window.pageYOffset >= 90) {
-    setSticky(" navbar container filter  d-flex  p-2  w-100 sticky ");
-  } else {
-    setSticky("navbar container filter  d-flex w-100 p-2 mt-3");
-
-  }
-}
 
     return (
       <>
@@ -59,7 +46,7 @@ function myFunction() {
                 </ul>
           </div>
         </nav>
-      <Filter className={sticky} />
+      <Filter />
       </>
 
     )

@@ -22,14 +22,15 @@ const LoginForm = () => {
     }
     
     return (
-        <div className=" container-fluid d-flex p-5 position-relative flex-column justify-content-start align-items-center  bg-light h-100 w-100">
-            <h1 className="text-primary mb-3">Book a Room in CST</h1>
+        <div className="row container-fluid d-flex login flex-column justify-content-start align-items-center">
+          <div className="col-12 col-md-6 col-lg-4">
+            <h1 className="text-primary w-100 fw-bold h2  text-center mb-5">Book a Room in CST</h1>
             <div className="cover">
               <h1 className="text-primary fw-bold my-2">Login</h1>
-              <form className="bg-secondary d-flex align-items-center p-5 flex-column " onSubmit={SubmitLoginData}>
-                  <input type="text" placeholder="Username"  className="my-2"  ref={refName} />
-                  <input type="password" placeholder="Password" className="my-2" ref={refPassword} />
-                  <button className="login-btn  btn my-2 w-50">Login</button>
+              <form className="bg-secondary d-flex align-items-center w-100 p-5 flex-column " onSubmit={SubmitLoginData}>
+                  <input type="text" placeholder="Username"  className="my-2 w-100  "  ref={refName} />
+                  <input type="password" placeholder="Password" className="my-2 w-100 " ref={refPassword} />
+                  <button className="btn w-100 my-2 login-btn">Login</button>
               </form>
               <div className="password-reset mt-3 mb-5 w-100 text-primary fw-bold">
                   <p className="ms-2">Forgot password?</p>
@@ -42,6 +43,7 @@ const LoginForm = () => {
                 <p className="text-danger fw-bold">Username or password incorrect</p>
             </div>
             
+          </div>
         </div>
     )
 }

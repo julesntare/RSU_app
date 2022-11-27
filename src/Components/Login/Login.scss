@@ -1,7 +1,12 @@
 @import "../../../public/scss/bg";
 
 
-
+.login{
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    padding-top: 5vh;
+    background: white;
 .cover {
     background-color: $bg-body;
     border-radius: 1em;
@@ -36,8 +41,6 @@
       &:hover  { transform: scale(1.15);}
     }
     
-    
-    
     .password-reset{
         display: flex;
         justify-content: space-between;
@@ -65,8 +68,10 @@
     background-color: rgb(4, 4, 41);
     color: white;
     top: 0;
+    align-self: center;
     transform: scale(1);
     transition: 1.5s;
     border-radius: 50%;
 }
 
+}

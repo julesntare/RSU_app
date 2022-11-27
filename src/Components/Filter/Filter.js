@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import "./Filter.scss";
 
 
-export default function Filter({className}){
+export default function Filter(){
     const [selectRoom, setSelectRoom] =  useState("");
     const [selectDate, setSelectDate] =  useState("");
     const [selectHour, setSelectHour] =  useState("");
@@ -10,18 +10,23 @@ export default function Filter({className}){
     const time = new Date();
   const placeholderTime = `${time.getFullYear()}-${time.getMonth()}-${time.getDate()}`;
     
-//on input/select change
-  // const handleChange = (e) =>{
-  // }
-  // console.log(selectValue);
-  //submit data
-  
+  window.onscroll = ()=> myFunction();
+  const [sticky, setSticky] = useState("navbar container filter  d-flex  p-2 w-100")
+
+function myFunction() {
+  if (window.pageYOffset >= 90) {
+    setSticky(" navbar container filter  d-flex  p-2  w-100 sticky ");
+  } else {
+    setSticky("navbar container filter  d-flex w-100 p-2 mt-3");
+
+  }
+}
     const handleSubmit = (data) =>{
         data.preventDefault();
         console.log(data);
       }
      return(
-        <nav className={className}>
+        <nav className={sticky}>
             <h3 className="lead bg-none fw-bold text-start  m-0 filter-text">Filters</h3>
             <form className="d-flex align-items-center form " role="filter" onSubmit={handleSubmit}>
               <div className=" d-flex input-box me-2 h-100 justify-content-between align-items-center">

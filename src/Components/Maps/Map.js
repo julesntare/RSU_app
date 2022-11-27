@@ -13,7 +13,7 @@ export default  function Map () {
     })
     //when not loaded!
     if (!isLoaded) {
-      return <div className="text-primary h1 h-100 w-100 position-absolute t-0 b-0 start-0 end-0 text-center fw-bold pt-5"> Loading ...</div>
+      return <div className="text-warning bg-white h1 h-100 w-100 position-absolute t-0 b-0 start-0 end-0 text-center fw-bold pt-5"> Loading ...</div>
     }
   
     return (
