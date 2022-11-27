@@ -4,17 +4,19 @@
 
 .nav-web{
     color: $bg-body;
-    position: sticky;
-    top: 0;
-    z-index: 5;
+    position: relative;
     height: max-content;
     border-bottom-right-radius: 3vw;
     border-bottom-left-radius: 3vw;
     background: $bg-hover-secondary;
     transition: all .5s ease;
+    box-shadow: rgba(50, 50, 93, 0.23) 0px 30px 30px -20px;
+
     .active{
         color: rgba(85, 94, 11, 0.918) !important;
         font-weight: bold !important;
+        background: rgba(134, 134, 134, 0.836);
+        border-radius: 5px;
         &:hover{
             color: $bg-hover-secondary !important;
         }
@@ -26,66 +28,31 @@
             color: $bg-body;
         }
     }
-    .nav-link{
-        cursor: pointer;
-        color: $color-primary;
-        font-size: 1.1rem;
-        &:hover{
-            color: $bg-body;
+    .navbar-nav{
+        flex-wrap: wrap;
+        .nav-link{
+            cursor: pointer;
+            color: $color-primary;
+            font-size: 1.1rem;
+            &:hover{
+                color: $bg-body;
+            }
         }
     }
     .account-user {
         margin-left: auto !important;
     }
     &:hover {
-        background: #0a3b80c4;
-        color: $bg-hover-primary;
+        background: $bg-hover-primary;  
     }
 }
-
-.filter{
-    border-radius: 15px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: column;
-    .form{
-        // background: green;
-        border-radius: 15px;
-    .input-box {
-        width: 90%;
-        border-radius: 15px;
-    }
-}
-
-    .filter-text{
-        text-align: start;
-        width: 20%;
-        padding: .3rem;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        color: $color-primary;
-    }
-    .box-filter{
-        border-radius: 1.5rem;
-        border: $border-primary;
-        padding-left: 2vw;
-        
-    }
-}
-.btn-p{
-    background: linear-gradient(45deg, $bg-hover-primary rgb(71, 137, 175), rgb(142, 4, 255) ) !important;
-    border-radius:  15px;
-    // width: 5%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all .4s ease-in-out;
-    color: $color-primary;
-    border: $border-primary;
-    &:hover{
-    background: linear-gradient(45deg, $bg-hover-secondary, rgb(208, 202, 208), rgb(4, 252, 210) ) repeat-y ;
-    border: $border-secondary;
-    }
+  .sticky{
+    position: fixed;
+    top: 0 !important;
+    z-index: 200;
+    transition: all .2s ease-in-out;
+    border: none;
+    border-bottom: 1px solid rgba(0, 26, 255, 0.775);
+    box-shadow: 5px 5px rgba(198, 198, 198, 0.819);
+    background:  $bg-body;
 }

@@ -14,175 +14,175 @@
         "name": "MUHABURA_P001",
         "id": "",
         "seats": 300,
-        "location": "",
-        "use": "General classroom"
+        "location": "ground floor, mid-outside",
+        "use": "General classroom, Conferences, Events"
       },
       {
         "name": "MUHABURA_P008",
         "id": "",
         "seats": 220,
-        "location": "",
+        "location": "ground floor, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P009",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "ground floor, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P0016",
         "id": "",
         "seats": 89,
-        "location": "",
+        "location": "ground floor, left side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P0017",
         "id": 1,
         "seats": 200,
-        "location": "",
+        "location": "ground floor, left side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P106",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 1, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P107",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 1, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P112",
         "id": "",
         "seats": 500,
-        "location": "",
+        "location": "floor 1, left side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P113",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 1, left side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P204",
         "id": "",
         "seats": 223,
-        "location": "",
+        "location": "floor 2, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P205",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 2, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P206",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 2, right side",
         "use": "Lab"
       },
       {
         "name": "MUHABURA_P207",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 2, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P212",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 2, left side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P213",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 2, left side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P304",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 3, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P305",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 3, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P306",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 3, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P307",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 3, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P310",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 3, left side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P312",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 3, left side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P313",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 3, left side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P405",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 4, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P406",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 4, right side",
         "use": "General classroom"
       },
       {
         "name": "MUHABURA_P407",
         "id": "",
         "seats": 200,
-        "location": "",
+        "location": "floor 4, right side",
         "use": "General classroom"
       }
     ]
@@ -202,42 +202,42 @@
         "name": "Room A",
         "id": "",
         "seats": 230,
-        "location": "",
+        "location": "floor 1, left side",
         "use": "General classroom"
       },
       {
         "name": "Room B",
         "id": "",
         "seats": 100,
-        "location": "",
+        "location": "floor 1, left side",
         "use": "General classroom"
       },
       {
         "name": "Room F",
         "id": "",
         "seats": 150,
-        "location": "",
+        "location": "floor 2, left side",
         "use": "General classroom"
       },
       {
         "name": "Room G",
         "id": "",
         "seats": 133,
-        "location": "",
+        "location": "floor 2, left side",
         "use": "General classroom"
       },
       {
         "name": "Room H",
         "id": "",
         "seats": 89,
-        "location": "",
+        "location": "floor 2, right side",
         "use": "General classroom"
       },
       {
         "name": "Room I",
         "id": "",
         "seats": 80,
-        "location": "",
+        "location": "floor 2, right side",
         "use": "General classroom"
       }
     ]
@@ -535,28 +535,28 @@
         "name": "AUD 1",
         "id": "",
         "seats": 80,
-        "location": "",
+        "location": "ground floor, left side",
         "use": "General classroom, Conferences, Events"
       },
       {
         "name": "AUD 2",
         "id": "",
         "seats": 80,
-        "location": "",
+        "location": "ground floor, right side",
         "use": "General classroom, Conferences, Events"
       },
       {
         "name": "AUD 3",
         "id": "",
         "seats": 80,
-        "location": "",
+        "location": "floor 1, left side",
         "use": "General classroom, Conferences, Events"
       },
       {
         "name": "AUD 4",
         "id": "",
         "seats": 80,
-        "location": "",
+        "location": "floor 1, right side",
         "use": "General classroom, Conferences, Events"
       }
     ]

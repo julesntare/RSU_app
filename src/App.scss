@@ -7,10 +7,6 @@
     background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1500' height='560' preserveAspectRatio='none' viewBox='0 0 1500 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask2889%26quot%3b)' fill='none'%3e%3crect width='1500' height='560' x='0' y='0' fill='url(%23SvgjsRadialGradient2890)'%3e%3c/rect%3e%3cpath d='M 0%2c148 C 60%2c136.6 180%2c89.8 300%2c91 C 420%2c92.2 480%2c170 600%2c154 C 720%2c138 780%2c-3 900%2c11 C 1020%2c25 1080%2c207.6 1200%2c224 C 1320%2c240.4 1440%2c119.2 1500%2c93L1500 560L0 560z' fill='rgba(221%2c 221%2c 221%2c .3)'%3e%3c/path%3e%3cpath d='M 0%2c327 C 75%2c362 225%2c503.2 375%2c502 C 525%2c500.8 600%2c325.4 750%2c321 C 900%2c316.6 975%2c480.2 1125%2c480 C 1275%2c479.8 1425%2c352 1500%2c320L1500 560L0 560z' fill='rgba(255%2c 0%2c 148%2c .8)'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask2889'%3e%3crect width='1500' height='560' fill='rgba(255,255,255, .3)'%3e%3c/rect%3e%3c/mask%3e%3cradialGradient cx='100%25' cy='50%25' r='1525.91' gradientUnits='userSpaceOnUse' id='SvgjsRadialGradient2890'%3e%3cstop stop-color='rgba(221%2c 221%2c 221%2c .4)' offset='0'%3e%3c/stop%3e%3cstop stop-color='rgba(255%2c 255%2c 255%2c .5)' offset='0.18'%3e%3c/stop%3e%3cstop stop-color='rgba(255%2c 0%2c 228%2c 1)' offset='0.2'%3e%3c/stop%3e%3cstop stop-color='rgba(255%2c 255%2c 255%2c .1)' offset='0.39'%3e%3c/stop%3e%3cstop stop-color='rgba(221%2c 221%2c 221%2c 1)' offset='0.49'%3e%3c/stop%3e%3cstop stop-color='rgba(255%2c 255%2c 255%2c .5)' offset='0.6'%3e%3c/stop%3e%3cstop stop-color='rgba(246%2c 231%2c 231%2c 1)' offset='0.73'%3e%3c/stop%3e%3cstop stop-color='rgba(255%2c 255%2c 255%2c .2)' offset='0.81'%3e%3c/stop%3e%3cstop stop-color='rgba(255%2c 255%2c 255%2c .5)' offset='1'%3e%3c/stop%3e%3cstop stop-color='rgba(221%2c 221%2c 221%2c .5)' offset='1'%3e%3c/stop%3e%3c/radialGradient%3e%3c/defs%3e%3c/svg%3e") repeat cover;
     height: fit-content;
 }
-::-webkit-scrollbar{
-    width: .5vw;
-    color: yellow;
-}
 
 .app {
     position: relative;
@@ -18,4 +14,11 @@
     font-family: "Poppins"  sans-serif !important;
     background:  transparent;
     overflow-y: auto;
+    .alinks{
+        background: $bg-body cover;
+        ::-webkit-scrollbar{
+            width: auto !important;
+        }
+    }
 }
+

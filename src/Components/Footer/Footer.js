@@ -10,7 +10,7 @@ export default  function Footer(){
 
     return(
         <footer className="footer mt-5 pt-3 container">
-            <div className=" p-3 d-flex justify-content-between copy-right">
+            <div className=" p-3 text-light d-flex justify-content-between copy-right">
                 <p>
                     ©  {year} All Rights Reserved
                     {/* <a className="text-white ms-2 " href="https://ur.ac.rw" target="_blank">College of Science and Technology (CST)</a> */}

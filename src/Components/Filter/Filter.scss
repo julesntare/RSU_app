@@ -1,0 +1,49 @@
+@import "../../../public/scss/bg";
+@import "../../../public/scss/borders";
+
+.filter{
+    border-radius: 15px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    
+        .filter-text{
+            text-align: start;
+            flex:  0 0 10%;
+            padding: .3rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            color: $color-primary;
+        }
+    .form{
+        border-radius: 15px;
+        flex: 1 1 80%;
+    .input-box {
+        width: 90%;
+        border-radius: 15px;
+    }
+}
+    .box-filter{
+        border-radius: 1.5rem;
+        border: $border-primary;
+        padding-left: 2vw;
+        
+    }
+}
+.btn-p{
+    background: linear-gradient(45deg, $bg-hover-primary rgb(71, 137, 175), rgb(142, 4, 255) ) !important;
+    border-radius:  15px;
+    // width: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s ease-in-out;
+    color: $color-primary;
+    border: $border-primary;
+    &:hover{
+    background: linear-gradient(45deg, $bg-hover-secondary, rgb(208, 202, 208), rgb(4, 252, 210) ) repeat-y ;
+    border: $border-secondary;
+    }
+}

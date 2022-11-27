@@ -27,7 +27,7 @@ export default function Rooms ({clickedHouseData, closeRoomsTab, allowRoomsReren
                                     {item.name &&
                                         <h3 className="room-name my-1 h4 d-flex justify-content-center align-items-center w-100 card-title">{item.name}</h3>}
                                     {item.location &&
-                                        <p className="card-text room-location mt-1 d-flex w-100">
+                                        <p className="card-text room-location justify-content-center align-items-center mt-1 d-flex w-100">
                                             <span className="fw-bold my-1">Location: </span> 
                                                 {item.location}
                                         </p>

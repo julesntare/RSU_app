@@ -2,6 +2,8 @@ import React, { useMemo, useState }  from "react";
 import "./Buildings.scss";
 import   BuildingsList from "../../assets/APIs/BuildingsList.json";
 import BuildingGoogleMap from "../Maps/BuildingGoogleMap";
+// import NavBar from "../Navbar/Navbar";
+// import Footer from "../Footer/Footer";
 
 
 export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
@@ -18,7 +20,6 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
         })
     }
     // console.log(latLong, "aisooo");
-
     const handleBuildingClick = (e) =>{
         // console.log("clicked Link", e.id)
         setGetClickedBuilding(e)
@@ -29,6 +30,7 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
 
     return(
         <div className="mt-3 container" id="building-container">
+            {/* <NavBar /> */}
             <h3 className="h2 my-4 text-dark titles-buildings fw-bold w-100 text-center"> Buildings</h3>
             <div   className="my-2 d-flex w-100  pt-3 row mt-2">
                 {
@@ -73,6 +75,7 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
                     showMaps = {setLocationMarker}
                 />
             }
+            {/* < Footer /> */}
         </div>
     )
 }
