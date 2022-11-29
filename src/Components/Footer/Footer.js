@@ -1,7 +1,6 @@
 
 import React from 'react';
 import './Footer.scss';
-// import '../../../public/scss/buttons.scss';
 
 
 export default  function Footer(){
@@ -9,7 +8,7 @@ export default  function Footer(){
     const year = date.getFullYear();
 
     return(
-        <footer className="footer mt-5 pt-3 container">
+        <footer className="footer mt-3 pt-1 w-100 ">
             <div className=" p-3 text-light d-flex justify-content-between copy-right">
                 <p>
                     ©  {year} All Rights Reserved

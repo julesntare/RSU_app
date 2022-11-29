@@ -1,6 +1,17 @@
 @import "../../../public/scss/bg";
 @import "../../../public/scss/borders";
 
+.sticky{
+    position: fixed;
+    top: 0 !important;
+    z-index: 200;
+    transition: none !important;
+    border: none;
+    border-bottom: 1px solid rgba(0, 26, 255, 0.775);
+    box-shadow: 5px 5px rgba(198, 198, 198, 0.819);
+    background:  $bg-body;
+    width: 95vw !important;
+}
 .filter{
     border-radius: 15px;
     display: flex;

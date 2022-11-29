@@ -53,13 +53,3 @@
     }
     
 }
-  .sticky{
-    position: fixed;
-    top: 0 !important;
-    z-index: 200;
-    transition: all .2s ease-in-out;
-    border: none;
-    border-bottom: 1px solid rgba(0, 26, 255, 0.775);
-    box-shadow: 5px 5px rgba(198, 198, 198, 0.819);
-    background:  $bg-body;
-}

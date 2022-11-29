@@ -1,0 +1,37 @@
+@import "../../../public/scss/bg";
+@import "../../../public/scss/borders";
+
+
+.anvelope-box{
+    transform: rotate(0.2turn);
+    animation: circle 5s linear 2s infinite alternate;
+    .anvelope{
+    transform: rotate(.1turn);
+    }
+
+}
+@keyframes circle {
+    0%   {transform: rotate(0.1turn);}
+    25%  {transform: rotate(0.2turn);}
+    50%  {transform: rotate(0.3turn);}
+    75%  {transform: rotate(0.4turn);}
+    100% {transform: rotate(0.5turn);;}
+  }
+  .verified{
+    border-radius: 2rem;
+}
+  .form-enquiry{
+    input{
+        background: $bg-hover-secondary ;
+        outline: none;
+        color: $color-primary !important;
+        border-radius: 20px;
+        font-weight: bold;
+        &:focus{
+            outline: green;
+            border: 1px solid green;
+            background: white;
+            box-shadow: none;
+        }
+    }
+  }

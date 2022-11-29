@@ -1,10 +1,9 @@
 @import "../../../public/scss/bg";
 @import "../../../public/scss/borders";
 
-
-.login{
+.register{
     position: fixed;
-    z-index: 200;
+    z-index: 300;
     top: 0 !important;
     bottom:  0 !important;
     left: 0 !important;
@@ -23,7 +22,6 @@
     .form-login{
         border-radius: 15px;
     }
-    
     input {
         border: $border-primary;
         background-color: $bg-body;
@@ -54,33 +52,13 @@
             span{
                 cursor: pointer;
                 &:hover{
-                    text-decoration: underline;
+                    color: blue !important;
                 }
             }
         }
     }
 }
-
-.hide {
-    position: absolute;
-    transform: scale(0);
-}
-
-.login-popup {
-    position: absolute;
-    width: 40em;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.verified{
     border-radius: 2rem;
-    background-color: rgb(255, 0, 0);
-    color: white !important;
-    top: 0;
-    align-self: center;
-    transform: scale(1);
-    transition: 1.5s;
 }
-
 }

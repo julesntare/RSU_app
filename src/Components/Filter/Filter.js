@@ -16,9 +16,9 @@ export default function Filter(){
 
 function myFunction() {
   if (window.pageYOffset >= 90) {
-    setSticky(" navbar container filter  d-flex  p-2  w-100 sticky ");
+    setSticky(" navbar filter  d-flex  p-2 sticky ");
   } else {
-    setSticky("navbar container filter mt-5  d-flex w-100 p-2 mt-3");
+    setSticky("navbar filter mt-5  d-flex w-100 p-2 mt-3");
 
   }
 }
@@ -26,9 +26,9 @@ function myFunction() {
         data.preventDefault();
         console.log(data);
       }
-      const  roomNames = BuildingsList.map((building)=>building.rooms.map((room, i )=>(
-                    <option value={selectRoom} key={i}>{room.name}</option>
-      )))
+  const  roomNames = BuildingsList.map((building)=>building.rooms.map((room, i )=>(
+                <option value={selectRoom} key={i}>{room.name}</option>
+  )))
      return(
         <nav className={sticky}>
             <h3 className="lead bg-none fw-bold text-start  m-0 filter-text">Filters</h3>

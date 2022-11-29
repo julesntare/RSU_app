@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import './App.scss';
 import NavBar from './Components/Navbar/Navbar';
 import Buildings from './Components/Buildings/Buildings';
-// import Filter from './Components/Filter/Filter';
 import Footer from './Components/Footer/Footer';
 import Rooms from './Components/Rooms/Rooms';
 import AllRooms from "./Components/AllRooms/AllRooms";
@@ -19,16 +18,13 @@ function App() {
   useEffect(() => {
     document.body.classList.add('body-animation'); 
   }, []);
-
   //getting the clicked building link tag
   const [getClickedBuilding, setGetClickedBuilding] = useState({})
   const [showRooms, setShowRooms] = useState(true); //you can see rooms on click
 
-
   return (
-    <div className="app container-lg-fluid bg-white ">
-      {/* <Filter /> */}
-      <div className='  bg-white container position-relative alinks'>
+    <div className="app container-fluid bg-white ">
+      <div className=' bg-danger container-fluid bg-white position-relative alinks'>
           <NavBar />
         <Routes>
           <Route path='/'  element={
@@ -63,10 +59,6 @@ function App() {
       />
       <Footer />
       </div>
-      {/* <Buildings 
-         setGetClickedBuilding = {setGetClickedBuilding} //get clicked building rooms
-        allowRoomsRerender = {setShowRooms} //at nth click you will see rooms
-      /> */}
     </div>
   );
 }
