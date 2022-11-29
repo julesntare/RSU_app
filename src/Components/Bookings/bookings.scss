@@ -1,0 +1,19 @@
+
+.bookings{
+    min-height: 70vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .cancel{
+        display: none;
+    }
+    .cancleBtn{
+        cursor: pointer;
+        color: red !important;
+        &:hover{
+            font-weight: bold !important;
+        }
+    }
+
+}
