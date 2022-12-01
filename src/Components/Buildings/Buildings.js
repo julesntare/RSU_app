@@ -1,15 +1,11 @@
-import React, { useMemo, useState }  from "react";
+import React, { useState }  from "react";
 import "./Buildings.scss";
 import   BuildingsList from "../../assets/APIs/BuildingsList.json";
 import BuildingGoogleMap from "../Maps/BuildingGoogleMap";
 
-
 export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
-    //adding our buildings to google map:
     const [locationMarker, setLocationMarker] = useState(false);
-
     const  [latLong, setLatLong] = useState({})
-
     const showBuildingLocation = (item)=>{
         setLocationMarker(true);
         setLatLong({
@@ -19,13 +15,9 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
     }
     // console.log(latLong, "aisooo");
     const handleBuildingClick = (e) =>{
-        // console.log("clicked Link", e.id)
         setGetClickedBuilding(e)
         allowRoomsRerender(true);
-        //after getting the click link id, let use it to display its data
-
     }
-
     return(
         <div className="mt-3 container" id="building-container">
             <h3 className="h2 my-4 text-dark titles-buildings fw-bold w-100 text-center"> Buildings</h3>
@@ -59,7 +51,6 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
                                                 </button>
                                             </span>
                                     </div>
-                                    
                                 </div>
                             </div>  
                         )
@@ -72,7 +63,6 @@ export default function Buildings ({setGetClickedBuilding, allowRoomsRerender}){
                     showMaps = {setLocationMarker}
                 />
             }
-            {/* < Footer /> */}
         </div>
     )
 }

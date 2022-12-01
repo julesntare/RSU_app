@@ -4,7 +4,6 @@ import Logo from "../../assets/logo/urLogo.png";
 import {Link, useMatch, useResolvedPath} from "react-router-dom" ;
 import Filter from '../Filter/Filter';
 
-
 export default function NavBar  () {
   const [logedIn, setLogedIn] =useState(true);
   const [hideFilter, setHideFilter] =useState(true);
@@ -15,7 +14,7 @@ const showFilter = ()=>{
   setHideFilter(true);
 }
     return (
-      <>
+        <div>
         <nav className="navbar navbar-expand-lg nav-web text-white px-3 d-flex justify-content-between  mt-0 mb-1">
             <img
               alt=""
@@ -60,8 +59,7 @@ const showFilter = ()=>{
         {hideFilter &&
       <Filter />
         }
-      </>
-
+    </div>
     )
   }
 

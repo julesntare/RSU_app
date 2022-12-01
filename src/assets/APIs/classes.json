@@ -1,25 +1,32 @@
-{
-"levels": [
+ [
         {
-            "level": 1,
-            "classeds": [
+            "level": "Level 1",
+            "classes": [
                 
             ]
 
         },
         {
-            "level": 2
+            "level": " Level 2",
+            "classes": [
+                
+            ]
 
             
         },
         {
-            "level": 3
+            "level": "Level 3",
+            "classes": [
+                
+            ]
             
         },
         {
-            "level": 4
+            "level": "Level 4",
+            "classes": [
+                
+            ]
             
         }
 
     ]
-}

@@ -1,0 +1,130 @@
+@import "../../../public/scss/bg";
+@import "../../../public/scss/borders";
+
+.booking-form{
+    box-sizing: border-box;
+    position: fixed;
+    inset: 0;
+    z-index: 300;
+    overflow-y: auto !important;
+    // header
+    .header{
+        border-bottom-right-radius: 1vw;
+        border-bottom-left-radius: 1vw;
+        transition: all .5s ease-in-out;
+        height: fit-content;
+        border-bottom: 1px solid $bg-hover-primary;
+        .img-header{
+            border-radius: 50%;
+            background: none;
+        }
+    }
+    .back-btn{
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    // left side form 
+    .title-room{
+        font-weight: bold;
+        font-style: oblique;
+        font-size: 1rem;
+    }
+    .info-box{
+        border-radius: 2rem;
+        .info{
+            flex: 1 1 40%;
+            border: 1px solid rgba(4, 112, 9, 0.894);
+            border-radius: 1rem;
+            border-bottom: none !important;
+            padding: 1rem;
+        }
+        .contacts{
+        border-top: none !important;
+        flex: 1 1 40%;
+        border: 1px solid rgba(4, 112, 9, 0.894);
+        border-radius: 1rem;
+        padding: 1rem;
+        a{
+            border-radius: 15px;
+            padding: .5rem;
+            text-decoration: none;
+            transition: all .5s ease-in-out;
+            background: white;
+            font-weight: bold;
+            color: $color-primary;
+            display: flex;
+            justify-content: center;
+            border-left: 5px solid $color-primary;
+            border-right: 5px solid $color-primary;
+            align-items: center;
+            &:hover{
+                background: $color-primary;
+                color: white;
+            }
+            i{
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+    //right side form
+    .form-box{
+        border-radius: 2rem;
+        transition: all .5s ease-in;
+        &:hover{
+            border: 1px solid $bg-hover-secondary;
+
+        }
+    }
+.form-group{
+    margin-bottom: 1rem;
+    label{
+        font-weight: bold;
+        padding-left: .5rem;
+    }
+    .form-control{
+        outline: none !important;
+        background: $bg-hover-secondary;
+        padding-left: .5rem;
+        color:  blue;
+        border-radius: 15px;
+        &:focus{
+            outline: none !important;
+            box-shadow: none !important;
+            border: 1px solid blue;
+        }
+    }
+    .date-box{
+        input{
+            flex: 1 1 20%;
+        }
+        .form-select{
+            flex:  2 2 50%;
+            outline: none !important;
+            padding-left: 1rem;
+            color:  $color-primary;
+            border-radius: 15px;
+            
+            &:focus{
+                outline: none !important;
+                box-shadow: none !important;
+                border: 1px solid blue;
+            }
+        }
+    }
+}
+.form-title{
+    color: $color-primary;
+}
+.btn-booking{
+    background:  $color-primary;
+    border-radius: 15px;
+    color: white;
+    transition:  all .5s ease;
+    &:hover{
+        background: rgba(52, 49, 229, 0.928);
+    }
+}
+}

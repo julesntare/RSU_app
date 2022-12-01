@@ -3,7 +3,9 @@
 
 .footer{
     background: $bg-hover-primary;
-    z-index: 5; 
+    position: inherit;
+    z-index: 100; 
+    pointer-events: none;
     border-top-right-radius: 1vw;
     border-top-left-radius: 1vw;
     transition: all .5s ease-in-out;

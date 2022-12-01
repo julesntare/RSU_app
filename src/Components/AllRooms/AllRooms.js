@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import "./AllRooms.scss"
 import   BuildingsList from "../../assets/APIs/BuildingsList.json";
+import {Link} from "react-router-dom";
 
-const AllRooms = () => {
+const AllRooms = ({setGetClickedRoomForBooking}) => {
+  const hideNav = (room) =>{
+    setGetClickedRoomForBooking(room); //now we can get a room chosen for booking
+}
 
     const  rooms = BuildingsList.map((building)=>building.rooms.map((room, i )=>(
     <div className="card text-sm col-12 col-md-4 col-lg-3 col-xxl-3 shadow-sm room-card" key={i} id={i}>
@@ -32,10 +36,14 @@ const AllRooms = () => {
                           </div>
                           <div className="status-btns d-flex justify-content-center aligh-items-center p-2">
                             {i%2===0?<button className="text-danger danger-btn fw-bold btn  btn-sm btn-light">Occupied <i className="bi bi-exclamation-circle"></i></button>: 
-                            <a href="#" className="nav-link d-flex flex-column w-100">
-                            <button className="text-success free-btn btn fw-bold mb-2 btn-sm">Free</button>
-                            <button className="text-Success booking-btn fw-bold btn  btn-sm text-success">Book a Room</button>
-                          </a>
+                            <div to="/bookingform" className="nav-link d-flex flex-column w-100">
+                              <button className="text-success free-btn btn fw-bold mb-2 btn-sm">Free</button>
+                              <Link to="/bookingform" className="text-Success w-100 booking-btn fw-bold btn btn-sm text-success" onClick={(e)=>e.target? hideNav(room) : null}>Request a Room</Link>
+                            </div>
+                          //   <a href="#" className="nav-link d-flex flex-column w-100">
+                          //   <button className="text-success free-btn btn fw-bold mb-2 btn-sm">Free</button>
+                          //   <button className="text-Success booking-btn fw-bold btn  btn-sm text-success">Book a Room</button>
+                          // </a>
                           } 
                           </div>
                       </div>
@@ -48,12 +56,10 @@ const AllRooms = () => {
 
   return (
       <div className='container-fluid h-100 w-100'>
-      {/* <NavBar /> */}
         <h1 className="mb-3 text-center py-2 text-primary fw-bold">All rooms</h1>
         <div className="d-flex row h-100" id="rooms-box">
           {rooms}
         </div>
-        {/* <Footer /> */}
       </div>
   )
 }

@@ -10,23 +10,32 @@
     background: $bg-body;
     overflow-x: hidden;
     overflow-y: auto;
-    z-index: 100;
+    z-index: 10;
     min-height: 100vh;
     //close room box
     .close-map-box{
         display: flex;
+        justify-content: flex-end;
         width: 100%;
         flex-grow: 0;
         background: transparent;
+        .btn-close-box{
+        border: 1px solid red !important;
+        height: 5vw !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5vw !important;
+        border-radius: 50% !important;
         .close-btn{
             font-size: 1.5rem;
             cursor: pointer;
             color: $color-primary;
-            margin-left: auto;
             &:hover{
                 color: $color-danger; 
             }
         }
+    }
     }
     //rooms box
  #rooms-box {
@@ -80,7 +89,7 @@
                 border-radius: 1rem;
                 transition: all .5s ease-in-out ;
             }
-            a{
+            div{
                 .free-btn{
                     background: green;
                     color: white !important;
