@@ -2,7 +2,7 @@
 @import "../../../public/scss/borders";
 
 .footer{
-    background: $bg-hover-primary;
+    background: $bg-hover-secondary;
     position: inherit;
     z-index: 100; 
     pointer-events: none;
@@ -11,10 +11,20 @@
     transition: all .5s ease-in-out;
     opacity: 1 !important;
     height: fit-content;
+    color: $color-primary;
     .copy-right{
             opacity: .5;
+            display: flex;
+            align-items: center;
             flex-wrap: wrap;
-         background: transparent !important;          
+            background: transparent ; 
+            color: blue;
+            font-weight: bold;
+            p{
+                display: flex;
+                align-items: center;
+            }
+
     }
     a{
         text-decoration: none;

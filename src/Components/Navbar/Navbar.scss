@@ -10,7 +10,7 @@
     border-bottom-left-radius: 1vw;
     background: $bg-body;
     transition: all .5s ease;
-    box-shadow: rgba(50, 50, 93, 0.23) 0px 30px 30px -20px;
+    box-shadow: rgba(50, 50, 93, 0.23) 0px 5px 5px -5px;
 
     .active{
         color: blue !important;
@@ -38,7 +38,7 @@
         }
         .btn-login{
             background: $bg-hover-primary;
-            border-radius: 2rem;
+            border-radius: .5rem;
             display: flex;
             font-weight: bold;
             justify-content: center;

@@ -24,11 +24,38 @@
             }
         }
     }
-    
 }
+
+//maps compontent
 .map{
     height: 90vh;
+    .buildings-box{
+        height: 78vh;
+        border:  1px solid blue;
+        border-top-right-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        border-top: none !important;
+        border-left: none !important;
+        .box{
+            display: flex;
+            height: 65vh;
+            flex-direction: column;
+            .list-group-item{
+                flex: 1 1 10%;
+                color: blue;
+                font-weight: bold;
+                transition: all .5s ease-in-out;
+                &:hover{
+                    background: $bg-hover-secondary;
+                }
+            }
+        }
+        .active{
+            color: white !important;
+            background:  $bg-hover-primary !important;
+        }
+    }
     .map-box{
-        height: 90%;
+        height: 80vh;
     }
 }

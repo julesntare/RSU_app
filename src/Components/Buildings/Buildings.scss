@@ -7,60 +7,40 @@
     z-index: 5;
     opacity: 1 !important;
 
-   
-.building-card{
-    border-radius: 15px !important;
-    transition: all .5s ease-in-out;
-    &:hover{
-        background: $bg-hover-secondary !important;
-    }
-    .building-list{
-        flex-direction: column;
-        background: none;
-        .btn-box{
-            flex-wrap: wrap;
-        }
-        .btn{
-            display: flex;
-            border-radius: 20px !important;
-            justify-content: center;
-            align-items: center;
+   .buildings-box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     
-        }
-        &:hover{
-            .see-rooms{
-            background: $bg-body;
-
+        .building-card{
+            border-radius: 15px !important;
+            .card-img-top{
+                border-top-right-radius: 15px !important;
+                border-top-left-radius: 15px !important;
             }
-        }
-        .number-rooms{
-            cursor: auto;
-            background: $bg-hover-primary;
-           
-        }
-        .see-rooms {
-            background: $bg-hover-secondary;
-            color: $color-primary !important;
-            &:hover{
-                background: $bg-hover-primary;
-                color: $bg-body;
-                .bi{
-                    color: $bg-body !important;
+            .card-name-title{
+                font-weight: bolder;
+                font-family: sans-serif;
+            }
+            .btn-box{
+                background:  transparent !important;
+                button{
+                    border:  none !important;
+                    transition: all .5s ease-in-out;
+                    &:hover{
+                        background: $bg-body !important;
+                        color:  $color-primary !important;
+                        border:  1px solid $color-primary;
+                        border-left: 5px solid $color-primary;
+                        border-right: 5px solid $color-primary;
+                    }
                 }
             }
-        }    
-    }
-    .location-link{
-        border: $border-primary;
-        cursor: pointer;
-        &:hover{
-            background-color: $bg-hover-primary !important;
-            color: $bg-body !important;
-            .bi{
-                color: $bg-body !important;
+            transition: all .5s ease-in-out;
+            &:hover{
+                background: $bg-hover-secondary !important;
             }
         }
-    }
 }
 
 }

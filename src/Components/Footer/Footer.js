@@ -8,12 +8,12 @@ export default  function Footer(){
     const year = date.getFullYear();
 
     return(
-        <div className="footer mt-3 pt-1 w-100 ">
-            <div className=" p-3 text-light d-flex justify-content-between copy-right">
-                <p>
+        <div className="footer mt-3  w-100 ">
+            <div className=" p-1 d-flex justify-content-between align-items-center px-3 px-lg-5 copy-right">
+                <p className=' mt-2'>
                     ©  {year} All Rights Reserved
                 </p>
-                <p>Privacy / Terms and Conditions</p>
+                <p className=' mt-2'>Privacy / Terms and Conditions</p>
             </div>
             {/* <p className=''>
                     Made by <i className="bi bi-bag-heart text-white fw-bold "></i> with 

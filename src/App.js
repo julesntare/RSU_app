@@ -21,7 +21,8 @@ function App() {
   const [getClickedRoomForBooking, setGetClickedRoomForBooking] = useState({});
   const [getClickedBuilding, setGetClickedBuilding] = useState({})
   const [showRooms, setShowRooms] = useState(true);
-  // const  [showNav, setShowNav] =useState(true)
+  // const  [hideFilterOnHomePage, setHideFilterOnHomePage] =useState(true)
+
 
   return (
     <div className="app container-fluid bg-white ">

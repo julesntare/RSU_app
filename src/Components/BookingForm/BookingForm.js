@@ -53,13 +53,13 @@ export default function BookingForm({getClickedRoomForBooking}){
                         <div className="mt-auto contacts">
                             <h4 className="title-room text-center mb-3">Met any problem? </h4>
                             <p className=" text-center mb-3">Contact us here </p>
-                            <div className=" d-flex flex-column px-5 py-2">
+                            <div className=" d-flex flex-column px-1 px-md-5 py-2">
                                 <a className="mb-3"  href="tel:+6494461709">
-                                    <span className="me-3"><i className="bi bi-telephone "></i></span>
+                                    <span className="me-1 me-md-3"><i className="bi bi-telephone "></i></span>
                                     <span >+25078 00 00 00</span>
                                 </a>
                                 <a className="mb-3" href="mailto:cst@ac.rw?Subject=My%20Query">
-                                    <span className="me-3"><i className="bi  bi-envelope-at-fill"></i></span>
+                                    <span className="me-1 me-md-3"><i className="bi  bi-envelope-at-fill"></i></span>
                                     <span>cst@ac.rw</span>
                                 </a>
                             </div>
@@ -71,19 +71,19 @@ export default function BookingForm({getClickedRoomForBooking}){
                         <h4 className="form-title fw-bold text-center"> Fill this form below</h4>
                         <form className="p-3" onSubmit={HandleBookings}>
                         <div className="form-group">
-                                <label for="name">Your names</label>
-                                <input type="name" className="form-control" id="name" aria-describedby="nameHelp" placeholder="eg: John Doe"  required />
+                                <label htmlFor="name">Your names</label>
+                                <input type="text" className="form-control" id="name" aria-describedby="nameHelp" placeholder="eg: John Doe"  required />
                             </div>
                             <div className="form-group">
-                                <label for="email">Email address</label>
+                                <label htmlFor="email">Email address</label>
                                 <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
                             </div>
                             <div className="form-group">
-                                <label for="phone"> Phone number:</label>
+                                <label htmlFor="phone"> Phone number:</label>
                                 <input type="tel" class="form-control" id="phone" name="phone" placeholder="eg: +250 -- -- -- ---"  required />
                             </div>
                             <div className="form-group">
-                                <label for="phone"> Date</label>
+                                <label htmlFor="time"> Date</label>
                                 <div className="d-flex date-box">
                                     <input type="date" class="form-control me-2" id="time" name="time" required />
                                     <select type="tel" class="form-select" aria-label="Default select" id="timeRange" name="timeRange" required >
@@ -96,7 +96,7 @@ export default function BookingForm({getClickedRoomForBooking}){
                             </div>
                             <div className="form-check">
                                 <input type="checkbox" className="form-check-input" id="check" />
-                                <label clasNames="form-check-label " for="check" required>
+                                <label clasNames="form-check-label " htmlFor="check" required>
                                     <small>By Submitting your information, means you agree to the <strong>Terms and Conditions</strong></small>
                                 </label>
                             </div>
