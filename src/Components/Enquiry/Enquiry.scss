@@ -1,8 +1,6 @@
 @import "../../../public/scss/bg";
 @import "../../../public/scss/borders";
 
-
-
 .comment-section {
   display: flex;
   flex-wrap: wrap-reverse;
@@ -13,7 +11,6 @@
     .anvelope{
     transform: rotate(.1turn);
     }
-
 }
 @keyframes circle {
     0%   {transform: rotate(0.1turn);}
@@ -26,21 +23,24 @@
     border-radius: 2rem;
 }
   .form-enquiry{
+    textarea{
+      &:focus{
+        box-shadow: none !important;
+      }
+    }
     input{
-        background: $bg-hover-secondary ;
+        background: rgba(216, 216, 216, 0.474) ;
         outline: none;
         color: $color-primary !important;
-        border-radius: 20px;
+        border-radius: 10px;
         font-weight: bold;
         &:focus{
-            outline: green;
-            border: 1px solid green;
+          border:  1px solid rgba(173, 173, 173, 0.737);
             background: white;
             box-shadow: none;
         }
     }
   }
-
   .contacts{
     border-top: none !important;
     flex: 1 1 40%;
@@ -69,3 +69,4 @@
         }
     }
   }
+  

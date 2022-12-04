@@ -71,6 +71,7 @@
 }
     //right side form
     .form-box{
+        border: 1px solid transparent;
         border-radius: 2rem;
         transition: all .5s ease-in;
         &:hover{
@@ -86,14 +87,15 @@
     }
     .form-control{
         outline: none !important;
-        background: $bg-hover-secondary;
+        background: rgba(216, 216, 216, 0.474) ;
         padding-left: .5rem;
         color:  blue;
-        border-radius: 15px;
+        border-radius: 10px;
         &:focus{
             outline: none !important;
             box-shadow: none !important;
-            border: 1px solid blue;
+            background: white;
+            border: 1px solid rgba(173, 173, 173, 0.737);
         }
     }
     .date-box{
