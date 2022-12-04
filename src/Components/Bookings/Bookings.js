@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./bookings.scss";
 
 const Bookings = ({receiveDateForbooking }) => {
-  
+
  const [getdataFromLS, SetGetdataFromLS] = useState([]);
  const [seePopUp, setseePopUp] = useState(false);
- const [seeEachRoom, setSeeEachRoom] = useState(true);
-
-  
 
 const closeBookingPopUp= ()=>{
   setseePopUp(false);
@@ -16,7 +13,6 @@ const openPopUpBookings = (i)=>{
   setseePopUp(true);
   console.log(i)
 }
-
 useEffect(() => {
   localStorage.setItem('data', JSON.stringify(receiveDateForbooking));
 }, [receiveDateForbooking]);
@@ -29,14 +25,12 @@ useEffect(() => {
 }, [receiveDateForbooking]);
 
 const handleCancleClick = (i)=>{
-  // setSeeEachRoom(false)
   const deteleData = getdataFromLS.slice(0, getdataFromLS.length);
   deteleData.splice(i, 1)
   deteleData.splice( )
   SetGetdataFromLS(deteleData)
 
 }
-// if(!seeEachRoom) return;
   const bookedRoms = getdataFromLS.map((bookedRoom, i) =>(
                                                                         <tr key={i} >
                                                                         <th scope="row" >{i+1}</th>

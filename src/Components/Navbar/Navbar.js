@@ -4,9 +4,7 @@ import Logo from "../../assets/logo/urLogo.png";
 import {Link, useMatch, useResolvedPath} from "react-router-dom" ;
 import Filter from '../Filter/Filter';
 import Navbar from 'react-bootstrap/Navbar';
-// import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function NavBar  () {
   const [logedIn, setLogedIn] =useState(true); // check if the user has logged in
