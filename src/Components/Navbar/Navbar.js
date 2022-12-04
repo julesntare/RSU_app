@@ -3,7 +3,10 @@ import "./Navbar.scss";
 import Logo from "../../assets/logo/urLogo.png";
 import {Link, useMatch, useResolvedPath} from "react-router-dom" ;
 import Filter from '../Filter/Filter';
-import { type } from "@testing-library/user-event/dist/type";
+import Navbar from 'react-bootstrap/Navbar';
+// import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+// import NavDropdown from 'react-bootstrap/NavDropdown';
 
 export default function NavBar  () {
   const [logedIn, setLogedIn] =useState(true); // check if the user has logged in
@@ -22,25 +25,20 @@ const showFilter = ()=>{
   setHideFilter(true);
 }
     return (
-        <div>
-        <nav className="navbar navbar-expand-lg nav-web text-white px-3 d-flex justify-content-between  mt-0 mb-1">
-          <Link to="/" onClick={handleHideFilter}>
-              <img
-                alt=""
-                width="50px"
-                height ="50px"
-                src={Logo}
-                className="d-inline-block align-top me-lg-5 rounded-pill mg-fluid "
-              />
-          </Link>
-          <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button>
-            {/* <button className="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-              <span className="navbar-toggler-icon"></span>
-            </button> */}
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-              <ul className="navbar-nav  ps-lg-5 w-100 d-flex">
+        <>
+         <Navbar bg="light" expand="lg" className="nav-web text-white px-3 d-flex justify-content-between  mt-0 mb-1">
+            <Link to="/" onClick={handleHideFilter}>
+                <img
+                  alt=""
+                  width="50px"
+                  height ="50px"
+                  src={Logo}
+                  className="d-inline-block align-top me-lg-5 rounded-pill mg-fluid "
+                />
+            </Link>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="ms-auto">
                   <li className="nav-item ms-3 ms-xl-5" >
                     <ActiveLink to ="/" onClick={handleHideFilter}>Home</ActiveLink>
                   </li>
@@ -59,23 +57,22 @@ const showFilter = ()=>{
                   <li className="nav-item ms-3  me-auto ms-xxl-5 " >
                     <ActiveLink to ="/enquiry" onClick={handleHideFilter}>Enquiry</ActiveLink>
                   </li>
-                  <li className="nav-item  ms-auto">
+                  <li className="nav-item  ms-lg-5">
                     <button className=" text-white btn-login">
                       <ActiveLink to ="/login">
                         {logedIn? "Login " : <i className="bi ms-1 bi-person-circle"></i>}
                       </ActiveLink>
                     </button>
                   </li>
-                </ul>
-          </div>
-        </nav>
+          </Nav>
+        </Navbar.Collapse>
+    </Navbar>
         {hideFilter && 
       <Filter />
         }
-    </div>
+    </>
     )
   }
-  //  
 const ActiveLink = ({to, children, ...props})=>{
   const truePath = useResolvedPath(to);
   const isActive = useMatch({path: truePath.pathname, end: true});

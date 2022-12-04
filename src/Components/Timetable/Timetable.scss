@@ -1,4 +1,108 @@
-
+@import "../../../public/scss/bg";
 .box{
-    height: 100%;
+    min-height: 100vh;
+}
+//left navbar side
+.sidenav-box{
+    .classroom{
+        transition: all .5s ease-in-out;
+        cursor: pointer;
+       &:hover{
+        background: $bg-hover-primary;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        color: white !important;
+       }
+     
+    }
+    .class-search-input{
+      border-radius: 15px;
+      padding: 0;
+      height: 2rem;
+      color: blue;
+      font-weight: bold;
+      border:  1px solid rgba(153, 153, 153, 0.845) !important;
+      &:focus{
+      border:  1px solid blue !important;
+      box-shadow:  none;
+      }
+     }
+}
+//right  calender side
+.display-box{
+    .dateRange{
+        font-family: sans-serif;
+        font-size: larger;
+    }
+}
+ul {list-style-type: none;}
+.weekdays {
+  margin: 0;
+  padding: 0;
+  height: 10%;
+}
+.weekdays li {
+  display: inline-block;
+  width: 13.6%;
+  height: 100%;
+  color: black;
+  text-align: center;
+  font-weight: bold;
+  font-family: sans-serif;
+  border: 1px solid black;
+}
+.days {
+  padding:  0;
+  background: rgba(255, 252, 252, 0.7);
+  margin: 0;
+  height: 90%;
+}
+.days li {
+  list-style-type: none;
+  display: inline-block;
+  width: 13.6%;
+  height: 15%;
+  transition: all .5s ease-in-out;
+  margin: 0 !important;
+  font-size:12px;
+  border: 1px solid rgb(132, 132, 132);
+  color: rgb(0, 0, 0) !important;
+  &:hover{
+    border: 1px solid blue;
+  background: rgba(0, 0, 255, 0.061);
+  }
+}
+/* Add media queries for smaller screens */
+@media screen and (max-width:991px) {
+
+  .sidenav-box{
+    height: fit-content !important;
+    min-height: fit-content !important;
+    background:  rgba(170, 170, 170, 0.904) !important;
+    border-radius: 20px;
+    margin-bottom:  2rem;
+}  
+}
+@media screen and (max-width:750px) {
+  .display-box{
+    overflow-x: auto !important;
+    width: 100% !important;
+    .calender{
+
+      background: green;
+      flex-wrap: nowrap;
+    }
+  }
+  .weekdays li, .days li {width: 13.1%;}
+}
+@media screen and (max-width: 420px) {
+  .weekdays li, .days li {width: 12.5%;}
+  .days li .active {padding: 2px;}
+}
+@media screen and (max-width: 290px) {
+  .weekdays li, .days li {width: 12.2%;}
+}
+.calender{
+  // height: max-content !important;
+  background: goldenrod;
 }

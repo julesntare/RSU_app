@@ -1,25 +1,86 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./bookings.scss";
 
-const Bookings = () => {
-  const [cancelOrder, setCancelOrder] = useState("");
-  const[clickedId, stClickedId ] =useState("");
-  const date = new Date();
-  const day = date.getDate();
-  const month = date.getMonth();
-  const year = date.getFullYear();
-  const bookedDate = `${day}-${month}-${year}`;
+const Bookings = ({receiveDateForbooking }) => {
   
-  const handleCancleClick = (e)=>{
-    stClickedId(e.target.id); //id of x icons
-    let rowId = e.target.parentNode.getAttribute("postId");
-    console.log(rowId); //not working, jus null??
-    (clickedId === rowId)?setCancelOrder("cancel") : setCancelOrder("")
+ const [getdataFromLS, SetGetdataFromLS] = useState([]);
+ const [seePopUp, setseePopUp] = useState(false);
+ const [seeEachRoom, setSeeEachRoom] = useState(true);
+
+  
+
+const closeBookingPopUp= ()=>{
+  setseePopUp(false);
+}
+const openPopUpBookings = (i)=>{
+  setseePopUp(true);
+  console.log(i)
+}
+
+useEffect(() => {
+  localStorage.setItem('data', JSON.stringify(receiveDateForbooking));
+}, [receiveDateForbooking]);
+
+useEffect(() => {
+  const data = JSON.parse(localStorage.getItem('data'));
+  if (data) {
+    SetGetdataFromLS(data);
   }
+}, [receiveDateForbooking]);
+
+const handleCancleClick = (i)=>{
+  // setSeeEachRoom(false)
+  const deteleData = getdataFromLS.slice(0, getdataFromLS.length);
+  deteleData.splice(i, 1)
+  deteleData.splice( )
+  SetGetdataFromLS(deteleData)
+
+}
+// if(!seeEachRoom) return;
+  const bookedRoms = getdataFromLS.map((bookedRoom, i) =>(
+                                                                        <tr key={i} >
+                                                                        <th scope="row" >{i+1}</th>
+                                                                          <td>{bookedRoom.name}</td>
+                                                                          <td>{bookedRoom.email}</td>
+                                                                          <td  onClick ={()=>openPopUpBookings(i)} className="room-booked">{bookedRoom.room.name}</td>
+                                                                          <td>{bookedRoom.date}</td>
+                                                                          <td>{bookedRoom.time}</td>
+                                                                          <td  onClick={()=>handleCancleClick(i)} className="text-center" >
+                                                                              <i className="text-danger cancleBtn  bi  bi-x-octagon-fill"  id="1" ></i>
+                                                                           </td>
+                                                                      </tr>
+                                                                      ))
+  const popUpRoomData = getdataFromLS.map((bookedRoom, i) =>(
+    <div className="position-fixed book-room-popup" key={i}>
+      <h1 className="text-end  w-100"><i className="text-warning bi closePopopBookings bi-x-octagon-fill" onClick={closeBookingPopUp}></i></h1>
+      <div className="row box-booked-room-info ">
+        <div className="col border bg-white">
+          <p className="text-primary text-center fw-bold p-2">Your details</p>
+          <div className="p-2">
+            <div><strong className="me-2 pb-1">Name:</strong><span>{bookedRoom.name}</span></div>
+            <div><strong className="me-2 pb-1">Email:</strong><span>{bookedRoom.email}</span></div>
+            <div><strong className="me-2 pb-1">Phone:</strong><span>{bookedRoom.phone}</span></div>
+          </div>
+        </div>
+        <div className="col border bg-white">
+          <p className="text-primary text-center fw-bold p-2">Room details</p>
+          <div className="p-2">
+            <div><strong className="me-2 pb-1">Room:</strong><span>{bookedRoom.room.name}</span></div>
+            <div><strong className="me-2 pb-1">Location:</strong><span>{bookedRoom.room.location}</span></div>
+            <div><strong className="me-2 pb-1">Seats:</strong><span>{bookedRoom.room.seats}</span></div>
+            <div><strong className="me-2 pb-1">Date of use: </strong><span>{bookedRoom.date}</span></div>
+            <div><strong className="me-2 pb-1">Time of use: </strong><span>{bookedRoom.time}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  ));
   return (
         <div className="bg-light container-fluid bookings row bg-white">
           <h1 className="my-5 lead text-primary fw-bold text-center py-2">Your Bookings are listed here</h1>
           <div className="col-12">
+          {getdataFromLS.length === 0? <p className=" mt-5 text-center text-danger fw-bold">
+                      No booked rooms! Go to rooms tab to book yours now!</p>: 
             <table className="table">
               <thead className="thead-light bg-light fw-bold">
                 <tr>
@@ -33,37 +94,11 @@ const Bookings = () => {
                 </tr>
               </thead>
               <tbody>
-                <tr data-key={1} className={cancelOrder} postId="1">
-                  <th scope="row">1</th>
-                  <td>John Doe</td>
-                  <td>Johndoe@gmail.com</td>
-                  <td>Muhazi Conferrence hall</td>
-                  <td>{bookedDate}</td>
-                  <td>8h00 AM - 2h00 PM </td>
-                  <td><i className="b text-danger cancleBtn bi-x-circle"  id="1" onClick={handleCancleClick}></i> </td>
-                </tr>
-                {/* codes down are to be deleted as we will use maping of the object data from those who booked*/}
-                <tr data-key={2} className={cancelOrder} postId="2">
-                  <th scope="row">2</th>
-                  <td>John Doe</td>
-                  <td>Johndoe@gmail.com</td>
-                  <td>Muhabura hall</td>
-                  <td>{bookedDate}</td>
-                  <td>2h00 PM - 16h00 PM </td>
-                  <td><i className="b text-danger cancleBtn bi-x-circle"  id="2" onClick={handleCancleClick}></i> </td>
-                </tr>
-                <tr data-key={3} className={cancelOrder} postId="3">
-                  <th scope="row">3</th>
-                  <td>John Doe</td>
-                  <td>Johndoe@gmail.com</td>
-                  <td>Ikaze Room-A</td>
-                  <td>{bookedDate}</td>
-                  <td>17h00 AM - 20h00 PM </td>
-                  <td><i className="b text-danger cancleBtn bi-x-circle" id="3" onClick={ handleCancleClick}></i> </td>
-                </tr>
-                {/* upto here ---------- */}
+                {bookedRoms}
               </tbody>
             </table>
+                    }
+            {seePopUp && popUpRoomData}
           </div>
         </div> 
    )

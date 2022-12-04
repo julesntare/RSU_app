@@ -1,15 +1,28 @@
-import React from "react";
+import React, {useRef} from "react";
 import "./BookingForm.scss";
 import Footer from "../Footer/Footer";
 import {Link} from "react-router-dom" ;
 import Logo from "../../assets/logo/urLogo.png";
 
 
-export default function BookingForm({getClickedRoomForBooking}){
-    console.log(getClickedRoomForBooking); //all chosen rooms for booking are listed here!
+export default function BookingForm({getClickedRoomForBooking, saveData}){
+    // console.log(getClickedRoomForBooking); //all chosen rooms for booking are listed here!
+    const nameRef = useRef()
+    const emailRef = useRef()
+    const phoneRef = useRef()
+    const dateRef = useRef()
+    const timeRangeRef = useRef()
     const HandleBookings = (e)=>{
         e.preventDefault()
-        console.log("submitted");
+        const info = {
+            name: nameRef.current.value,
+            email: emailRef.current.value,
+            phone: phoneRef.current.value,
+            date: dateRef.current.value,
+            time: timeRangeRef.current.value,
+            room: getClickedRoomForBooking
+        }
+        saveData(info);
     }
 
     return (
@@ -72,23 +85,23 @@ export default function BookingForm({getClickedRoomForBooking}){
                         <form className="p-3" onSubmit={HandleBookings}>
                         <div className="form-group">
                                 <label htmlFor="name">Your names</label>
-                                <input type="text" className="form-control" id="name" aria-describedby="nameHelp" placeholder="eg: John Doe"  required />
+                                <input type="text" className="form-control" id="name" aria-describedby="nameHelp" placeholder="eg: John Doe"  required ref={nameRef} />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="email">Email address</label>
-                                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required />
+                                <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required ref={emailRef} />
                             </div>
                             <div className="form-group">
                                 <label htmlFor="phone"> Phone number:</label>
-                                <input type="tel" class="form-control" id="phone" name="phone" placeholder="eg: +250 -- -- -- ---"  required />
+                                <input type="tel" className="form-control" id="phone" name="phone" placeholder="eg: +250 -- -- -- ---"  required ref={phoneRef} />
                             </div>
                             <div className="form-group">
-                                <label htmlFor="time"> Date</label>
+                                <label htmlFor="date">Date</label>
                                 <div className="d-flex date-box">
-                                    <input type="date" class="form-control me-2" id="time" name="time" required />
-                                    <select type="tel" class="form-select" aria-label="Default select" id="timeRange" name="timeRange" required >
-                                        <option selected disabled>Select a time Range </option>
-                                        <option>8:00 AM - 11:00 PM</option>
+                                    <input type="date" className="form-control me-2" id="date" name="date" required ref={dateRef}  />
+                                    <label htmlFor="timeRange" defaultValue="Select a time Range"></label>
+                                    <select type="tel" className="form-select" aria-label="Default select" id="timeRange" name="timeRange" ref={timeRangeRef} >
+                                        <option>08:00 AM - 11:00 PM</option>
                                         <option>11:00 AM - 14:00 PM</option>
                                         <option>14:00 AM - 17:00 PM</option>
                                     </select>
@@ -96,7 +109,7 @@ export default function BookingForm({getClickedRoomForBooking}){
                             </div>
                             <div className="form-check">
                                 <input type="checkbox" className="form-check-input" id="check" />
-                                <label clasNames="form-check-label " htmlFor="check" required>
+                                <label className="form-check-label " htmlFor="check" required>
                                     <small>By Submitting your information, means you agree to the <strong>Terms and Conditions</strong></small>
                                 </label>
                             </div>
@@ -104,7 +117,6 @@ export default function BookingForm({getClickedRoomForBooking}){
                         </form>
                     </div>
                 </div>
-
             </div>
             <div className="container-fluid mt-5">
                 <Footer />

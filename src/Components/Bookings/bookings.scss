@@ -5,6 +5,12 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    .room-booked{
+        cursor: pointer;
+        &:hover{
+            background: rgba(0, 0, 255, 0.126) !important;
+        }
+    }
     .cancel{
         display: none;
     }
@@ -13,6 +19,24 @@
         color: red !important;
         &:hover{
             font-weight: bold !important;
+        }
+    }
+    .book-room-popup{
+        inset: 10vh 0 0 0;
+        background: rgba(0, 0, 0, 0.566) !important;
+        padding: 5rem 10rem 10rem 10rem;
+        .closePopopBookings{
+            cursor: pointer;
+            transition: all .5s ease-out;
+            &:hover{
+                color: red !important;
+            }
+        }
+        .box-booked-room-info{
+            border-radius:  20px;
+            .col{
+            border-radius:  20px;
+            }
         }
     }
 

@@ -35,15 +35,11 @@ const AllRooms = ({setGetClickedRoomForBooking}) => {
                               </p>
                           </div>
                           <div className="status-btns d-flex justify-content-center aligh-items-center p-2">
-                            {i%2===0?<button className="text-danger danger-btn fw-bold btn  btn-sm btn-light">Occupied <i className="bi bi-exclamation-circle"></i></button>: 
+                            {i%2===0?<button className="text-danger danger-btn fw-bold btn w-100 btn-sm btn-light">Occupied <i className="bi bi-exclamation-circle"></i></button>: 
                             <div to="/bookingform" className="nav-link d-flex flex-column w-100">
                               <button className="text-success free-btn btn fw-bold mb-2 btn-sm">Free</button>
                               <Link to="/bookingform" className="text-Success w-100 booking-btn fw-bold btn btn-sm text-success" onClick={(e)=>e.target? hideNav(room) : null}>Request a Room</Link>
                             </div>
-                          //   <a href="#" className="nav-link d-flex flex-column w-100">
-                          //   <button className="text-success free-btn btn fw-bold mb-2 btn-sm">Free</button>
-                          //   <button className="text-Success booking-btn fw-bold btn  btn-sm text-success">Book a Room</button>
-                          // </a>
                           } 
                           </div>
                       </div>

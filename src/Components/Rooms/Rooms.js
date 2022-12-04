@@ -6,7 +6,6 @@ import {Link} from "react-router-dom" ;
 export default function Rooms ({clickedHouseData, closeRoomsTab, allowRoomsRerender, setShowNav, setGetClickedRoomForBooking}){
     const roomsObj = clickedHouseData.rooms;
     const PopBookingForm = (room)=>{
-        // setShowNav(false);
         setGetClickedRoomForBooking(room); //now we can get a room chosen for booking
     }
     const closeMap = () =>{
@@ -52,7 +51,7 @@ export default function Rooms ({clickedHouseData, closeRoomsTab, allowRoomsReren
                                                         </div>
                                                         <div className="status-btns d-flex justify-content-center aligh-items-center p-2">
                                                             {/* Allowed rooms to be booked, are those which will be free from the time table  */}
-                                                        {i%2===0?<button className="text-danger danger-btn fw-bold btn  btn-sm btn-light">Occupied <i className="bi bi-exclamation-circle"></i></button>: 
+                                                        {i%2===0?<button className="text-danger danger-btn fw-bold btn w-100 btn-sm btn-light">Occupied <i className="bi bi-exclamation-circle"></i></button>: 
                                                         <div to="/bookingform" className="nav-link d-flex flex-column w-100">
                                                             <button className="text-success free-btn btn fw-bold mb-2 btn-sm">Free</button>
                                                             <Link to="/bookingform" className="text-Success w-100 booking-btn fw-bold btn btn-sm text-success" onClick={(e)=>e.target?PopBookingForm(room) : null}>Request a Room</Link>

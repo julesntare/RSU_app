@@ -13,17 +13,22 @@ import Login from "./Components/Login/Login";
 import { Routes, Route } from "react-router-dom";
 import BookingForm from './Components/BookingForm/BookingForm';
 
-
 function App() {
   useEffect(() => {
     document.body.classList.add('body-animation'); 
   }, []);
   const [getClickedRoomForBooking, setGetClickedRoomForBooking] = useState({});
+  //const getClickedRoomForBooking = (bookedRoom)=>{}
   const [getClickedBuilding, setGetClickedBuilding] = useState({})
   const [showRooms, setShowRooms] = useState(true);
-  // const  [hideFilterOnHomePage, setHideFilterOnHomePage] =useState(true)
-
-
+  //save data of a person who booked a room 
+  const [sendDateForbooking, setSendDateForbooking] = useState([]);
+  const onSave = (data) =>{
+    if(!sendDateForbooking) return;
+    const newData = sendDateForbooking.slice(0, sendDateForbooking.length);
+    newData.push(data)
+    setSendDateForbooking(newData);
+  }
   return (
     <div className="app container-fluid bg-white ">
       <div className=' bg-danger container-fluid bg-white position-relative alinks'>
@@ -48,7 +53,7 @@ function App() {
             <Route path='/timetable'  element={<Timetable />}/>
           </Routes>
           <Routes>
-            <Route path='/bookings'  element = {<Bookings />}/>
+            <Route path='/bookings'  element = {<Bookings receiveDateForbooking= {sendDateForbooking} />}/>
           </Routes>
           <Routes>
             <Route path='/maps'  element = {<Map />}/>
@@ -66,7 +71,13 @@ function App() {
           setGetClickedRoomForBooking = {setGetClickedRoomForBooking}
         />
         <Routes>
-          <Route  path="/bookingform" element={<BookingForm getClickedRoomForBooking = {getClickedRoomForBooking} />} />
+          <Route  path="/bookingform"
+             element={
+             <BookingForm 
+                  getClickedRoomForBooking = {getClickedRoomForBooking}
+                  saveData = {onSave}
+               />} 
+          />
         </Routes>
         <Footer />
       </div>

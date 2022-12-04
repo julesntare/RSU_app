@@ -14,9 +14,6 @@
     overflow-y: auto;
     .alinks{
         background: $bg-body cover;
-        ::-webkit-scrollbar{
-            width: auto !important;
-        }
     }
 }
 

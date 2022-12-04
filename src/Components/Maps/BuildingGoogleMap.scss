@@ -38,11 +38,12 @@
         border-left: none !important;
         .box{
             display: flex;
-            height: 65vh;
+            min-height: 50vh;
             flex-direction: column;
             .list-group-item{
                 flex: 1 1 10%;
                 color: blue;
+                cursor: pointer;
                 font-weight: bold;
                 transition: all .5s ease-in-out;
                 &:hover{
