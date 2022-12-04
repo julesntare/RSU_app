@@ -34,7 +34,7 @@ const handleSubmit = (data) =>{
             <form className="d-flex align-items-center form " role="filter" onSubmit={handleSubmit}>
               <div className=" d-flex input-box  px-1 me-2 h-100 justify-content-start w-100 align-items-center">
                 <label className="d-flex flex-column me-lg-2" htmlFor="roomName" defaultValue={"Room name"}>
-                    <small >Room name</small>
+                    <small className="w-100 text-start ps-2 fw-bold" >Room name</small>
                   <select   id="roomName" ref={roomNameRef}  className="form-select box-filter text-dark form-select-sm p-1 me-2"  aria-label=".form-select-lg example">
                       { roomNames }
                   </select>
