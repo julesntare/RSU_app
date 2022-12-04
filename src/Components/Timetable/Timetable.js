@@ -4,6 +4,9 @@ import Accordion from 'react-bootstrap/Accordion';
 import Classes from "../../assets/APIs/classes.json";
 
 const Timetable = () => {
+
+  const weekRef = useRef()
+
   const filterWeeks = (e)=>{
     e.preventDefault();
   }
@@ -14,8 +17,6 @@ const Timetable = () => {
   const handleClassSubmit = (e)=>{
     e.preventDefault();
   }
-  const weekRef = useRef()
-
   //lest side sidenav bar
   const levels = Classes.map((level, i)=>(
         <Accordion key={i}>
@@ -31,15 +32,12 @@ const Timetable = () => {
           </Accordion.Item>
         </Accordion>
   ))
-
-// right side calender display
-// const 
-
+  
 return (
       <div className='bg-white container-fluid mt-3 row h-100'>
         <div className="col-12 col-lg-3 bg-light sidenav-box box py-2">
           <form onSubmit={handleClassSubmit} className="mb-3">
-              <label htmlFor="classroom" className=" text-primary fw-bold"><small>Search your Class </small></label>
+              <label htmlFor="classroom" className=" text-primary fw-bold ms-3"><small>Search your Class </small></label>
               <input  onChange={classRoomChange} id="classroom" name="classroom" value={classRoomSearch} className="form-control ps-3 class-search-input" />
             </form>
                 {levels}

@@ -23,16 +23,16 @@
         border-radius: 15px;
     }
     input {
-        border: $border-primary;
+        border: 1px solid rgba(0, 0, 0, 0.393);
         background-color: $bg-body;
         text-align: center;
         padding: .5em;
         font-size: 0.75em;
-        border-radius: 20px;
+        border-radius: 10px;
         color:  $bg-hover-primary;
         font-size: 1rem;
         &:focus {
-            outline-color: rgb(32, 177, 255);
+            outline-color: rgba(184, 184, 184, 0.73);
             font-weight: bold;
          }
     }

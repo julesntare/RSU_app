@@ -1,15 +1,14 @@
 import React, { useState, useRef} from "react";
 import "./Login.scss"
 import Logo from "../../assets/logo/urLogo.png";
-// import {Link, Routes, Route } from "react-router-dom";
 import Register from "../Register/Register";
 
 
 const LoginForm = () => {
   const refName = useRef();
   const refPassword = useRef();
-   const [popupStyle, showPopup] = useState("hide");
-   const [rememberPassword, setRememberPassword]= useState(false);
+  const [popupStyle, showPopup] = useState("hide");
+  const [rememberPassword, setRememberPassword]= useState(false);
 
     const popup = () => {
         showPopup("login-popup")
@@ -39,10 +38,10 @@ const LoginForm = () => {
               />
               RSU
             </h1>
-            <p className="fw-bold d-flex mb-4 text-primary justify-content-center"><small className="me-2"> Sign in with  </small><strong>College of Science and Technology</strong> </p>
+            <p className="fw-bold d-flex mb-4  mt-3 text-primary justify-content-center"><small className="me-2"> Sign in with  </small><strong>College of Science and Technology</strong> </p>
             <div className="cover px-5 border">
               <h3 className="text-primary fw-bold my-2"></h3>
-              <form className="d-flex align-items-center container form-login p-4 flex-column border" onSubmit={SubmitLoginData}>
+              <form className="d-flex align-items-center container  p-4 flex-column " onSubmit={SubmitLoginData}>
                   <input type="text" placeholder="Username"  className="my-2 w-100  "  ref={refName} />
                   <input type="password" placeholder="Password" className="my-2 w-100 " ref={refPassword} />
                   <button className="btn w-100 my-2 login-btn">Login</button>

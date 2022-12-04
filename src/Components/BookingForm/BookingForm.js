@@ -4,7 +4,6 @@ import Footer from "../Footer/Footer";
 import {Link} from "react-router-dom" ;
 import Logo from "../../assets/logo/urLogo.png";
 
-
 export default function BookingForm({getClickedRoomForBooking, saveData}){
     // console.log(getClickedRoomForBooking); //all chosen rooms for booking are listed here!
     const nameRef = useRef()
@@ -24,7 +23,6 @@ export default function BookingForm({getClickedRoomForBooking, saveData}){
         }
         saveData(info);
     }
-
     return (
         <div className="container-fluid bg-white booking-form">
             <div className="container-fluid bg-light mb-3">

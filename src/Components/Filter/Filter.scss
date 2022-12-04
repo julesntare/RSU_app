@@ -18,7 +18,6 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
-    
         .filter-text{
             text-align: start;
             flex:  0 0 10%;
@@ -31,17 +30,44 @@
     .form{
         border-radius: 15px;
         flex: 1 1 80%;
+      
     .input-box {
         width: 90%;
         border-radius: 15px;
+        label{
+            flex: 1 1 10%;
+            // .room-name{
+
+            // }
+        .autoSearch{
+            border: 1px solid transparent;
+            border-radius: 15px;
+            box-shadow: none;
+            padding: 0;
+            height: 1.5rem;
+            width: 8rem;
+            padding-left: .5rem;
+                &:focus{
+                    background: white;
+                    box-shadow: none !important;
+                    color: blue !important;
+                    font-weight: bold;
+                    border: 1px solid rgb(153, 153, 153);
+                }
+            }
+            .box-filter{
+                border-radius: 1.5rem;
+                border: $border-secondary;
+                padding-left: 1rem !important;
+                &:focus{
+                    box-shadow: none !important;
+                    border: 1px solid rgb(153, 153, 153);
+
+                }
+            }
+        }
     }
 }
-    .box-filter{
-        border-radius: 1.5rem;
-        border: $border-primary;
-        padding-left: 2vw;
-        
-    }
 }
 .btn-p{
     background: linear-gradient(45deg, $bg-hover-primary rgb(71, 137, 175), rgb(142, 4, 255) ) !important;

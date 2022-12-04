@@ -1,6 +1,5 @@
 import React , {useRef, useState} from "react";
 import "./Enquiry.scss";
-// import { Form } from "react-bootstrap"; 
 
 const Enquiry = () => {
   const namesRef = useRef();
