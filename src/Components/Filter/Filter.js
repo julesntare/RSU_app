@@ -10,9 +10,7 @@ export default function Filter(){
     const dateRef = useRef();
     const hoursRangeRef = useRef();
 
-    const handleFilterNames = (name)=>{
-      setSearchRoom(name)
-    }
+ 
   window.onscroll = ()=> myFunction();
   const [sticky, setSticky] = useState("navbar container filter  d-flex  p-1 mt-5 w-100")
 
@@ -28,21 +26,7 @@ const handleSubmit = (data) =>{
     data.preventDefault();
     console.log(data);
   }
-   let roomNames;
-   let roomBySearch;
-  const defaultRooms = [];
-  BuildingsList.map((building)=>defaultRooms.push(building.rooms))
-  if(!searchRoom){
-    roomNames =defaultRooms.map((room, i )=>room.map(name=>(
-        <option  key={i}>{name.name}</option>
-      )))
-  }else if(searchRoom){
-    roomBySearch =defaultRooms.map((room, i )=>room.filter((roomName)=>{
-      return roomName.name.toLowerCase().includes(searchRoom.toLocaleLowerCase());
-    })).map((room)=>room.map((name, i)=>( 
-      <option  key={i}>{name.name}</option> 
-    )))
-  }
+  const roomNames = BuildingsList.map((building)=>building.rooms.map((room, i )=>(<option  key={i}>{room.name}</option>)))
 
      return(
         <nav className={sticky}>
@@ -50,12 +34,9 @@ const handleSubmit = (data) =>{
             <form className="d-flex align-items-center form " role="filter" onSubmit={handleSubmit}>
               <div className=" d-flex input-box  px-1 me-2 h-100 justify-content-start w-100 align-items-center">
                 <label className="d-flex flex-column me-lg-2" htmlFor="roomName" defaultValue={"Room name"}>
-                  <div className="w-100 text-start d-flex flex-column room-name justify-content-between flex-lg-row ps-2 fw-bold">
                     <small >Room name</small>
-                    <input onChange={(e)=>handleFilterNames(e.target.value)} className="bg-light form-control form-select-sm mx-1 autoSearch"  placeholder="Search a room"/>
-                  </div>
                   <select   id="roomName" ref={roomNameRef}  className="form-select box-filter text-dark form-select-sm p-1 me-2"  aria-label=".form-select-lg example">
-                      {!searchRoom? roomNames : roomBySearch}
+                      { roomNames }
                   </select>
                 </label>
                 <label className="d-flex flex-column me-lg-2" htmlFor="roomCapacity" defaultValue={"Room capacity"}>
