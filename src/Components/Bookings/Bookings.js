@@ -4,13 +4,13 @@ import "./bookings.scss";
 const Bookings = ({receiveDateForbooking }) => {
 
  const [getdataFromLS, SetGetdataFromLS] = useState([]);
- const [seePopUp, setseePopUp] = useState(false);
+ const [seePopUp, setseePopUp] = useState();
 
 const closeBookingPopUp= ()=>{
   setseePopUp(false);
 }
 const openPopUpBookings = (i)=>{
-  setseePopUp(true);
+  setseePopUp(i);
   console.log(i)
 }
 useEffect(() => {
@@ -32,19 +32,20 @@ const handleCancleClick = (i)=>{
 
 }
   const bookedRoms = getdataFromLS.map((bookedRoom, i) =>(
-                                                                        <tr key={i} >
-                                                                        <th scope="row" >{i+1}</th>
-                                                                          <td>{bookedRoom.name}</td>
-                                                                          <td>{bookedRoom.email}</td>
-                                                                          <td  onClick ={()=>openPopUpBookings(i)} className="room-booked">{bookedRoom.room.name}</td>
-                                                                          <td>{bookedRoom.date}</td>
-                                                                          <td>{bookedRoom.time}</td>
+                                                                        <tr key={i} className="room-booked">
+                                                                          <th scope="row" >{i+1}</th>
+                                                                          <td  onClick ={()=>openPopUpBookings(i)} >{bookedRoom.name}</td>
+                                                                          <td  onClick ={()=>openPopUpBookings(i)} >{bookedRoom.email}</td>
+                                                                          <td  onClick ={()=>openPopUpBookings(i)} >{bookedRoom.room.name}</td>
+                                                                          <td  onClick ={()=>openPopUpBookings(i)} >{bookedRoom.date}</td>
+                                                                          <td  onClick ={()=>openPopUpBookings(i)} >{bookedRoom.time}</td>
                                                                           <td  onClick={()=>handleCancleClick(i)} className="text-center" >
                                                                               <i className="text-danger cancleBtn  bi  bi-x-octagon-fill"  id="1" ></i>
                                                                            </td>
                                                                       </tr>
                                                                       ))
-  const popUpRoomData = getdataFromLS.map((bookedRoom, i) =>(
+  const popUpRoomData = getdataFromLS.map((bookedRoom, i) =>{
+    if(seePopUp === i)return(
     <div className="position-fixed book-room-popup" key={i}>
       <h1 className="text-end  w-100"><i className="text-warning bi closePopopBookings bi-x-octagon-fill" onClick={closeBookingPopUp}></i></h1>
       <div className="row box-booked-room-info ">
@@ -68,7 +69,9 @@ const handleCancleClick = (i)=>{
         </div>
       </div>
     </div>
-  ));
+    )
+  }
+  );
   return (
         <div className="bg-light container-fluid bookings row bg-white">
           <h1 className="my-5 lead text-primary fw-bold text-center py-2">Your Bookings are listed here</h1>
@@ -92,7 +95,7 @@ const handleCancleClick = (i)=>{
               </tbody>
             </table>
                     }
-            {seePopUp && popUpRoomData}
+            {popUpRoomData}
           </div>
         </div> 
    )

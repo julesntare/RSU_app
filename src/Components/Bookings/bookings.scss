@@ -6,9 +6,18 @@
     justify-content: flex-start;
     align-items: flex-start;
     .room-booked{
-        cursor: pointer;
-        &:hover{
-            background: rgba(0, 0, 255, 0.126) !important;
+        td{
+
+            cursor: pointer;
+            &:hover{
+                background: rgba(0, 0, 255, 0.126) !important;
+            }
+        }
+        td.text-center{
+            &:hover{
+                background: rgba(255, 0, 0, 0.126) !important;
+            }
+
         }
     }
     .cancel{
