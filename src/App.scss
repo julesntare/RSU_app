@@ -1,19 +1,40 @@
 @import "~bootstrap/scss/bootstrap";
 @import "../public/scss/bg";
 
-.body-animation{
-    font-family: "Poppins"  sans-serif !important;
-    scroll-behavior: smooth;
-    height: fit-content;
-}
-.app {
-    position: relative;
-    inset: 0;
-    font-family: "Poppins"  sans-serif !important;
-    background:  transparent;
-    overflow-y: auto;
-    .alinks{
-        background: $bg-body cover;
-    }
+.body-animation {
+  font-family: "Poppins" sans-serif !important;
+  scroll-behavior: smooth;
+  height: fit-content;
 }
 
+.app {
+  position: relative;
+  inset: 0;
+  font-family: "Poppins" sans-serif !important;
+  background: transparent;
+  overflow-y: auto;
+  .alinks {
+    background: $bg-body cover;
+  }
+}
+
+.arrow {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9;
+  a {
+    height: 39px;
+    width: 37px;
+    text-align: center;
+    background: $bg-gradient-primary-to-secondary;
+    display: block;
+    border-radius: 3px;
+    span {
+      color: #f2f2f2;
+      font-size: 25px;
+      line-height: 39px;
+      cursor: pointer;
+    }
+  }
+}

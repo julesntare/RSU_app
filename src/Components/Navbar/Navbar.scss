@@ -1,55 +1,62 @@
 @import "../../../public/scss/bg";
 @import "../../../public/scss/borders";
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 
+.nav-web {
+  font-family: "Quicksand", sans-serif;
+  color: $bg-body;
+  position: relative;
+  height: max-content;
+  border-bottom-right-radius: 1vw;
+  border-bottom-left-radius: 1vw;
+  background: $bg-body;
+  transition: all 0.5s ease;
+  box-shadow: rgba(50, 50, 93, 0.23) 0px 5px 5px -5px;
 
-.nav-web{
-    color: $bg-body;
-    position: relative;
-    height: max-content;
-    border-bottom-right-radius: 1vw;
-    border-bottom-left-radius: 1vw;
-    background: $bg-body;
-    transition: all .5s ease;
-    box-shadow: rgba(50, 50, 93, 0.23) 0px 5px 5px -5px;
-
-    .active{
-        color: blue !important;
-        font-weight: bolder;
-        &:hover{
-            color: blue !important;
-        }
+  .active {
+    color: blue !important;
+    font-weight: bolder;
+    &:hover {
+      color: blue !important;
     }
-    .navbar-toggler{
-        color: $bg-hover-primary;
-        cursor: pointer;
-        &:hover{
-            color: $bg-body;
-        }
+  }
+  .navbar-toggler {
+    color: $bg-hover-primary;
+    cursor: pointer;
+    &:hover {
+      color: $bg-body;
     }
-    .navbar-nav{
-        flex-wrap: wrap;
-        .nav-link{
-            cursor: pointer;
-            font-size: 1.1rem;
-            &:hover{
-                color: blue !important;
-                font-weight: bold;
-            }
-        }
-        .btn-login{
-            background: $bg-hover-primary;
-            border-radius: .5rem;
-            display: flex;
-            font-weight: bold;
-            justify-content: center;
-            transition: all .5s ease-in-out;
-            align-items: center;
-            border: none;
-            &:hover{
-                border: $border-primary;
-                background: $bg-body;
-            }
-        }
+  }
+  .navbar-nav {
+    flex-wrap: wrap;
+    .nav-link {
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      &:hover {
+        color: $bg-hover-primary !important;
+        font-weight: bold;
+      }
     }
-    
+    .btn-login {
+      background: $bg-gradient-primary-to-secondary;
+      border-radius: 0.3rem;
+      display: flex;
+      font-weight: bold;
+      justify-content: center;
+      transition: all 0.5s ease-in-out;
+      align-items: center;
+      border: none;
+      padding: 0px 20px;
+      &:hover {
+        background: $bg-gradient-primary-to-secondary;
+      }
+    }
+    .btn-login .nav-link {
+      color: $color-white;
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
 }

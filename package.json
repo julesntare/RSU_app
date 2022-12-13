@@ -20,10 +20,10 @@
     "react-bootstrap-sidebar-menu": "^2.0.3",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "sass": "^1.56.1",
     "web-vitals": "^2.1.4",
-    "webpack-config": "^7.5.0"
+    "webpack-config": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",

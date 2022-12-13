@@ -1,38 +1,26 @@
 @import "../../../public/scss/bg";
 @import "../../../public/scss/borders";
 
-.footer{
-    background: $bg-hover-secondary;
-    position: inherit;
-    z-index: 100; 
-    pointer-events: none;
-    border-top-right-radius: 1vw;
-    border-top-left-radius: 1vw;
-    transition: all .5s ease-in-out;
-    opacity: 1 !important;
-    height: fit-content;
-    color: $color-primary;
-    .copy-right{
-            opacity: .5;
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            background: transparent ; 
-            color: blue;
-            font-weight: bold;
-            p{
-                display: flex;
-                align-items: center;
-            }
-
+.footer {
+  background: $bg-body;
+  position: inherit;
+  pointer-events: none;
+  border-top: 1px solid $color-secondary;
+  transition: all 0.5s ease-in-out;
+  opacity: 1 !important;
+  height: fit-content;
+  color: $color-primary;
+  .copy-right {
+    opacity: 0.5;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background: transparent;
+    color: $color-black;
+    font-weight: bold;
+    p {
+      display: flex;
+      align-items: center;
     }
-    a{
-        text-decoration: none;
-        opacity: .5;
-        &:hover{
-            color:  $color-primary !important ;
-        }
-    } 
-  
-
+  }
 }
