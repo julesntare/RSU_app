@@ -10,14 +10,26 @@ import Bookings from "./Components/Bookings/Bookings";
 import Map from "./Components/Maps/Map";
 import Enquiry from "./Components/Enquiry/Enquiry";
 import Login from "./Components/Login/Login";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BookingForm from "./Components/BookingForm/BookingForm";
 import Landing from "./Components/Landing/Landing";
+import CalComp from "./Components/googleCal/CalComp";
+import Scroll from "./Components/Scroll";
+import Scrollbar from "smooth-scrollbar";
 
 function App() {
-  useEffect(() => {
-    document.body.classList.add("body-animation");
-  }, []);
+  // The back-to-top button is hidden at the beginning
+  const [showButton, setShowButton] = useState(false);
+
+  // This function will scroll the window to the top
+  const scrollToTop = () => {
+    // set smooth smooth-scrollbar to top
+    Scrollbar.get(document.body).scrollTop = 0;
+
+    // hide the button
+    setShowButton(false);
+  };
+
   const [getClickedRoomForBooking, setGetClickedRoomForBooking] = useState({});
   //const getClickedRoomForBooking = (bookedRoom)=>{}
   const [getClickedBuilding, setGetClickedBuilding] = useState({});
@@ -34,71 +46,77 @@ function App() {
     <div className="app container-fluid bg-white ">
       <div className=" bg-danger container-fluid bg-white position-relative alinks">
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route
-            path="/buildings"
-            element={
-              <Buildings
-                setGetClickedBuilding={setGetClickedBuilding} //get clicked building rooms
-                allowRoomsRerender={setShowRooms} //at nth click you will see rooms
-              />
-            }
+          <Routes>
+            <Route exact path="/" element={<Landing />} />
+            <Route
+              path="/buildings"
+              element={
+                <Buildings
+                  setGetClickedBuilding={setGetClickedBuilding} //get clicked building rooms
+                  allowRoomsRerender={setShowRooms} //at nth click you will see rooms
+                />
+              }
+            />
+          </Routes>
+          <Routes>
+            <Route
+              path="/allrooms"
+              element={
+                <AllRooms
+                  setGetClickedRoomForBooking={setGetClickedRoomForBooking}
+                />
+              }
+            />
+          </Routes>
+          <Routes>
+            <Route exact path="/timetable" element={<Timetable />} />
+          </Routes>
+          <Routes>
+            <Route
+              path="/bookings"
+              element={<Bookings receiveDateForbooking={sendDateForbooking} />}
+            />
+          </Routes>
+          <Routes>
+            <Route path="/maps" element={<Map />} />
+          </Routes>
+          <Routes>
+            <Route path="/enquiry" element={<Enquiry />} />
+          </Routes>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+          </Routes>
+          <Routes>
+            <Route path="/cal" element={<CalComp />} />
+          </Routes>
+          <Rooms
+            clickedHouseData={getClickedBuilding} //fetch data rooms clicked  building
+            allowRoomsRerender={showRooms} //give news if allowed to see rooms
+            closeRoomsTab={setShowRooms} // will turn false when you click on close btn and them rooms off
+            setGetClickedRoomForBooking={setGetClickedRoomForBooking}
           />
-        </Routes>
-        <Routes>
-          <Route
-            path="/allrooms"
-            element={
-              <AllRooms
-                setGetClickedRoomForBooking={setGetClickedRoomForBooking}
-              />
-            }
-          />
-        </Routes>
-        <Routes>
-          <Route path="/timetable" element={<Timetable />} />
-        </Routes>
-        <Routes>
-          <Route
-            path="/bookings"
-            element={<Bookings receiveDateForbooking={sendDateForbooking} />}
-          />
-        </Routes>
-        <Routes>
-          <Route path="/maps" element={<Map />} />
-        </Routes>
-        <Routes>
-          <Route path="/enquiry" element={<Enquiry />} />
-        </Routes>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-        </Routes>
-        <Rooms
-          clickedHouseData={getClickedBuilding} //fetch data rooms clicked  building
-          allowRoomsRerender={showRooms} //give news if allowed to see rooms
-          closeRoomsTab={setShowRooms} // will turn false when you click on close btn and them rooms off
-          setGetClickedRoomForBooking={setGetClickedRoomForBooking}
-        />
-        <Routes>
-          <Route
-            path="/bookingform"
-            element={
-              <BookingForm
-                getClickedRoomForBooking={getClickedRoomForBooking}
-                saveData={onSave}
-              />
-            }
-          />
-        </Routes>
-
-        <div className="arrow">
-          <a href="#" title="Back to Top">
-            <span className="fas fa-angle-up"></span>
-          </a>
-        </div>
+          <Routes>
+            <Route
+              path="/bookingform"
+              element={
+                <BookingForm
+                  getClickedRoomForBooking={getClickedRoomForBooking}
+                  saveData={onSave}
+                />
+              }
+            />
+          </Routes>
+        {showButton && (
+          <div onClick={scrollToTop} className="back-to-top">
+            <a title="Back to Top">
+              <span className="fas fa-angle-up"></span>
+            </a>
+          </div>
+        )}
         <Footer />
       </div>
+      {/* update state in child component */}
+      <Scroll setShowButton={setShowButton} showButton={showButton} />
     </div>
   );
 }

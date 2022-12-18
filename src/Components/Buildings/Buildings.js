@@ -37,7 +37,7 @@ export default function Buildings({
               key={item.id}
             >
               <img
-                className="card-img-top m-0"
+                className="card-img-top m-0 pb-3"
                 src={BuildingImg}
                 alt="Card image cap"
               ></img>
@@ -51,7 +51,7 @@ export default function Buildings({
                 )}
               </p>
               <div className="card-body p-2">
-                <div className="w-100 d-flex justify-content-evenly text-dark">
+                <div className="w-100 d-flex justify-content-evenly text-dark pb-3">
                   <span className=" d-flex  justify-content-center align-items-center me-2">
                     <i className="bi me-3 bi-buildings"></i>
                     {item.floor} Floors
@@ -64,13 +64,13 @@ export default function Buildings({
                 </div>
                 <div className="py-1 d-flex flex-column justify-content-center btn-box">
                   <button
-                    className=" d-flex justify-content-center bg-primary text-white fw-bold btn-sm align-items-center rounded-pill "
+                    className=" d-flex justify-content-center bg-primary text-white fw-bold btn-sm align-items-center rounded-pill py-2"
                     onClick={() => handleBuildingClick(item)}
                   >
                     <i className="bi fw-bold  bi-eye me-3"></i>Head to Rooms
                   </button>
                   <button
-                    className=" my-2  bg-primary d-flex justify-content-center  text-white fw-bold btn-sm align-items-center rounded-pill "
+                    className=" my-2  bg-primary d-flex justify-content-center  text-white fw-bold btn-sm align-items-center rounded-pill py-2"
                     id={i}
                     onClick={() => showBuildingLocation(item)}
                   >

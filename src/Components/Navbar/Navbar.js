@@ -89,7 +89,6 @@ export default function NavBar() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      {hideFilter && <Filter />}
     </>
   );
 }
