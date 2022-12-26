@@ -5,6 +5,9 @@
   "dependencies": {
     "@ant-design/icons": "^4.8.0",
     "@fontsource/poppins": "^4.5.10",
+    "@fullcalendar/daygrid": "^6.0.0",
+    "@fullcalendar/react": "^6.0.0",
+    "@fullcalendar/timegrid": "^6.0.0",
     "@googlemaps/react-wrapper": "^1.1.35",
     "@react-google-maps/api": "^2.17.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -33,7 +36,7 @@
     "sass": "^1.56.1",
     "smooth-scrollbar": "^8.8.1",
     "web-vitals": "^2.1.4",
-    "webpack-config": "^7.5.0"
+    "webpack-config": "^7.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
