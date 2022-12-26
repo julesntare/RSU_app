@@ -1,63 +1,94 @@
 @import "../../../public/scss/bg";
 @import "../../../public/scss/borders";
 
-.sticky{
-    position: fixed;
-    top: 0 !important;
-    z-index: 200;
-    transition: none !important;
-    border: none;
-    border-bottom: 1px solid rgba(0, 26, 255, 0.775);
-    box-shadow: 5px 5px rgba(198, 198, 198, 0.819);
-    background:  $bg-body;
-    width: 95vw !important;
+.sticky {
+  position: fixed;
+  top: 0 !important;
+  z-index: 200;
+  transition: none !important;
+  border: none;
+  border-bottom: 1px solid rgba(0, 26, 255, 0.775);
+  box-shadow: 5px 5px rgba(198, 198, 198, 0.819);
+  background: $bg-body;
+  width: 95vw !important;
 }
-.filter{
-    border-radius: 15px;
+.filter {
+  border: 0;
+  border-radius: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  .filter-text {
+    width: 100%;
+    text-align: start;
+    flex: 0 0 10%;
+    padding: 0.3rem;
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap;
-        .filter-text{
-            text-align: start;
-            flex:  0 0 10%;
-            padding: .3rem;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            color: $color-primary;
-        }
-    .form{
-        border-radius: 15px;
-        flex: 1 1 80%;
-      
-    .input-box {
-        width: 90%;
-        border-radius: 15px;
-        label{
-            flex: 1 1 10%;
-            .box-filter{
-                border-radius: 1.5rem;
-                border: $border-secondary;
-                padding-left: 1rem !important;
-                &:focus{
-                    box-shadow: none !important;
-                    border: 1px solid rgb(153, 153, 153);
+    color: gray;
+  }
+  .form {
+    border-radius: 15px;
+    flex: 1 1 100%;
 
-                }
-            }
+    .input-box {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      border-radius: 15px;
+      label {
+        flex: 1 1 10%;
+        .autoSearch {
+          border-radius: 15px;
+          box-shadow: none;
+          padding: 0;
+          height: 1.5rem;
+          width: 8rem;
+          padding-left: 0.5rem;
+          &:focus {
+            background: white;
+            box-shadow: none !important;
+            color: blue !important;
+            font-weight: bold;
+          }
+        }        
+        .box-filter {
+          border-radius: 0.4rem;
+          &:focus {
+            box-shadow: none !important;
+          }
         }
+      }
     }
+  }
 }
+        
+@media screen and (min-width: 768px) {
+  .input-box label {
+    width: 100%;
+    flex: 1 1 100%;
+  }
 }
-.btn-p{
-    background: linear-gradient(45deg, $bg-hover-primary rgb(71, 137, 175), rgb(142, 4, 255) ) !important;
-    border-radius:  15px;
-    transition: all .4s ease-in-out;
-    color: $color-primary;
-    border: $border-primary;
-    &:hover{
-    background: linear-gradient(45deg, $bg-hover-secondary, rgb(208, 202, 208), rgb(4, 252, 210) ) repeat-y ;
+
+.btn-p {
+  background: linear-gradient(
+    45deg,
+    $bg-hover-primary rgb(71, 137, 175),
+    rgb(142, 4, 255)
+  ) !important;
+  border-radius: 15px;
+  transition: all 0.4s ease-in-out;
+  color: $color-primary;
+  border: $border-primary;
+  &:hover {
+    background: linear-gradient(
+        45deg,
+        $bg-hover-secondary,
+        rgb(208, 202, 208),
+        rgb(4, 252, 210)
+      )
+      repeat-y;
     border: $border-secondary;
-    }
+  }
 }

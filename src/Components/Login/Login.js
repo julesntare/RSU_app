@@ -29,17 +29,10 @@ const LoginForm = () => {
     return (
         <div className="row d-flex login flex-column justify-content-start align-items-center">
           <div className="col-12 col-md-6 p-4">
-            <h1 className="text-primary w-100 fw-bold h2 text-center mb-2">
-              <img 
-              src={Logo} 
-              className="me-3"
-               width="50px"
-              height ="50px" 
-              />
-              RSU
-            </h1>
-            <p className="fw-bold d-flex mb-4  mt-3 text-primary justify-content-center"><small className="me-2"> Sign in with  </small><strong>College of Science and Technology</strong> </p>
             <div className="cover px-5 border">
+            <h1 className="text-dark w-100 fw-bold h2 text-center my-3">
+              RSU Authentication
+            </h1>
               <h3 className="text-primary fw-bold my-2"></h3>
               <form className="d-flex align-items-center container  p-4 flex-column " onSubmit={SubmitLoginData}>
                   <input type="text" placeholder="Username"  className="my-2 w-100  "  ref={refName} />

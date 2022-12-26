@@ -1,81 +1,131 @@
 @import "../../../public/scss/bg";
 @import "../../../public/scss/borders";
 
-
- #rooms-box {
-    flex: 1 1 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    background: white;
-    flex-wrap: wrap;
-    .room-card{
-        transition: all .5s ease-in-out;
-        box-shadow: 5px 5px rgb(138, 136, 136);
-        background: $bg-body;
-        cursor: pointer;
-        border-radius: 15px !important;
-        margin: .3rem;
-        height: 350px !important;
-        &:hover {
-                background: $bg-hover-secondary; 
-        }
-        .line{
-            width: 100%;
-            height: 5px;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-        }
-        .line-success{
-            background: green;
-
-        }
-        .card-body{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: flex-start;
-            .room-name{
-                flex-wrap: wrap;
-                flex-shrink: 1;
-                height: fit-content;
-            }
-        .status-btns{
-            border-top:  1px solid $bg-hover-secondary;
-            .danger-btn{
-                background: red;
-                cursor: auto;
-                color: white !important;
-               
-            }
-            .btn{
-                border-radius: 1rem;
-                transition: all .5s ease-in-out ;
-            }
-            div{
-                .free-btn{
-                    background: green;
-                    color: white !important;
-                    cursor: auto;
-                }
-                .booking-btn{
-                    border:  1px solid green;
-                    border-left: 5px solid green;
-                    border-right: 5px solid green;
-                    background: white;
-                    color: green !important;
-                    cursor: pointer;
-                    &:hover{
-                        background: green !important;
-                        color: white !important;
-                    }
-                }
-            }
-
-        }
-
-        }  
+#rooms-box {
+  flex: 1 1 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: white;
+  flex-wrap: wrap;
+  .room-card {
+    transition: all 0.5s ease-in-out;
+    box-shadow: 5px 5px rgb(138, 136, 136);
+    background: $bg-body;
+    cursor: pointer;
+    border-radius: 15px !important;
+    margin: 0.3rem;
+    min-height: 350px !important;
+    &:hover {
+      background: $bg-hover-secondary;
     }
-}
 
+    .time-line-box {
+      width: 100%;
+      .timeline {
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+      }
+
+      .timestamp {
+        margin: auto;
+        margin-bottom: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .status {
+        padding: 0px 10px;
+        display: flex;
+        justify-content: center;
+        border-top: 2px solid #455efc;
+        position: relative;
+        transition: all 200ms ease-in;
+        span {
+          padding-top: 8px;
+          &:before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            background-color: #455efc;
+            border-radius: 10px;
+            border: 2px solid #455efc;
+            position: absolute;
+            left: 0%;
+            top: 0%;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            transition: all 200ms ease-in;
+          }
+        }
+      }
+    }
+    .swiper-wrapper {
+      width: 100%;
+      display: inline-flex;
+      flex-direction: row;
+      overflow-x: hidden;
+    }
+    .swiper-slide {
+      font-size: 12px;
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .line {
+      width: 100%;
+      height: 5px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    .line-success {
+      background: green;
+    }
+    .card-body {
+      display: flex;
+      min-height: auto;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      .room-name {
+        flex-wrap: wrap;
+        flex-shrink: 1;
+        height: fit-content;
+      }
+      .status-btns {
+        border-top: 1px solid $bg-hover-secondary;
+        .danger-btn {
+          background: red;
+          cursor: auto;
+          color: white !important;
+        }
+        .btn {
+          border-radius: 1rem;
+          transition: all 0.5s ease-in-out;
+        }
+        div {
+          .free-btn {
+            background: green;
+            color: white !important;
+            cursor: auto;
+          }
+          .booking-btn {
+            background: $bg-hover-primary;
+            color: #fff !important;
+            cursor: pointer;
+            &:hover {
+              background: #fff !important;
+              color: $bg-hover-primary !important;
+              border: 1px solid $bg-hover-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

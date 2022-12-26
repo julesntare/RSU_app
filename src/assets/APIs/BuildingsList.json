@@ -4,6 +4,7 @@
     "name": "Muhabura",
     "other_names": "",
     "img_path":"",
+    "floor": 5,
     "numberOfRooms": 25,
     "location": {
       "lat": -1.962621,
@@ -192,6 +193,7 @@
     "name": "Ikaze",
     "other_names": "CMHS",
     "img_path":"",
+    "floor": 4,
     "numberOfRooms": 6,
     "location": {
       "lat": -1.95486,
@@ -247,6 +249,7 @@
     "name": "Muhazi",
     "other_names": "Lecture rooms",
     "img_path":"",
+    "floor": 1,
     "numberOfRooms": 5,
     "location": {
       "lat": -1.954861,
@@ -296,6 +299,7 @@
     "name": "Kalisimbi",
     "other_names": "KIST 4",
     "img_path":"",
+    "floor": 6,
     "numberOfRooms": 10,
     "location": {
       "lat": -1.958653,
@@ -379,6 +383,7 @@
     "name": "Sabyinyo",
     "other_names": "SABE",
     "img_path":"",
+    "floor": 2,
     "numberOfRooms": 19,
     "location": {
       "lat": -1.960752,
@@ -525,6 +530,7 @@
     "name": "Einstein",
     "other_names": "KIST 2",
     "img_path":"",
+    "floor": 4,
     "numberOfRooms": 4,
     "location": {
       "lat": -1.957974,
@@ -566,6 +572,7 @@
     "name": "Camp Kigali",
     "other_names": "",
     "img_path":"",
+    "floor": 2,
     "numberOfRooms": 7,
     "location": {
       "lat": -1.959634,
@@ -628,6 +635,7 @@
     "name": "Agaciro",
     "other_names": "KIST 1",
     "img_path":"",
+    "floor": 5,
     "numberOfRooms": 4,
     "location": {
       "lat": -1.957935,

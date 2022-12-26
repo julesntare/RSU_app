@@ -1,46 +1,39 @@
 @import "../../../public/scss/bg";
 @import "../../../public/scss/borders";
 
+#building-container {
+  position: relative;
+  z-index: 5;
+  opacity: 1 !important;
 
-#building-container{
-    position: relative;
-    z-index: 5;
-    opacity: 1 !important;
-
-   .buildings-box{
+  .buildings-box {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
-    
-        .building-card{
-            border-radius: 15px !important;
-            .card-img-top{
-                border-top-right-radius: 15px !important;
-                border-top-left-radius: 15px !important;
-            }
-            .card-name-title{
-                font-weight: bolder;
-                font-family: sans-serif;
-            }
-            .btn-box{
-                background:  transparent !important;
-                button{
-                    border:  none !important;
-                    transition: all .5s ease-in-out;
-                    &:hover{
-                        background: $bg-body !important;
-                        color:  $color-primary !important;
-                        border:  1px solid $color-primary;
-                        border-left: 5px solid $color-primary;
-                        border-right: 5px solid $color-primary;
-                    }
-                }
-            }
-            transition: all .5s ease-in-out;
-            &:hover{
-                background: $bg-hover-secondary !important;
-            }
-        }
-}
 
+    .building-card {
+      border-radius: 15px !important;
+      .card-img-top {
+        border-top-right-radius: 15px !important;
+        border-top-left-radius: 15px !important;
+      }
+      .card-name-title {
+        font-weight: bolder;
+        font-family: sans-serif;
+      }
+      .btn-box {
+        background: transparent !important;
+        button {
+          border: none;
+          transition: all 0.5s ease-in-out;
+          &:hover {
+            background: $bg-body !important;
+            color: $color-primary !important;
+            border: 1px solid $color-primary;
+          }
+        }
+      }
+      transition: all 0.5s ease-in-out;
+    }
+  }
 }
