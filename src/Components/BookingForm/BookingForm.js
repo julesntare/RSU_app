@@ -25,7 +25,7 @@ export default function BookingForm({ getClickedRoomForBooking, saveData }) {
             <div className="info">
               <h4 className="title-room text-center mb-3">Room info:</h4>
               <div className="mb-2">
-                <span className="me-2">Chosen Room:</span>
+                <span className="me-2">Room Name:</span>
                 <span className="fw-bold">
                   <small>{getClickedRoomForBooking.name}</small>
                 </span>

@@ -1,31 +1,11 @@
 import React, { useRef, useState } from "react";
 import "./Timetable.scss";
 import Accordion from "react-bootstrap/Accordion";
-import { google } from "googleapis";
 
 const Timetable = () => {
   const [calendars, setCalendars] = useState([]);
 
   const weekRef = useRef();
-
-  const getCalendars = async () => {
-    const auth = new google.auth.OAuth2();
-    auth.setCredentials({
-      client_id: process.env.REACT_APP_CALENDAR_CLIENT_ID,
-      client_secret: process.env.REACT_APP_CALENDAR_CLIENT_SECRET,
-      redirect_uri: "http://localhost:3000",
-    });
-    const calendar = google.calendar({ version: "v3", auth });
-    calendar.calendarList.list((err, res) => {
-      if (err) return console.error(err);
-      const calendars = res.data.items;
-      if (calendars.length) {
-        setCalendars(calendars);
-      } else {
-        console.log("No calendars found.");
-      }
-    });
-  };
 
   const filterWeeks = (e) => {
     e.preventDefault();
@@ -100,14 +80,7 @@ const Timetable = () => {
           </div>
         </div>
         <div>
-          <button onClick={getCalendars}>Get Calendars</button>
-          {calendars.length > 0 && (
-            <ul>
-              {calendars.map((calendar) => (
-                <li key={calendar.id}>{calendar.summary}</li>
-              ))}
-            </ul>
-          )}
+          
         </div>
       </div>
     </div>

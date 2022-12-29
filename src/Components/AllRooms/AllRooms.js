@@ -37,6 +37,18 @@ const AllRooms = ({ setGetClickedRoomForBooking }) => {
   };
   let second = 0;
 
+  // navigate to rooms when requestRooms clicked
+  const navigateToRooms = (e) => {
+    e.preventDefault();
+    // check if user is logged in an validate token
+    if (!localStorage.getItem("rsu_token")) {
+      localStorage.setItem("rsu_redirect", "/bookingform");
+      window.location.href = "/login";
+      return;
+    }
+    window.location.href = "/bookingform";
+  };
+
   // update timeline every second in useEffect
   useEffect(() => {
     return () => {
@@ -50,7 +62,7 @@ const AllRooms = ({ setGetClickedRoomForBooking }) => {
         // Will display time in 08:00 format
         var formattedTime = hours + ":" + minutes.substr(-2);
         // update status every 30 seconds
-        if (second % 1800 === 0) {
+        if (second % 2 === 0) {
           document.querySelector(".swiper-wrapper").innerHTML += `	
         <div class="swiper-slide">
         <div class="timestamp">
@@ -77,12 +89,6 @@ const AllRooms = ({ setGetClickedRoomForBooking }) => {
           <div class="swiper-container text-center">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
-                <div class="timestamp">
-                  <span class="date">08:00</span>
-                </div>
-                <div class="status">
-                  <span>Work</span>
-                </div>
               </div>
             </div>
             <div class="swiper-pagination"></div>
@@ -132,7 +138,7 @@ const AllRooms = ({ setGetClickedRoomForBooking }) => {
                 className="nav-link d-flex flex-column w-100"
               >
                 <Link
-                  to="/bookingform"
+                  onClickCapture={navigateToRooms}
                   className="text-info w-100 booking-btn fw-bold btn btn-sm text-info"
                   onClick={(e) => (e.target ? hideNav(room) : null)}
                 >
@@ -158,7 +164,11 @@ const AllRooms = ({ setGetClickedRoomForBooking }) => {
         {rooms}
         <div className="d-flex justify-content-center mt-3 mb-5">
           {!isCompleted && (
-            <button onClick={loadMore} type="button" className="btn btn-primary">
+            <button
+              onClick={loadMore}
+              type="button"
+              className="btn btn-primary"
+            >
               Load More
             </button>
           )}

@@ -1,69 +1,69 @@
 @import "../../../public/scss/bg";
 @import "../../../public/scss/borders";
 
-
-.login{
-    position: fixed;
-    z-index: 200;
-    top: 0 !important;
-    bottom:  0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    padding-top: 5vh;
-    background: white;
-.cover {
+.login {
+  position: fixed;
+  z-index: 200;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  padding-top: 5vh;
+  background: white;
+  .cover {
     background-color: $bg-body;
-    box-shadow: 0 1px .9px rgb(156, 156, 156);
+    box-shadow: 0 1px 0.9px rgb(156, 156, 156);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    
+
     input {
-        border: 1px solid rgb(191, 191, 191);
-        background-color: $bg-body;
-        text-align: center;
-        padding: .5em;
-        font-size: 0.75em;
-        border-radius: 10px;
-        color:  $bg-hover-primary;
-        font-size: 1rem;
-        &:focus {
-            outline-color: rgba(202, 202, 202, 0.746);
-            // border: 1px solid rgba(161, 161, 161, 0.801) !important;
-            font-weight: bold;
-        }
+      border: 1px solid rgb(191, 191, 191);
+      background-color: $bg-body;
+      text-align: center;
+      padding: 0.5em;
+      font-size: 0.75em;
+      border-radius: 10px;
+      font-size: 1rem;
+      &:focus {
+        outline-color: rgba(202, 202, 202, 0.746);
+        // border: 1px solid rgba(161, 161, 161, 0.801) !important;
+        font-weight: bold;
+      }
     }
     .login-btn {
-        background-color: rgba(0, 0, 255, 0.708);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: 0.5s;
-        color: white !important;
-        border-radius: 20px;
-        cursor: pointer;
-      &:hover  { transform: scale(1.05);}
+      background-color: rgba(0, 0, 255, 0.708);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s;
+      color: white !important;
+      border-radius: 20px;
+      cursor: pointer;
+      &:hover {
+        transform: scale(1.05);
+      }
     }
-    
-    .password-reset{
-         p{
-            span{
-                cursor: pointer;
-                &:hover{
-                    text-decoration: underline;
-                }
-            }
-        }
-    }
-}
 
-.hide {
+    .password-reset {
+      p {
+        span {
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+
+  .hide {
     position: absolute;
     transform: scale(0);
-}
+  }
 
-.login-popup {
+  .login-popup {
     position: absolute;
     width: 40em;
     text-align: center;
@@ -78,6 +78,5 @@
     align-self: center;
     transform: scale(1);
     transition: 1.5s;
-}
-
+  }
 }

@@ -22,13 +22,20 @@
   right: 30px;
   z-index: 9;
   a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 39px;
     width: 37px;
-    text-align: center;
     background: $bg-gradient-primary-to-secondary;
-    display: block;
     border-radius: 3px;
     span {
+      color: #f2f2f2;
+      font-size: 25px;
+      line-height: 39px;
+      cursor: pointer;
+    }
+    svg {
       color: #f2f2f2;
       font-size: 25px;
       line-height: 39px;

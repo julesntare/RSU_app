@@ -1,17 +1,32 @@
-import React, { useLayoutEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import "./Navbar.scss";
 import AppLogo from "../../assets/logo/app-logo2.png";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import Filter from "../Filter/Filter";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
+import RoundedNameAvatar from "../utils/RoundedNameAvatar";
 
 export default function NavBar() {
-  const [logedIn, setLogedIn] = useState(true); // check if the user has logged in
+  const [loggedIn, setLoggedIn] = useState(true); // check if the user has logged in
   const [hideFilter, setHideFilter] = useState(true);
   const handleHideFilter = () => {
     setHideFilter(false);
   };
+
+  // check if logged in and change ActiveLink to avatar
+  const checkLoggedIn = () => {
+    if (localStorage.getItem("rsu_token")) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+    }
+  };
+
+  useEffect(() => {
+    checkLoggedIn();
+  }, []);
+
   //get rid of filters in some nav links
   let locationPath = window.location.pathname;
   useLayoutEffect(() => {
@@ -61,11 +76,6 @@ export default function NavBar() {
               </ActiveLink>
             </li>
             <li className="nav-item ms-3 ms-xxl-5">
-              <ActiveLink to="/bookings" onClick={showFilter}>
-                Bookings
-              </ActiveLink>
-            </li>
-            <li className="nav-item ms-3 ms-xxl-5">
               <ActiveLink to="/maps" onClick={handleHideFilter}>
                 Maps
               </ActiveLink>
@@ -76,15 +86,13 @@ export default function NavBar() {
               </ActiveLink>
             </li>
             <li className="nav-item  ms-lg-5">
-              <button className=" text-white btn-login">
-                <ActiveLink to="/login">
-                  {logedIn ? (
-                    "Login "
-                  ) : (
-                    <i className="bi ms-1 bi-person-circle"></i>
-                  )}
-                </ActiveLink>
-              </button>
+              {!loggedIn ? (
+                <button className=" text-white btn-login">
+                  <ActiveLink to="/login">Login</ActiveLink>
+                </button>
+              ) : (
+                <RoundedNameAvatar name="John Smith" />
+              )}
             </li>
           </Nav>
         </Navbar.Collapse>

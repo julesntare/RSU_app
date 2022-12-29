@@ -15,6 +15,8 @@ import Landing from "./Components/Landing/Landing";
 import Scroll from "./Components/Scroll";
 import Scrollbar from "smooth-scrollbar";
 import Maps from "./Components/Maps/Maps";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   // The back-to-top button is hidden at the beginning
@@ -104,8 +106,8 @@ function App() {
         </Routes>
         {showButton && (
           <div onClick={scrollToTop} className="back-to-top">
-            <a title="Back to Top">
-              <span className="fas fa-angle-up"></span>
+            <a className="scroll-up" title="Back to Top">
+              <FontAwesomeIcon icon={faAngleUp} />
             </a>
           </div>
         )}

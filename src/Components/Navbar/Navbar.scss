@@ -2,6 +2,12 @@
 @import "../../../public/scss/borders";
 @import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 
+.dropdown-toggle {
+  &::after {
+    display: none !important;
+  }
+}
+
 .nav-web {
   font-family: "Quicksand", sans-serif;
   color: $bg-body;
