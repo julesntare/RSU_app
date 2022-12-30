@@ -15,6 +15,7 @@ import Landing from "./Components/Landing/Landing";
 import Scroll from "./Components/Scroll";
 import Scrollbar from "smooth-scrollbar";
 import Maps from "./Components/Maps/Maps";
+import AdminPanel from "./admin/App";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 
@@ -68,6 +69,9 @@ function App() {
               />
             }
           />
+        </Routes>
+        <Routes>
+          <Route path="/admin/*" element={<AdminPanel />} />
         </Routes>
         <Routes>
           <Route exact path="/timetable" element={<Timetable />} />
