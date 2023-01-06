@@ -35,7 +35,6 @@ const LoginForm = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.status === 200) {
             // save token in local storage
             localStorage.setItem("rsu_token", data.token);

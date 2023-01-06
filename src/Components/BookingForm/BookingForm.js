@@ -1,15 +1,56 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import "./BookingForm.scss";
 import Select from "react-select";
 import DatePicker from "react-multi-date-picker";
+import FullCalendar from "@fullcalendar/react"; // must go before plugins
+import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
+import { Button, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
+import BookingModal from "../BookingModal/BookingModal";
 
 export default function BookingForm({ getClickedRoomForBooking, saveData }) {
   const [dates, setDates] = useState([]);
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const phoneRef = useRef();
-  const dateRef = useRef();
-  const timeRangeRef = useRef();
+  const [date, setDate] = useState(new Date());
+  const [bookedDates, setBookedDates] = useState([
+    {
+      date: "2023-01-01",
+      time: "08:00",
+    },
+    {
+      date: "2023-01-01",
+      time: "14:00",
+    },
+    {
+      date: "2023-01-02",
+      time: "08:00",
+    },
+    {
+      date: "2023-01-02",
+      time: "11:00",
+    },
+    {
+      date: "2023-01-04",
+      time: "08:00",
+    },
+  ]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+
+  function handleEventClick(event) {
+    console.log(event.event);
+    setSelectedEvent(event.event);
+    setShowModal(true);
+  }
+
+  // check if logged in and change ActiveLink to avatar
+  const checkLoggedIn = () => {
+    if (!localStorage.getItem("rsu_token")) {
+      window.location.href = "/";
+    }
+  };
+
+  useEffect(() => {
+    checkLoggedIn();
+  }, []);
 
   const HandleBookings = (e) => {
     e.preventDefault();
@@ -53,22 +94,48 @@ export default function BookingForm({ getClickedRoomForBooking, saveData }) {
               </div>
             </div>
             <div className="mt-auto contacts">
-              <h4 className="title-room text-center mb-3">Met any problem? </h4>
-              <p className=" text-center mb-3">Contact us here </p>
-              <div className=" d-flex flex-column px-1 px-md-5 py-2">
-                <a className="mb-3" href="tel:+6494461709">
-                  <span className="me-1 me-md-3">
-                    <i className="bi bi-telephone "></i>
-                  </span>
-                  <span>+250 780 674 459</span>
-                </a>
-                <a className="mb-3" href="mailto:cst@ac.rw?Subject=My%20Query">
-                  <span className="me-1 me-md-3">
-                    <i className="bi  bi-envelope-at-fill"></i>
-                  </span>
-                  <span>cst@ac.rw</span>
-                </a>
-              </div>
+              <h4 className="title-room text-center mb-3">
+                Reservations for <i>P001</i>
+              </h4>
+              {/* use react calendar datepicker component to display dates and times booked */}
+              <FullCalendar
+                plugins={[dayGridPlugin]}
+                initialView="dayGridMonth"
+                weekends={true}
+                eventRender={(event, element) => {
+                  if (event.type === "type1") {
+                    element.addClass("bg-primary");
+                  } else if (event.type === "type2") {
+                    element.addClass("bg-secondary");
+                  }
+                }}
+                eventClick={handleEventClick}
+                events={[
+                  {
+                    title: "Learning in asfhsfaskfashkfaskfbhs sjshkbas ksfk",
+                    start: "2023-01-04T14:00:00",
+                    end: "2023-01-04T17:00:00",
+                    type: "type1",
+                  },
+                  {
+                    title: "event 2",
+                    start: "2023-01-06T08:00:00",
+                    end: "2023-01-06T11:00:00",
+                  },
+                ]}
+              />
+              {/* generate react bootstrap modal like of google calendar event popup modal */}
+              <Modal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                size="md"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+              >
+                <Modal.Body>
+                  <BookingModal setShowModal={setShowModal} />
+                </Modal.Body>
+              </Modal>
             </div>
           </div>
         </div>
@@ -112,12 +179,15 @@ export default function BookingForm({ getClickedRoomForBooking, saveData }) {
                   />
                 </div>
                 <div className="form-group">
-                <DatePicker value={dates} onChange={setDates}
-                containerClassName="w-100"
-                inputClass="w-100 form-control mb-3 mt-1 required"
-                placeholder="Select activity date(s)..."
-                format="YYYY-MM-DD"
-                multiple />
+                  <DatePicker
+                    value={dates}
+                    onChange={setDates}
+                    containerClassName="w-100"
+                    inputClass="w-100 form-control mb-3 mt-1 required"
+                    placeholder="Select activity date(s)..."
+                    format="YYYY-MM-DD"
+                    multiple
+                  />
                 </div>
                 <div className="form-group">
                   <Select
@@ -146,14 +216,14 @@ export default function BookingForm({ getClickedRoomForBooking, saveData }) {
                   />
                 </div>
               </fieldset>
-                <div className="form-group">
-                  <textarea
-                    className="form-control mb-3 mt-1"
-                    id="activityRequests"
-                    rows="3"
-                    placeholder="Any additional information or requests?"
-                  ></textarea>
-                </div>
+              <div className="form-group">
+                <textarea
+                  className="form-control mb-3 mt-1"
+                  id="activityRequests"
+                  rows="3"
+                  placeholder="Any additional information or requests?"
+                ></textarea>
+              </div>
               <button
                 type="submit"
                 className="btn btn-primary fw-bold btn-booking mt-2 w-100"

@@ -194,7 +194,6 @@
     "other_names": "CMHS",
     "img_path":"",
     "floor": 4,
-    "floor": 4,
     "numberOfRooms": 6,
     "location": {
       "lat": -1.95486,
@@ -301,7 +300,6 @@
     "other_names": "KIST 4",
     "img_path":"",
     "floor": 6,
-    "floor": 6,
     "numberOfRooms": 10,
     "location": {
       "lat": -1.958653,
@@ -385,7 +383,6 @@
     "name": "Sabyinyo",
     "other_names": "SABE",
     "img_path":"",
-    "floor": 2,
     "floor": 2,
     "numberOfRooms": 19,
     "location": {
