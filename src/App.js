@@ -83,6 +83,9 @@ function App() {
           />
         </Routes>
         <Routes>
+          <Route path="/maps/:id" element={<Maps />} />
+        </Routes>
+        <Routes>
           <Route path="/maps" element={<Maps />} />
         </Routes>
         <Routes>
@@ -99,7 +102,7 @@ function App() {
         />
         <Routes>
           <Route
-            path="/bookingform"
+            path="/bookingform/:id"
             element={
               <BookingForm
                 getClickedRoomForBooking={getClickedRoomForBooking}

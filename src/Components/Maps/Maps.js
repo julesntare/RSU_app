@@ -2,41 +2,51 @@ import React, { useEffect, useRef, useState } from "react";
 import "./BuildingGoogleMap.scss";
 import mapboxgl from "mapbox-gl";
 import { distance as turf } from "@turf/turf";
-import BuildingsList from "../../assets/APIs/BuildingsList.json";
-import currentLocIcon from "../../assets/img/current-loc.png";
-import buildingLocIcon from "../../assets/img/building-loc.png";
+import { Button, Modal } from "react-bootstrap";
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_API_KEY;
 
 export default function Maps() {
   const [active, setActive] = useState("");
-  const [center, setCenter] = useState([-1.9507, 30.0663]);
-  const [haveBuildingsLocation, setHaveBuildingsLocation] = useState(false);
+  const [center, setCenter] = useState([30.06323, -1.95877]);
+  const [buildings, setBuildings] = useState(null);
   const [otherLocations, setOtherLocations] = useState([]);
+  const [locationEnabled, setLocationEnabled] = useState(false);
 
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(30.0663);
-  const [lat, setLat] = useState(-1.9507);
   const [zoom, setZoom] = useState(15);
-  const start = [lng, lat];
 
   useEffect(() => {
     if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v12",
-      center: [lng, lat],
+      center: center,
       zoom: zoom,
     });
     map.current.on("move", () => {
-      setLng(map.current.getCenter().lng.toFixed(4));
-      setLat(map.current.getCenter().lat.toFixed(4));
-      setZoom(map.current.getZoom().toFixed(2));
+      setCenter([
+        map.current.getCenter().lng.toFixed(4),
+        map.current.getCenter().lat.toFixed(4),
+      ]);
+      setZoom(map.current.getZoom().toFixed(5));
     });
 
     route();
   }, [map.current, navigator.geolocation]);
+
+  useEffect(() => {
+    const fetchBuildings = async () => {
+      const response = await fetch(
+        `${process.env.REACT_APP_RSU_API_URL}/building/all`
+      );
+      const data = await response.json();
+      setBuildings(data);
+    };
+
+    fetchBuildings();
+  }, []);
 
   const locate = () => {
     map.current.addControl(
@@ -65,8 +75,9 @@ export default function Maps() {
   }
 
   const route = async () => {
+        console.log(buildings);
     await Promise.all(
-      BuildingsList.map(async (building) => {
+      buildingData.map(async(building) => {
         setOtherLocations([
           ...otherLocations,
           {
@@ -74,68 +85,106 @@ export default function Maps() {
             properties: {},
             geometry: {
               type: "Point",
-              coordinates: [building.location.long, building.location.lat],
+              coordinates: [building.coordinates[1], building.coordinates[0]],
             },
           },
         ]);
       })
     );
 
-    console.log(otherLocations);
     locate();
     map.current.on("load", () => {
+      // check if the user has given permission to access the location
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          setCenter([position.coords.longitude, position.coords.latitude]);
+          setLocationEnabled(true);
+          // Add starting point to the map
+          map.current.addLayer({
+            id: "point",
+            type: "circle",
+            source: {
+              type: "geojson",
+              data: {
+                type: "FeatureCollection",
+                features: [
+                  {
+                    type: "Feature",
+                    properties: {},
+                    geometry: {
+                      type: "Point",
+                      coordinates: [
+                        position.coords.longitude,
+                        position.coords.latitude,
+                      ],
+                    },
+                  },
+                ],
+              },
+            },
+            paint: {
+              "circle-radius": 10,
+              "circle-color": "#3887be",
+            },
+          });
+          // re-center the map
+          map.current.flyTo({
+            center: [position.coords.longitude, position.coords.latitude],
+            essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+            zoom: 15,
+          });
+        });
+      }
+
       // make an initial directions request that
       // starts and ends at the same location
       // getRoute(start);
 
-      // Add starting point to the map
-      map.current.addLayer({
-        id: "point",
-        type: "circle",
-        source: {
-          type: "geojson",
-          data: {
-            type: "FeatureCollection",
-            features: [
-              {
-                type: "Feature",
-                properties: {},
-                geometry: {
-                  type: "Point",
-                  coordinates: start,
+      new mapboxgl.Popup()
+        .setHTML("<p>This is your current location</p>")
+        .setLngLat(center)
+        .addTo(map.current);
+
+      // add other building for each other locations
+      buildings.map((location, index) => {
+        map.current.addLayer({
+          id: `point${index}`,
+          type: "circle",
+          source: {
+            type: "geojson",
+            data: {
+              type: "FeatureCollection",
+              features: [
+                {
+                  type: "Feature",
+                  properties: {},
+                  geometry: {
+                    type: "Point",
+                    coordinates: [
+                      location.coordinates[1],
+                      location.coordinates[0],
+                    ],
+                  },
                 },
-              },
-            ],
+              ],
+            },
           },
-        },
-        paint: {
-          "circle-radius": 10,
-          "circle-color": "#3887be",
-        },
-      });
-
-      // add other building locations
-
-      map.current.addLayer({
-        id: "locations",
-        type: "circle",
-        source: {
-          type: "geojson",
-          data: {
-            type: "FeatureCollection",
-            features: otherLocations,
+          paint: {
+            "circle-radius": 10,
+            "circle-color": "#f30",
           },
-        },
-        paint: {
-          "circle-radius": 5,
-          "circle-color": "#F48225",
-        },
+        });
+
+        new mapboxgl.Popup()
+          .setHTML("<p><b>" + location.building_name + "</b></p><br/>")
+          .setLngLat([location.coordinates[1], location.coordinates[0]])
+          .addTo(map.current);
       });
 
       map.current.on("click", (event) => {
         // Calculate the distance between the current location and the clicked location
         const distance = turf(
-          toPoint(lng, lat),
+          toPoint(center[0], center[1]),
           toPoint(event.lngLat.lng, event.lngLat.lat),
           {
             units: "meters",
@@ -148,62 +197,64 @@ export default function Maps() {
         if (distance <= threshold) {
           new mapboxgl.Popup()
             .setHTML("<p>This is your current location</p>")
-            .setLngLat([lng, lat])
+            .setLngLat(center)
             .addTo(map.current);
           return;
         }
-        const coords = Object.keys(event.lngLat).map(
-          (key) => event.lngLat[key]
-        );
-        const end = {
-          type: "FeatureCollection",
-          features: [
-            {
-              type: "Feature",
-              properties: {},
-              geometry: {
-                type: "Point",
-                coordinates: coords,
-              },
-            },
-          ],
-        };
-        if (map.current.getLayer("end")) {
-          map.current.getSource("end").setData(end);
-        } else {
-          map.current.addLayer({
-            id: "end",
-            type: "circle",
-            source: {
-              type: "geojson",
-              data: {
-                type: "FeatureCollection",
-                features: [
-                  {
-                    type: "Feature",
-                    properties: {},
-                    geometry: {
-                      type: "Point",
-                      coordinates: coords,
-                    },
-                  },
-                ],
-              },
-            },
-            paint: {
-              "circle-radius": 10,
-              "circle-color": "#f30",
-            },
-          });
-        }
-        getRoute(coords);
+        getShortRoute(event.lngLat);
       });
     });
   };
 
+  const getShortRoute = (lngLat) => {
+    const coords = Object.keys(lngLat).map((key) => lngLat[key]);
+    const end = {
+      type: "FeatureCollection",
+      features: [
+        {
+          type: "Feature",
+          properties: {},
+          geometry: {
+            type: "Point",
+            coordinates: coords,
+          },
+        },
+      ],
+    };
+    if (map.current.getLayer("end")) {
+      map.current.getSource("end").setData(end);
+    } else {
+      map.current.addLayer({
+        id: "end",
+        type: "circle",
+        source: {
+          type: "geojson",
+          data: {
+            type: "FeatureCollection",
+            features: [
+              {
+                type: "Feature",
+                properties: {},
+                geometry: {
+                  type: "Point",
+                  coordinates: coords,
+                },
+              },
+            ],
+          },
+        },
+        paint: {
+          "circle-radius": 10,
+          "circle-color": "#B194ED",
+        },
+      });
+    }
+    getRoute(coords);
+  };
+
   async function getRoute(end) {
     const query = await fetch(
-      `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
+      `https://api.mapbox.com/directions/v5/mapbox/cycling/${center[0]},${center[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=${mapboxgl.accessToken}`,
       { method: "GET" }
     );
     const json = await query.json();
@@ -259,33 +310,43 @@ export default function Maps() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          setLat(position.coords.latitude);
-          setLng(position.coords.longitude);
+          setCenter([position.coords.longitude, position.coords.latitude]);
+
+          setLocationEnabled(true);
           return;
         },
         (error) => {
           console.log(error);
+          setLocationEnabled(false);
         }
       );
     } else {
       alert("Better to enable your location for best way to follow.");
       console.log("geolocation is not enabled");
     }
-  }, []);
+  }, [navigator.geolocation]);
 
   const handleBuildingClick = (building, id) => {
     setActive(id);
-    setCenter([building.location.lat, building.location.long]);
+    // convert the building location to a lngLat and assign them to getShortRoute function
+    const lngLat = {
+      lng: building.coordinates[1],
+      lat: building.coordinates[0],
+    };
+
+    getShortRoute(lngLat);
   };
-  const buildings = BuildingsList.map((building, i) => (
-    <li
-      key={i}
-      className={active === i ? "active list-group-item" : " list-group-item"}
-      onClick={() => handleBuildingClick(building, i)}
-    >
-      {building.name}
-    </li>
-  ));
+  const buildingsList =
+    buildings &&
+    buildings.map((building, i) => (
+      <li
+        key={i}
+        className={active === i ? "active list-group-item" : " list-group-item"}
+        onClick={() => handleBuildingClick(building, i)}
+      >
+        {building.building_name}
+      </li>
+    ));
 
   return (
     <div className=" container-fluid map  mt-4 mb-5">
@@ -296,12 +357,29 @@ export default function Maps() {
       <div className="row ">
         <div className="col-2 col-md-3 bg-light buildings-box">
           <p className="fw-bold my-3">All CST Buildings</p>
-          <ul className="list-group w-100 m-0 p-0 box">{buildings}</ul>
+          <ul className="list-group w-100 m-0 p-0 box">{buildingsList}</ul>
         </div>
         <div className="col-10 col-md-9 map-box">
           <div ref={mapContainer} className="map-container" />
           <div id="instructions" className="instructions"></div>
         </div>
+        {/* popup a react-bootstrap modal when locationEnabled state in false */}
+        <Modal show={false} onHide={() => setLocationEnabled(false)}>
+          <Modal.Header closeButton>
+            <Modal.Title>Location</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <p>
+              You need to enable your location to get the best way to follow.
+              Enable it and refresh the page.
+            </p>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={() => window.location.reload()}>
+              Enable
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
     </div>
   );

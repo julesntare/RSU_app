@@ -29,7 +29,7 @@ const LoginForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: UserName,
+          email: UserName,
           password: Password,
         }),
       })
@@ -88,7 +88,7 @@ const LoginForm = () => {
           >
             <input
               type="text"
-              placeholder="Username"
+              placeholder="Email"
               className="my-2 w-100"
               ref={refName}
             />

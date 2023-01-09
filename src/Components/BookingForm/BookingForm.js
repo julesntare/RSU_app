@@ -6,8 +6,12 @@ import FullCalendar from "@fullcalendar/react"; // must go before plugins
 import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
 import { Button, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
 import BookingModal from "../BookingModal/BookingModal";
+import { useParams } from "react-router-dom";
 
 export default function BookingForm({ getClickedRoomForBooking, saveData }) {
+  let { id } = useParams();
+  console.log(id);
+
   const [dates, setDates] = useState([]);
   const [date, setDate] = useState(new Date());
   const [bookedDates, setBookedDates] = useState([

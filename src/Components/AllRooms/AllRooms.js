@@ -38,15 +38,15 @@ const AllRooms = ({ setGetClickedRoomForBooking }) => {
   let second = 0;
 
   // navigate to rooms when requestRooms clicked
-  const navigateToRooms = (e) => {
+  const navigateToRooms = (e, i) => {
     e.preventDefault();
     // check if user is logged in an validate token
     if (!localStorage.getItem("rsu_token")) {
-      localStorage.setItem("rsu_redirect", "/bookingform");
+      localStorage.setItem("rsu_redirect", `/bookingform/${i}`);
       window.location.href = "/login";
       return;
     }
-    window.location.href = "/bookingform";
+    window.location.href = `/bookingform/${i}`;
   };
 
   // update timeline every second in useEffect
@@ -62,19 +62,19 @@ const AllRooms = ({ setGetClickedRoomForBooking }) => {
         // Will display time in 08:00 format
         var formattedTime = hours + ":" + minutes.substr(-2);
         // update status every 30 seconds
-        if (second % 2 === 0) {
+        if (second % 30 === 0) {
           document.querySelector(".swiper-wrapper").innerHTML += `	
-        <div class="swiper-slide">
-        <div class="timestamp">
-          <span class="date">${formattedTime}</span>
+        <div className="swiper-slide">
+        <div className="timestamp">
+          <span className="date">${formattedTime}</span>
         </div>
-        <div class="status">
+        <div className="status">
           <span></span>
         </div>
       </div>`;
         }
         second++;
-      }, 1000);
+      }, 30000);
     };
   }, [second]);
 
@@ -85,13 +85,12 @@ const AllRooms = ({ setGetClickedRoomForBooking }) => {
       id={i}
     >
       <div className="card-body" id="card-body">
-        <div class="time-line-box">
-          <div class="swiper-container text-center">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-              </div>
+        <div className="time-line-box">
+          <div className="swiper-container text-center">
+            <div className="swiper-wrapper">
+              <div className="swiper-slide"></div>
             </div>
-            <div class="swiper-pagination"></div>
+            <div className="swiper-pagination"></div>
           </div>
         </div>
         {room.name && (
@@ -128,7 +127,7 @@ const AllRooms = ({ setGetClickedRoomForBooking }) => {
                 </p>
               </div>
               <p className="room-use">
-                <span className="fw-bold">Use: </span>
+                <span className="fw-bold">Category: </span>
                 <small className="fs-sm">{room.use}</small>
               </p>
             </div>
@@ -138,7 +137,7 @@ const AllRooms = ({ setGetClickedRoomForBooking }) => {
                 className="nav-link d-flex flex-column w-100"
               >
                 <Link
-                  onClickCapture={navigateToRooms}
+                  onClickCapture={(e) => navigateToRooms(e, i)}
                   className="text-info w-100 booking-btn fw-bold btn btn-sm text-info"
                   onClick={(e) => (e.target ? hideNav(room) : null)}
                 >
