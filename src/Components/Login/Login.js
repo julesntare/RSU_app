@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
-import swal from "sweetalert";
 import "./Login.scss";
 import Register from "../Register/Register";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LoginForm = () => {
   const refName = useRef();
   const refPassword = useRef();
-  const [popupStyle, showPopup] = useState("hide");
   const [rememberPassword, setRememberPassword] = useState(false);
 
   const SubmitLoginData = (e) => {
@@ -14,12 +14,15 @@ const LoginForm = () => {
     const UserName = refName.current.value;
     const Password = refPassword.current.value;
     if (Password === "" || UserName === "") {
-      // add sweet alert danger
-      swal({
-        title: "Error!",
-        text: "Please enter your username and password",
-        icon: "error",
-        button: "OK",
+      // add toast alert danger
+      toast.error("Please enter your username and password", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
       });
     } else {
       // use fetch api to send login credentials on http://localhost:8000/api/auth/login
@@ -38,12 +41,15 @@ const LoginForm = () => {
           if (data.status === 200) {
             // save token in local storage
             localStorage.setItem("rsu_token", data.token);
-            // add sweet alert success
-            swal({
-              title: "Success!",
-              text: "You have successfully logged in",
-              icon: "success",
-              button: "OK",
+            // add toast alert success
+            toast.success("You have successfully logged in!", {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
             });
             // add redirect to home page
             window.location.href = localStorage.getItem("rsu_redirect")
@@ -51,22 +57,28 @@ const LoginForm = () => {
               : "/";
             localStorage.removeItem("rsu_redirect");
           } else {
-            // add sweet alert danger
-            swal({
-              title: "Error!",
-              text: data.message,
-              icon: "error",
-              button: "OK",
+            // add toast alert danger
+            toast.error(data.message, {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
             });
           }
         })
         .catch((err) => {
           // add sweet alert danger
-          swal({
-            title: "Error!",
-            text: err,
-            icon: "error",
-            button: "OK",
+          toast.error(err.message, {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
           });
         });
     }
@@ -86,6 +98,17 @@ const LoginForm = () => {
             className="d-flex align-items-center container  p-4 flex-column "
             onSubmit={SubmitLoginData}
           >
+            <ToastContainer
+              position="top-right"
+              autoClose={2000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
             <input
               type="text"
               placeholder="Email"
@@ -105,13 +128,6 @@ const LoginForm = () => {
               <span onClick={handleLoginClick}>Forgot password?</span>
             </p>
           </div>
-        </div>
-        <div className={popupStyle}>
-          <h3 className=" h3">
-            {" "}
-            <i className="bi bi-exclamation-circle-fill me-3"></i>Login Failed
-          </h3>
-          <p className="fw-bold">Username or password incorrect</p>
         </div>
         {rememberPassword && (
           <Register setRememberPassword={setRememberPassword} />
