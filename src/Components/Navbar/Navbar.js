@@ -6,26 +6,19 @@ import Filter from "../Filter/Filter";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import RoundedNameAvatar from "../utils/RoundedNameAvatar";
+import useAuth from "../../hooks/useAuth";
 
 export default function NavBar() {
+  const { isAuthenticated } = useAuth();
   const [loggedIn, setLoggedIn] = useState(true); // check if the user has logged in
   const [hideFilter, setHideFilter] = useState(true);
   const handleHideFilter = () => {
     setHideFilter(false);
   };
 
-  // check if logged in and change ActiveLink to avatar
-  const checkLoggedIn = () => {
-    if (localStorage.getItem("rsu_token")) {
-      setLoggedIn(true);
-    } else {
-      setLoggedIn(false);
-    }
-  };
-
   useEffect(() => {
-    checkLoggedIn();
-  }, []);
+    setLoggedIn(isAuthenticated);
+  }, [isAuthenticated]);
 
   //get rid of filters in some nav links
   let locationPath = window.location.pathname;

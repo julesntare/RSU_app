@@ -75,7 +75,6 @@ export default function Maps() {
   }
 
   const route = async () => {
-        console.log(buildings);
     await Promise.all(
       buildingData.map(async(building) => {
         setOtherLocations([

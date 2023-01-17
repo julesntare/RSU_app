@@ -3,11 +3,16 @@ import "./Login.scss";
 import Register from "../Register/Register";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const LoginForm = () => {
   const refName = useRef();
   const refPassword = useRef();
   const [rememberPassword, setRememberPassword] = useState(false);
+  const navigate = useNavigate();
+
+  const { login } = useAuth();
 
   const SubmitLoginData = (e) => {
     e.preventDefault();
@@ -25,22 +30,9 @@ const LoginForm = () => {
         progress: undefined,
       });
     } else {
-      // use fetch api to send login credentials on http://localhost:8000/api/auth/login
-      fetch("http://localhost:8000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: UserName,
-          password: Password,
-        }),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.status === 200) {
-            // save token in local storage
-            localStorage.setItem("rsu_token", data.token);
+      login(UserName, Password)
+        .then((res) => {
+          if (res.isAuthenticated) {
             // add toast alert success
             toast.success("You have successfully logged in!", {
               position: "top-right",
@@ -52,13 +44,15 @@ const LoginForm = () => {
               progress: undefined,
             });
             // add redirect to home page
-            window.location.href = localStorage.getItem("rsu_redirect")
-              ? localStorage.getItem("rsu_redirect")
-              : "/";
+            navigate(
+              localStorage.getItem("rsu_redirect")
+                ? localStorage.getItem("rsu_redirect")
+                : "/"
+            );
             localStorage.removeItem("rsu_redirect");
           } else {
             // add toast alert danger
-            toast.error(data.message, {
+            toast.error("Invalid credentials", {
               position: "top-right",
               autoClose: 2000,
               hideProgressBar: false,
