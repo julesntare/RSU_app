@@ -7,18 +7,20 @@ import {
   GET_ROOMS_BY_BUILDING_ID,
 } from "../actions/RoomActions";
 
-const initialState = [];
+const initialState = {
+  rooms: [],
+};
 
 const RoomReducer = function (state = initialState, action) {
   switch (action.type) {
     case GET_ROOM: {
-      return [...action.payload];
+      return {...state, rooms: action.payload};
     }
     case GET_ROOM_BY_ID: {
       return action.payload;
     }
     case GET_ROOMS_BY_BUILDING_ID: {
-      return [...action.payload];
+      return {...state, rooms: action.payload};
     }
     case CREATE_ROOM: {
       return [...action.payload];
@@ -30,7 +32,7 @@ const RoomReducer = function (state = initialState, action) {
       return [...action.payload];
     }
     default: {
-      return [...state];
+      return state;
     }
   }
 };

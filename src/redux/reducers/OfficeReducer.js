@@ -4,14 +4,16 @@ import {
   DELETE_OFFICE,
   GET_OFFICE,
   GET_OFFICE_BY_ID,
-} from '../actions/OfficeActions';
+} from "../actions/OfficeActions";
 
-const initialState = [];
+const initialState = {
+  offices: [],
+};
 
 const OfficeReducer = function (state = initialState, action) {
   switch (action.type) {
     case GET_OFFICE: {
-      return [...action.payload];
+      return { ...state, offices: action.payload };
     }
     case GET_OFFICE_BY_ID: {
       return action.payload;
@@ -26,7 +28,7 @@ const OfficeReducer = function (state = initialState, action) {
       return [...action.payload];
     }
     default: {
-      return [...state];
+      return state;
     }
   }
 };

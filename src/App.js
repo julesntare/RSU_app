@@ -4,12 +4,9 @@ import NavBar from "./Components/Navbar/Navbar";
 import Buildings from "./Components/Buildings/Buildings";
 import Footer from "./Components/Footer/Footer";
 import AllRooms from "./Components/AllRooms/AllRooms";
-import Timetable from "./Components/Timetable/Timetable";
-import Bookings from "./Components/Bookings/Bookings";
 import Enquiry from "./Components/Enquiry/Enquiry";
 import Login from "./Components/Login/Login";
 import { Routes, Route } from "react-router-dom";
-import BookingForm from "./Components/BookingForm/BookingForm";
 import Landing from "./Components/Landing/Landing";
 import Scroll from "./Components/Scroll";
 import Scrollbar from "smooth-scrollbar";
@@ -17,6 +14,8 @@ import Maps from "./Components/Maps/Maps";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { AuthProvider } from "./contexts/JWTAuthContext";
+import Bookings from "./Components/Bookings/Bookings";
+import BookingsForm from "./Components/BookingModal/BookingsForm";
 
 function App() {
   // The back-to-top button is hidden at the beginning
@@ -64,10 +63,14 @@ function App() {
           />
         </Routes>
         <Routes>
-          <Route exact path="/timetable" element={<Timetable />} />
-        </Routes>
-        <Routes>
-          <Route path="/bookings" element={<Bookings />} />
+          <Route
+            path="/bookings"
+            element={
+              <AuthProvider>
+                <Bookings />
+              </AuthProvider>
+            }
+          />
         </Routes>
         <Routes>
           <Route path="/maps/:id" element={<Maps />} />
@@ -90,10 +93,21 @@ function App() {
         </Routes>
         <Routes>
           <Route
+            exact
+            path="/bookingform"
+            element={
+              <AuthProvider>
+                <BookingsForm hasParam={false} />
+              </AuthProvider>
+            }
+          />
+        </Routes>
+        <Routes>
+          <Route
             path="/bookingform/:id"
             element={
               <AuthProvider>
-                <BookingForm />
+                <BookingsForm />
               </AuthProvider>
             }
           />

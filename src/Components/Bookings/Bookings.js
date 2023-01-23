@@ -1,137 +1,221 @@
 import React, { useState, useEffect } from "react";
-import "./bookings.scss";
+import "./Bookings.scss";
+import "../BookingModal/BookingModalDetails.scss";
+import { Modal } from "react-bootstrap";
+import BookingModalDetails from "../BookingModal/BookingModalDetails";
+import { useNavigate, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getRoom } from "../../redux/actions/RoomActions";
+import { CircularProgress } from "@mui/material";
+import { getBooking } from "../../redux/actions/BookingActions";
+import BookingsForm from "../BookingModal/BookingsForm";
+import useAuth from "../../hooks/useAuth";
+import { Calendar, momentLocalizer } from "react-big-calendar";
+import "react-big-calendar/lib/css/react-big-calendar.css";
+import moment from "moment";
 
-const Bookings = ({ receiveDateForbooking }) => {
-  const [getdataFromLS, SetGetdataFromLS] = useState([]);
-  const [seePopUp, setseePopUp] = useState();
+const localizer = momentLocalizer(moment);
 
-  const closeBookingPopUp = () => {
-    setseePopUp(false);
-  };
-  const openPopUpBookings = (i) => {
-    setseePopUp(i);
-    console.log(i);
-  };
+const Bookings = () => {
+  let { id } = useParams();
+  const rooms = useSelector((state) => state.rooms.rooms);
+  const bookings = useSelector((state) => state.bookings);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const selectedRoom = rooms.find((room) => room._id === id);
+  const [bookedDates, setBookedDates] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [events, setEvents] = useState([]);
+  const { isAuthenticated } = useAuth();
+
   useEffect(() => {
-    localStorage.setItem("data", JSON.stringify(receiveDateForbooking));
-  }, [receiveDateForbooking]);
+    dispatch(getRoom());
+    dispatch(getBooking());
+  }, [dispatch]);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("data"));
-    if (data) {
-      SetGetdataFromLS(data);
+    if (bookings.length > 0) {
+      const bookedDates = id
+        ? bookings.filter((booking) => booking.room === selectedRoom._id)
+        : bookings;
+      bookedDates.map((booking) => {
+        // make algorithm to save event in state
+        // 1. if activity flag is 0 change color to orange, otherwise blue
+        const color = booking.flag === 0 ? "orange" : "blue";
+
+        // 2. if activity recurrence is weekly, take the start date and add 7 days to it till the end date
+        if (booking.activity.activity_recurrence === "weekly") {
+          const startDate = moment(booking.activity.activity_starting_date);
+          const endDate = moment(booking.activity.activity_ending_date);
+          const diff = endDate.diff(startDate, "days");
+          const days = Math.ceil(diff / 7);
+          for (let i = 0; i < days; i++) {
+            let date = moment(booking.activity.activity_starting_date);
+            date.add(i * 7, "days");
+            console.log(
+              booking.activity.activity_starting_date,
+              date.format("YYYY-MM-DD")
+            );
+            // check if the starting date is the same as activity.activity_days[0]
+            // if yes, then use starting date to repeat on the same day
+            // if no, then use the date of activity.activity_days[0] to repeat on the same day
+            // activity.activity_days[0] is in numbers
+            // 0 is sunday, 1 is monday, 2 is tuesday, 3 is wednesday, 4 is thursday, 5 is friday, 6 is saturday
+            if (date.day() === booking.activity.activity_days[0]) {
+              const event = {
+                title: booking.activity.activity_name,
+                start: new Date(date),
+                end: new Date(date),
+                color,
+                activity: booking.activity,
+              };
+              setEvents((prev) => [...prev, event]);
+            } else {
+              // check a date that is the same as activity.activity_days[0] and is after the starting date
+              let count = date.day();
+              while (count !== booking.activity.activity_days[0]) {
+                // get difference between the date and activity.activity_days[0]
+                // add the difference to the date
+                const diff = booking.activity.activity_days[0] - count;
+                date.add(diff, "days");
+                console.log(date.format("YYYY-MM-DD"));
+                count += 1;
+              }
+
+              const event = {
+                title: booking.activity.activity_name,
+                start: new Date(date),
+                end: new Date(date),
+                color,
+                activity: booking.activity,
+              };
+              setEvents((prev) => [...prev, event]);
+            }
+          }
+        }
+
+        // 3. if activity recurrence is monthly, take the start date and add 30 days to it till the end date
+        if (booking.activity.activity_recurrence === "monthly") {
+          const startDate = moment(booking.activity.activity_starting_date);
+          const endDate = moment(booking.activity.activity_ending_date);
+          const diff = endDate.diff(startDate, "days");
+          const days = Math.ceil(diff / 30);
+          for (let i = 0; i < days; i++) {
+            const date = moment(booking.activity.activity_starting_date).add(
+              i * 30,
+              "days"
+            );
+            const event = {
+              title: booking.activity.activity_name,
+              start: new Date(date),
+              end: new Date(date),
+              color,
+              activity: booking.activity,
+            };
+            setEvents((prev) => [...prev, event]);
+          }
+        }
+
+        // 4. if activity recurrence is certain_days, take activity_days array and add the days to the start date
+        if (booking.activity.activity_recurrence === "certain_days") {
+          const startDate = moment(booking.activity.activity_starting_date);
+          const endDate = moment(booking.activity.activity_ending_date);
+          const diff = endDate.diff(startDate, "days");
+          const days = Math.ceil(diff / 7);
+          for (let i = 0; i < days; i++) {
+            const date = moment(booking.activity.activity_starting_date).add(
+              i * 7,
+              "days"
+            );
+            const event = {
+              title: booking.activity.activity_name,
+              start: new Date(date),
+              end: new Date(date),
+              color,
+              activity: booking.activity,
+            };
+            setEvents((prev) => [...prev, event]);
+          }
+        }
+      });
     }
-  }, [receiveDateForbooking]);
+  }, []);
 
-  const handleCancleClick = (i) => {
-    const deteleData = getdataFromLS.slice(0, getdataFromLS.length);
-    deteleData.splice(i, 1);
-    deteleData.splice();
-    SetGetdataFromLS(deteleData);
+  const eventStyleGetter = (event, start, end, isSelected) => {
+    const style = {
+      backgroundColor: event.color,
+      borderRadius: "0px",
+      opacity: 0.8,
+      color: "white",
+      border: "0px",
+      display: "block",
+    };
+    return {
+      style: style,
+    };
   };
-  const bookedRoms = getdataFromLS.map((bookedRoom, i) => (
-    <tr key={i} className="room-booked">
-      <th scope="row">{i + 1}</th>
-      <td onClick={() => openPopUpBookings(i)}>{bookedRoom.name}</td>
-      <td onClick={() => openPopUpBookings(i)}>{bookedRoom.email}</td>
-      <td onClick={() => openPopUpBookings(i)}>{bookedRoom.room.name}</td>
-      <td onClick={() => openPopUpBookings(i)}>{bookedRoom.date}</td>
-      <td onClick={() => openPopUpBookings(i)}>{bookedRoom.time}</td>
-      <td onClick={() => handleCancleClick(i)} className="text-center">
-        <i className="text-danger cancleBtn  bi  bi-x-octagon-fill" id="1"></i>
-      </td>
-    </tr>
-  ));
-  const popUpRoomData = getdataFromLS.map((bookedRoom, i) => {
-    if (seePopUp === i)
-      return (
-        <div className="position-fixed book-room-popup" key={i}>
-          <h1 className="text-end  w-100">
-            <i
-              className="text-warning bi closePopopBookings bi-x-octagon-fill"
-              onClick={closeBookingPopUp}
-            ></i>
-          </h1>
-          <div className="row box-booked-room-info ">
-            <div className="col border bg-white">
-              <p className="text-primary text-center fw-bold p-2">
-                Your details
-              </p>
-              <div className="p-2">
-                <div>
-                  <strong className="me-2 pb-1">Name:</strong>
-                  <span>{bookedRoom.name}</span>
-                </div>
-                <div>
-                  <strong className="me-2 pb-1">Email:</strong>
-                  <span>{bookedRoom.email}</span>
-                </div>
-                <div>
-                  <strong className="me-2 pb-1">Phone:</strong>
-                  <span>{bookedRoom.phone}</span>
-                </div>
-              </div>
-            </div>
-            <div className="col border bg-white">
-              <p className="text-primary text-center fw-bold p-2">
-                Room details
-              </p>
-              <div className="p-2">
-                <div>
-                  <strong className="me-2 pb-1">Room:</strong>
-                  <span>{bookedRoom.room.name}</span>
-                </div>
-                <div>
-                  <strong className="me-2 pb-1">Location:</strong>
-                  <span>{bookedRoom.room.location}</span>
-                </div>
-                <div>
-                  <strong className="me-2 pb-1">Seats:</strong>
-                  <span>{bookedRoom.room.seats}</span>
-                </div>
-                <div>
-                  <strong className="me-2 pb-1">Date of use: </strong>
-                  <span>{bookedRoom.date}</span>
-                </div>
-                <div>
-                  <strong className="me-2 pb-1">Time of use: </strong>
-                  <span>{bookedRoom.time}</span>
-                </div>
+
+  return (
+    <>
+      {rooms.length > 0 ? (
+        <div className="row">
+          <div className="col-12 col-md-12 p-3 pb-5">
+            <div className="info-box border d-flex flex-column justify-content-between p-4 h-100">
+              <div className="mt-auto contacts">
+                <h4 className="title-room text-center mb-3">
+                  {selectedRoom
+                    ? `Reservations for <i>${selectedRoom.room_name}</i>`
+                    : "All Reservations"}
+                </h4>
+                {isAuthenticated && (
+                  <button
+                    className="btn btn-primary mb-3"
+                    onClick={(e) => navigate("/bookingform")}
+                  >
+                    New Schedule
+                  </button>
+                )}
+                {/* use react calendar datepicker component to display dates and times booked */}
+                <Calendar
+                  localizer={localizer}
+                  events={events}
+                  onDoubleClickEvent={(event) => {
+                    console.log(event);
+                  }}
+                  startAccessor="start"
+                  endAccessor="end"
+                  eventPropGetter={eventStyleGetter}
+                  style={{ height: 500 }}
+                />
+                {/* generate react bootstrap modal like of google calendar event popup modal */}
+                <Modal
+                  show={showModal}
+                  onHide={() => naviga}
+                  size="md"
+                  aria-labelledby="contained-modal-title-vcenter"
+                  centered
+                >
+                  <Modal.Body>
+                    <BookingModalDetails
+                      setShowModal={setShowModal}
+                      selectedEvent={selectedEvent}
+                      bookings={bookings}
+                    />
+                  </Modal.Body>
+                </Modal>
               </div>
             </div>
           </div>
         </div>
-      );
-  });
-  return (
-    <div className="bg-light container-fluid bookings row bg-white">
-      <h1 className="my-5 lead text-primary fw-bold text-center py-2">
-        Your Bookings are listed here
-      </h1>
-      <div className="col-12">
-        {getdataFromLS.length === 0 ? (
-          <p className=" mt-5 text-center text-danger fw-bold">
-            No booked rooms! Go to rooms tab to book yours now!
-          </p>
-        ) : (
-          <table className="table">
-            <thead className="thead-light bg-light fw-bold">
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">Names</th>
-                <th scope="col">Email</th>
-                <th scope="col">Rooms</th>
-                <th scope="col">Date</th>
-                <th scope="col">Time</th>
-                <th scope="col">Cancel</th>
-              </tr>
-            </thead>
-            <tbody>{bookedRoms}</tbody>
-          </table>
-        )}
-        {popUpRoomData}
-      </div>
-    </div>
+      ) : (
+        <div className="d-flex justify-content-center align-items-center">
+          <CircularProgress />
+        </div>
+      )}
+    </>
   );
 };
+
 export default Bookings;

@@ -50,10 +50,10 @@ const Buildings = () => {
                   src={item.img_url || defaultImg}
                   alt="building image"
                 ></img>
-                <h4 className="text-center card-name-title my-2">
+                <h6 className="text-center card-name-title my-2">
                   {" "}
                   {item.building_name.toUpperCase()}
-                </h4>
+                </h6>
                 <p className="mx-2">
                   <i>{item.building_description}</i>
                 </p>

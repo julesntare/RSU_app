@@ -2,14 +2,13 @@ import React, { useEffect, useLayoutEffect, useState } from "react";
 import "./Navbar.scss";
 import AppLogo from "../../assets/logo/app-logo2.png";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import Filter from "../Filter/Filter";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import RoundedNameAvatar from "../utils/RoundedNameAvatar";
 import useAuth from "../../hooks/useAuth";
 
 export default function NavBar() {
-  const { isAuthenticated } = useAuth();
+  const { user, isAuthenticated } = useAuth();
   const [loggedIn, setLoggedIn] = useState(true); // check if the user has logged in
   const [hideFilter, setHideFilter] = useState(true);
   const handleHideFilter = () => {
@@ -18,7 +17,7 @@ export default function NavBar() {
 
   useEffect(() => {
     setLoggedIn(isAuthenticated);
-  }, [isAuthenticated]);
+  }, [user, isAuthenticated]);
 
   //get rid of filters in some nav links
   let locationPath = window.location.pathname;
@@ -64,8 +63,8 @@ export default function NavBar() {
               </ActiveLink>
             </li>
             <li className="nav-item ms-3 ms-xxl-5">
-              <ActiveLink to="/timetable" onClick={handleHideFilter}>
-                Timetable
+              <ActiveLink to="/bookings" onClick={showFilter}>
+                Booking
               </ActiveLink>
             </li>
             <li className="nav-item ms-3 ms-xxl-5">
@@ -84,7 +83,7 @@ export default function NavBar() {
                   <ActiveLink to="/login">Login</ActiveLink>
                 </button>
               ) : (
-                <RoundedNameAvatar name="John Smith" />
+                <RoundedNameAvatar name={user ? user.fullname : "N A"} />
               )}
             </li>
           </Nav>

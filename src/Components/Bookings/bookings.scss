@@ -1,52 +1,148 @@
+@import "../../../public/scss/bg";
+@import "../../../public/scss/borders";
 
-.bookings{
-    min-height: 70vh !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    .room-booked{
-        td{
+.booking-form {
+  box-sizing: border-box;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  overflow-y: auto !important;
+  // header
+  .header {
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    transition: all 0.5s ease-in-out;
+    height: fit-content;
+    border-bottom: 1px solid $bg-hover-primary;
+    .img-header {
+      border-radius: 50%;
+      background: none;
+    }
+  }
+  .back-btn {
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  // left side form
+  .title-room {
+    font-weight: bold;
+    font-style: oblique;
+    font-size: 1rem;
+  }
+  .info-box {
+    border-radius: 2rem;
+    .info {
+      flex: 1 1 40%;
+      border: 1px solid rgba(4, 112, 9, 0.894);
+      border-radius: 1rem;
+      border-bottom: none !important;
+      padding: 1rem;
+    }
+    .contacts {
+      border-top: none !important;
+      flex: 1 1 40%;
+      border: 1px solid rgba(4, 112, 9, 0.894);
+      border-radius: 1rem;
+      padding: 1rem;
+      a {
+        border-radius: 15px;
+        padding: 0.5rem;
+        text-decoration: none;
+        transition: all 0.5s ease-in-out;
+        background: white;
+        font-weight: bold;
+        color: $color-primary;
+        display: flex;
+        justify-content: center;
+        border-left: 5px solid $color-primary;
+        border-right: 5px solid $color-primary;
+        align-items: center;
+        &:hover {
+          background: $color-primary;
+          color: white;
+        }
+        i {
+          font-size: 1.2rem;
+        }
+      }
+    }
+  }
+  //right side form
+  .form-box {
+    border: 1px solid transparent;
+    border-radius: 2rem;
+    transition: all 0.5s ease-in;
+    &:hover {
+      border: 1px solid $bg-hover-secondary;
+    }
+  }
+  .form-group {
+    margin-bottom: 1rem;
+    label {
+      font-weight: bold;
+      padding-left: 0.5rem;
+    }
+    .form-control {
+      outline: none !important;
+      background: rgba(216, 216, 216, 0.474);
+      padding-left: 0.5rem;
+      color: blue;
+      border-radius: 10px;
+      &:focus {
+        outline: none !important;
+        box-shadow: none !important;
+        background: white;
+        border: 1px solid rgba(173, 173, 173, 0.737);
+      }
+      &::after {
+        content: "*";
+        color: red;
+      }
+    }
+    // add after contentent, asterisk for required fields
+    .required {
+      &::after {
+        content: "*";
+        position: absolute;
+        color: red;
+      }
+    }
+    .date-box {
+      input {
+        flex: 1 1 20%;
+      }
+      .form-select {
+        flex: 2 2 50%;
+        outline: none !important;
+        padding-left: 1rem;
+        color: $color-primary;
+        border-radius: 15px;
 
-            cursor: pointer;
-            &:hover{
-                background: rgba(0, 0, 255, 0.126) !important;
-            }
+        &:focus {
+          outline: none !important;
+          box-shadow: none !important;
+          border: 1px solid blue;
         }
-        td.text-center{
-            &:hover{
-                background: rgba(255, 0, 0, 0.126) !important;
-            }
+      }
+    }
+  }
+  .form-title {
+    color: $color-primary;
+  }
+  .btn-booking {
+    background: $color-primary;
+    border-radius: 15px;
+    color: white;
+    transition: all 0.5s ease;
+    &:hover {
+      background: rgba(52, 49, 229, 0.928);
+    }
+  }
+}
 
-        }
-    }
-    .cancel{
-        display: none;
-    }
-    .cancleBtn{
-        cursor: pointer;
-        color: red !important;
-        &:hover{
-            font-weight: bold !important;
-        }
-    }
-    .book-room-popup{
-        inset: 10vh 0 0 0;
-        background: rgba(0, 0, 0, 0.566) !important;
-        padding: 5rem 10rem 10rem 10rem;
-        .closePopopBookings{
-            cursor: pointer;
-            transition: all .5s ease-out;
-            &:hover{
-                color: red !important;
-            }
-        }
-        .box-booked-room-info{
-            border-radius:  20px;
-            .col{
-            border-radius:  20px;
-            }
-        }
-    }
-
+.fc-h-event .fc-event-main {
+  color: #111 !important;
+  overflow: hidden;
 }

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./Login.scss";
 import Register from "../Register/Register";
 import { toast, ToastContainer } from "react-toastify";
@@ -12,7 +12,7 @@ const LoginForm = () => {
   const [rememberPassword, setRememberPassword] = useState(false);
   const navigate = useNavigate();
 
-  const { login } = useAuth();
+  const { isAuthenticated, login } = useAuth();
 
   const SubmitLoginData = (e) => {
     e.preventDefault();
@@ -77,9 +77,21 @@ const LoginForm = () => {
         });
     }
   };
+
   const handleLoginClick = () => {
     setRememberPassword(true);
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate(
+        localStorage.getItem("rsu_redirect")
+          ? localStorage.getItem("rsu_redirect")
+          : "/"
+      );
+    }
+  }, [isAuthenticated, navigate]);
+
   return (
     <div className="row d-flex login flex-column justify-content-start align-items-center">
       <div className="col-12 col-md-6 p-4">
