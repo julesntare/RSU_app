@@ -1,16 +1,37 @@
 import { Button } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import { getModule } from "../../redux/actions/ModuleActions";
+import { getRoom } from "../../redux/actions/RoomActions";
 import "../Bookings/Bookings.scss";
 import BasicInfo from "./BookingSteps/BasicInfo";
 import BasicRequirements from "./BookingSteps/BasicRequirements";
 import SchedulesDetails from "./BookingSteps/SchedulesDetails/SchedulesDetails";
 
-const BookingsForm = () => {
+const BookingsForm = (props) => {
   const [bookingData, setBookingData] = useState({
     step: 0,
     error: false,
     isLastStep: false,
   });
+  const [selectedRoom, setSelectedRoom] = useState(null);
+  const rooms = useSelector((state) => state.rooms.rooms);
+  const modules = useSelector((state) => state.modules.modules);
+  const { hasParam } = props;
+  const param = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (hasParam) {
+      setBookingData({ ...bookingData, room: param.id });
+      dispatch(getRoom());
+      // filter by param.id
+      const room = rooms.find((room) => room._id === param.id);
+      setSelectedRoom(room);
+    }
+    dispatch(getModule());
+  }, [dispatch]);
 
   // go to previous step
   const handlePrevious = () => {
@@ -66,6 +87,9 @@ const BookingsForm = () => {
           <BasicInfo
             bookingData={bookingData}
             setBookingData={setBookingData}
+            room={selectedRoom}
+            hasParam={hasParam}
+            modules={modules}
           />
         );
       case 1:
@@ -73,6 +97,7 @@ const BookingsForm = () => {
           <BasicRequirements
             bookingData={bookingData}
             setBookingData={setBookingData}
+            room={selectedRoom}
           />
         );
       case 2:

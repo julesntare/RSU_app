@@ -67,13 +67,13 @@ const SchedulesDetails = ({ bookingData, setBookingData }) => {
           </label>
           <Select
             options={options}
-            value={bookingData.roomCategory || options[0]}
-            error={bookingData.error && !bookingData.roomCategory}
+            value={bookingData.recurrence || options[0]}
+            error={bookingData.error && !bookingData.recurrence}
             helperText={
-              bookingData.error && !bookingData.roomCategory ? "Required" : ""
+              bookingData.error && !bookingData.recurrence ? "Required" : ""
             }
             onChange={(selectedOption) =>
-              setBookingData({ ...bookingData, roomCategory: selectedOption })
+              setBookingData({ ...bookingData, recurrence: selectedOption })
             }
             placeholder="Select event recurrence"
             isSearchable

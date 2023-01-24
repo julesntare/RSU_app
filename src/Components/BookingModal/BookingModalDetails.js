@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import materialSymbolssche from "../../assets/svg/materialSymbolssche.svg";
 import materialSymbolsloca from "../../assets/svg/materialSymbolsloca.svg";
 import mdiclose from "../../assets/svg/mdiclose.svg";
@@ -7,20 +7,18 @@ import mdiuserGroup from "../../assets/svg/mdiuserGroup.svg";
 import materialSymbolsedit from "../../assets/svg/materialSymbolsedit.svg";
 import mdiaccountHelp from "../../assets/svg/mdiaccountHelp.svg";
 import materialSymbolsdele from "../../assets/svg/materialSymbolsdele.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { getRoom } from "../../redux/actions/RoomActions";
 import NumbersToOrdinalForm from "../utils/NumbersToOrdinalForm";
-import { getUser } from "../../redux/actions/UserActions";
-const BookingModal = ({ setShowModal, selectedEvent, bookings }) => {
-  const rooms = useSelector((state) => state.rooms);
-  const users = useSelector((state) => state.users);
-  const dispatch = useDispatch();
+import NumbersToDaysForm from "../utils/NumbersToDaysForm";
 
-  useEffect(() => {
-    dispatch(getRoom());
-    dispatch(getUser());
-  }, [dispatch]);
-
+const BookingModal = ({
+  setShowModal,
+  selectedEvent,
+  bookings,
+  rooms,
+  users,
+  modules,
+  isAuthenticated,
+}) => {
   const selectedDate = bookings.find(
     (booking) => booking._id === selectedEvent
   );
@@ -31,8 +29,12 @@ const BookingModal = ({ setShowModal, selectedEvent, bookings }) => {
     <div className="frame-1">
       <header>
         <div className="flex-container">
-          <img className="material-symbolsedit" src={materialSymbolsedit} />
-          <img className="material-symbolsdele" src={materialSymbolsdele} />
+          {isAuthenticated && (
+            <>
+              <img className="material-symbolsedit" src={materialSymbolsedit} />
+              <img className="material-symbolsdele" src={materialSymbolsdele} />
+            </>
+          )}
           <img
             className="mdiclose"
             src={mdiclose}
@@ -50,7 +52,14 @@ const BookingModal = ({ setShowModal, selectedEvent, bookings }) => {
         </div>
         <div className="flex-container-2">
           <img className="material-symbolssche" src={materialSymbolssche} />
-          <span>2023-01-06 2023-01-04, 08:00 - 11:00 (weekly on friday)</span>
+          <span>
+            {selectedDate.activity.activity_starting_date} to{" "}
+            {selectedDate.activity.activity_ending_date},{" "}
+            {selectedDate.activity.activity_time[0][0]} -{" "}
+            {selectedDate.activity.activity_time[0][1]} (
+            {selectedDate.activity.activity_recurrence} on{" "}
+            {NumbersToDaysForm(selectedDate.activity.activity_days[0])})
+          </span>
         </div>
         <div className="flex-container-3">
           <img className="mdiuser-group" src={mdiuserGroup} />
@@ -90,12 +99,16 @@ const BookingModal = ({ setShowModal, selectedEvent, bookings }) => {
           </div>
         </div>
         <div className="rectangle-1">
-          <div className="rectangle-3-1">
-            <a href="#">Occupy Now</a>
-          </div>
-          <div className="rectangle-3-2">
-            <a href="#">Free It</a>
-          </div>
+          {isAuthenticated && (
+            <>
+              <div className="rectangle-3-1">
+                <a href="#">Occupy Now</a>
+              </div>
+              <div className="rectangle-3-2">
+                <a href="#">Free It</a>
+              </div>
+            </>
+          )}
           <div className="rectangle-3">
             <a href="#" onClick={() => setShowModal(false)}>
               Cancel

@@ -13,19 +13,21 @@ import useAuth from "../../hooks/useAuth";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
+import { getUser } from "../../redux/actions/UserActions";
+import { getModule } from "../../redux/actions/ModuleActions";
 
 const localizer = momentLocalizer(moment);
 
 const Bookings = () => {
   let { id } = useParams();
+  const users = useSelector((state) => state.users.users);
   const rooms = useSelector((state) => state.rooms.rooms);
-  const bookings = useSelector((state) => state.bookings);
+  const bookings = useSelector((state) => state.bookings.bookings);
+  const modules = useSelector((state) => state.modules.modules);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const selectedRoom = rooms.find((room) => room._id === id);
-  const [bookedDates, setBookedDates] = useState([]);
   const [showModal, setShowModal] = useState(false);
-  const [showForm, setShowForm] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [events, setEvents] = useState([]);
   const { isAuthenticated } = useAuth();
@@ -33,6 +35,8 @@ const Bookings = () => {
   useEffect(() => {
     dispatch(getRoom());
     dispatch(getBooking());
+    dispatch(getUser());
+    dispatch(getModule());
   }, [dispatch]);
 
   useEffect(() => {
@@ -54,10 +58,6 @@ const Bookings = () => {
           for (let i = 0; i < days; i++) {
             let date = moment(booking.activity.activity_starting_date);
             date.add(i * 7, "days");
-            console.log(
-              booking.activity.activity_starting_date,
-              date.format("YYYY-MM-DD")
-            );
             // check if the starting date is the same as activity.activity_days[0]
             // if yes, then use starting date to repeat on the same day
             // if no, then use the date of activity.activity_days[0] to repeat on the same day
@@ -65,6 +65,7 @@ const Bookings = () => {
             // 0 is sunday, 1 is monday, 2 is tuesday, 3 is wednesday, 4 is thursday, 5 is friday, 6 is saturday
             if (date.day() === booking.activity.activity_days[0]) {
               const event = {
+                id: booking._id,
                 title: booking.activity.activity_name,
                 start: new Date(date),
                 end: new Date(date),
@@ -80,11 +81,11 @@ const Bookings = () => {
                 // add the difference to the date
                 const diff = booking.activity.activity_days[0] - count;
                 date.add(diff, "days");
-                console.log(date.format("YYYY-MM-DD"));
                 count += 1;
               }
 
               const event = {
+                id: booking._id,
                 title: booking.activity.activity_name,
                 start: new Date(date),
                 end: new Date(date),
@@ -108,6 +109,7 @@ const Bookings = () => {
               "days"
             );
             const event = {
+              id: booking._id,
               title: booking.activity.activity_name,
               start: new Date(date),
               end: new Date(date),
@@ -130,6 +132,7 @@ const Bookings = () => {
               "days"
             );
             const event = {
+              id: booking._id,
               title: booking.activity.activity_name,
               start: new Date(date),
               end: new Date(date),
@@ -183,6 +186,8 @@ const Bookings = () => {
                   events={events}
                   onDoubleClickEvent={(event) => {
                     console.log(event);
+                    setSelectedEvent(event.id);
+                    setShowModal(true);
                   }}
                   startAccessor="start"
                   endAccessor="end"
@@ -192,7 +197,7 @@ const Bookings = () => {
                 {/* generate react bootstrap modal like of google calendar event popup modal */}
                 <Modal
                   show={showModal}
-                  onHide={() => naviga}
+                  onHide={() => setShowModal(false)}
                   size="md"
                   aria-labelledby="contained-modal-title-vcenter"
                   centered
@@ -202,6 +207,10 @@ const Bookings = () => {
                       setShowModal={setShowModal}
                       selectedEvent={selectedEvent}
                       bookings={bookings}
+                      rooms={rooms}
+                      users={users}
+                      modules={modules}
+                      isAuthenticated={isAuthenticated}
                     />
                   </Modal.Body>
                 </Modal>

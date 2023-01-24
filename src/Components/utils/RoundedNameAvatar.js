@@ -1,6 +1,7 @@
 import React from "react";
 import { Dropdown, Button } from "react-bootstrap";
-import '../Navbar/Navbar.scss'; 
+import { useNavigate } from "react-router-dom";
+import "../Navbar/Navbar.scss";
 
 const getInitials = (name) => {
   const initials = name.split(" ").map((word) => word[0]);
@@ -19,14 +20,16 @@ const getAvatarColor = (initials) => {
   return color;
 };
 
-const logout = () => {
-    localStorage.removeItem("rsu_token");
-    window.location.href = "/";
-};
-
 const RoundedNameAvatar = ({ name }) => {
   const initials = getInitials(name);
   const avatarColor = getAvatarColor(initials);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem("rsuToken");
+    navigate("/login");
+  };
+
   return (
     // make dropown menu on avatar
     <Dropdown>

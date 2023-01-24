@@ -107,7 +107,7 @@ function App() {
             path="/bookingform/:id"
             element={
               <AuthProvider>
-                <BookingsForm />
+                <BookingsForm hasParam={true} />
               </AuthProvider>
             }
           />

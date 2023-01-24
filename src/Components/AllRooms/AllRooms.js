@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./AllRooms.scss";
 import { Link, useNavigate, useParams } from "react-router-dom";
-import SearchBox from "react-search-box";
-import Filter from "../Filter/Filter";
 import { useDispatch, useSelector } from "react-redux";
 import { getRoom } from "../../redux/actions/RoomActions";
 import useAuth from "../../hooks/useAuth";

@@ -5,14 +5,16 @@ import {
   GET_USER,
   GET_USER_BY_ID,
   MODIFY_USER,
-} from '../actions/UserActions';
+} from "../actions/UserActions";
 
-const initialState = [];
+const initialState = {
+  users: [],
+};
 
 const UserReducer = function (state = initialState, action) {
   switch (action.type) {
     case GET_USER: {
-      return [...action.payload];
+      return { ...state, users: action.payload };
     }
     case GET_USER_BY_ID: {
       return action.payload;
@@ -30,7 +32,7 @@ const UserReducer = function (state = initialState, action) {
       return [...action.payload];
     }
     default: {
-      return [...state];
+      return state;
     }
   }
 };
