@@ -6,12 +6,14 @@ import {
   GET_BOOKING_BY_ID,
 } from "../actions/BookingActions";
 
-const initialState = [];
+const initialState = {
+  bookings: [],
+};
 
 const BookingReducer = function (state = initialState, action) {
   switch (action.type) {
     case GET_BOOKING: {
-      return [...action.payload];
+      return { ...state, bookings: action.payload };
     }
     case GET_BOOKING_BY_ID: {
       return action.payload;
@@ -26,7 +28,7 @@ const BookingReducer = function (state = initialState, action) {
       return [...action.payload];
     }
     default: {
-      return [...state];
+      return state;
     }
   }
 };

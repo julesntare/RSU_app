@@ -10,6 +10,7 @@ const LoginForm = () => {
   const refName = useRef();
   const refPassword = useRef();
   const [rememberPassword, setRememberPassword] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
   const navigate = useNavigate();
 
   const { isAuthenticated, login } = useAuth();
@@ -30,8 +31,10 @@ const LoginForm = () => {
         progress: undefined,
       });
     } else {
+      setIsProcessing(true);
       login(UserName, Password)
         .then((res) => {
+          setIsProcessing(false);
           if (res.isAuthenticated) {
             // add toast alert success
             toast.success("You have successfully logged in!", {
@@ -64,6 +67,7 @@ const LoginForm = () => {
           }
         })
         .catch((err) => {
+          setIsProcessing(false);
           // add sweet alert danger
           toast.error(err.message, {
             position: "top-right",
@@ -127,7 +131,12 @@ const LoginForm = () => {
               className="my-2 w-100"
               ref={refPassword}
             />
-            <button className="btn w-100 my-2 login-btn">Login</button>
+            <button
+              disabled={isProcessing}
+              className="btn w-100 my-2 login-btn"
+            >
+              Login
+            </button>
           </form>
           <div className="password-reset mt-3 px-4 mb-5 w-100 text-primary fw-bold">
             <p className="ms-2">
