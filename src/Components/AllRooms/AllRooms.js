@@ -10,6 +10,8 @@ import { getOffice } from "../../redux/actions/OfficeActions";
 import NumbersToOrdinalForm from "../utils/NumbersToOrdinalForm";
 import NumbersToDaysForm from "../utils/NumbersToDaysForm";
 import { TextField } from "@mui/material";
+import { getBooking } from "../../redux/actions/BookingActions";
+import { ProgressBar, Tooltip } from "react-bootstrap";
 
 const AllRooms = (props) => {
   const [currRooms, setCurrRooms] = useState([]);
@@ -18,6 +20,7 @@ const AllRooms = (props) => {
   const [filteredOffices, setFilteredOffices] = useState([]);
   const rooms = useSelector((state) => state.rooms.rooms);
   const offices = useSelector((state) => state.offices.offices);
+  const bookings = useSelector((state) => state.bookings.bookings);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { hasParam } = props;
@@ -27,6 +30,7 @@ const AllRooms = (props) => {
   useEffect(() => {
     dispatch(getRoom());
     dispatch(getOffice());
+    dispatch(getBooking());
     if (hasParam) {
       setCurrRooms((currRooms) => [
         ...currRooms,
@@ -72,13 +76,20 @@ const AllRooms = (props) => {
     navigate(`/bookingform/${i}`);
   };
 
+  // const getProgress = (room) => {
+  //   const today = new Date();
+  //   const todayDay = today.getDay();
+  //   const todayHour = today.getHours();
+  //   const todayMinute = today.getMinutes();
+
+  //   const bookingsToday = bookings.filter(
+
   const searchRooms = (e) => {
     e.preventDefault();
-    let search = e.target.value.toLowerCase();
+    let search = e.target.value;
     const filteredRooms = currRooms.filter(
       (room) =>
         room.room_name.toLowerCase().includes(search.toLowerCase()) ||
-        room.room_description.toLowerCase().includes(search.toLowerCase()) ||
         room.room_type.room_type_name
           .toLowerCase()
           .includes(search.toLowerCase()) ||
@@ -112,12 +123,7 @@ const AllRooms = (props) => {
         >
           <div className="card-body" id="card-body">
             <div className="time-line-box">
-              <div className="swiper-container text-center">
-                <div className="swiper-wrapper">
-                  <div className="swiper-slide"></div>
-                </div>
-                <div className="swiper-pagination"></div>
-              </div>
+              {/* {getProgress(room)} */}
             </div>
             <h3 className="room-name my-1 h4 d-flex justify-content-center align-items-center w-100 card-title">
               {room.room_name}
@@ -143,7 +149,7 @@ const AllRooms = (props) => {
                       {room.capacity}
                     </p>
                     <p>
-                      {i % 2 === 0 ? (
+                      {room.room_status.value == 0 ? (
                         <button className="text-danger danger-btn fw-bold btn w-100 btn-sm btn-light">
                           <i className="bi bi-exclamation-circle"></i> Occupied
                         </button>

@@ -11,6 +11,7 @@ export const getBooking = () => (dispatch) => {
   fetch(`${process.env.REACT_APP_RSU_API_URL}/bookings/all`)
     .then((res) => res.json())
     .then((data) => {
+      console.log(data);
       dispatch({
         type: GET_BOOKING,
         payload: data,

@@ -51,6 +51,7 @@ const Bookings = () => {
 
         // 2. if activity recurrence is weekly, take the start date and add 7 days to it till the end date
         if (booking.activity.activity_recurrence === "weekly") {
+          console.log(booking);
           const startDate = moment(booking.activity.activity_starting_date);
           const endDate = moment(booking.activity.activity_ending_date);
           const diff = endDate.diff(startDate, "days");
@@ -67,8 +68,21 @@ const Bookings = () => {
               const event = {
                 id: booking._id,
                 title: booking.activity.activity_name,
-                start: new Date(date),
-                end: new Date(date),
+                start: new Date(
+                  date.year(),
+                  date.month(),
+                  date.date(),
+                  booking.activity.activity_time[0][0].split(":")[0],
+                  booking.activity.activity_time[0][0].split(":")[1]
+                ),
+                end: new Date(
+                  date.year(),
+                  date.month(),
+                  date.date(),
+
+                  booking.activity.activity_time[0][1].split(":")[0],
+                  booking.activity.activity_time[0][1].split(":")[1]
+                ),
                 color,
                 activity: booking.activity,
               };
@@ -87,8 +101,21 @@ const Bookings = () => {
               const event = {
                 id: booking._id,
                 title: booking.activity.activity_name,
-                start: new Date(date),
-                end: new Date(date),
+                start: new Date(
+                  date.year(),
+                  date.month(),
+                  date.date(),
+                  booking.activity.activity_time[0][0].split(":")[0],
+                  booking.activity.activity_time[0][0].split(":")[1]
+                ),
+                end: new Date(
+                  date.year(),
+                  date.month(),
+                  date.date(),
+
+                  booking.activity.activity_time[0][1].split(":")[0],
+                  booking.activity.activity_time[0][1].split(":")[1]
+                ),
                 color,
                 activity: booking.activity,
               };
@@ -111,8 +138,21 @@ const Bookings = () => {
             const event = {
               id: booking._id,
               title: booking.activity.activity_name,
-              start: new Date(date),
-              end: new Date(date),
+              start: new Date(
+                date.year(),
+                date.month(),
+                date.date(),
+                booking.activity.activity_time[0][0].split(":")[0],
+                booking.activity.activity_time[0][0].split(":")[1]
+              ),
+              end: new Date(
+                date.year(),
+                date.month(),
+                date.date(),
+
+                booking.activity.activity_time[0][1].split(":")[0],
+                booking.activity.activity_time[0][1].split(":")[1]
+              ),
               color,
               activity: booking.activity,
             };
@@ -134,8 +174,22 @@ const Bookings = () => {
             const event = {
               id: booking._id,
               title: booking.activity.activity_name,
-              start: new Date(date),
-              end: new Date(date),
+              start: new Date(
+                date.year(),
+                date.month(),
+                date.date(),
+                // string time to time
+                booking.activity.activity_time[0][0].split(":")[0],
+                booking.activity.activity_time[0][0].split(":")[1]
+              ),
+              end: new Date(
+                date.year(),
+                date.month(),
+                date.date(),
+
+                booking.activity.activity_time[0][1].split(":")[0],
+                booking.activity.activity_time[0][1].split(":")[1]
+              ),
               color,
               activity: booking.activity,
             };
@@ -159,70 +213,69 @@ const Bookings = () => {
       style: style,
     };
   };
-
   return (
     <>
-      {rooms.length > 0 ? (
-        <div className="row">
-          <div className="col-12 col-md-12 p-3 pb-5">
-            <div className="info-box border d-flex flex-column justify-content-between p-4 h-100">
-              <div className="mt-auto contacts">
-                <h4 className="title-room text-center mb-3">
-                  {selectedRoom
-                    ? `Reservations for <i>${selectedRoom.room_name}</i>`
-                    : "All Reservations"}
-                </h4>
-                {isAuthenticated && (
-                  <button
-                    className="btn btn-primary mb-3"
-                    onClick={(e) => navigate("/bookingform")}
-                  >
-                    New Schedule
-                  </button>
-                )}
-                {/* use react calendar datepicker component to display dates and times booked */}
-                <Calendar
-                  localizer={localizer}
-                  events={events}
-                  onDoubleClickEvent={(event) => {
-                    console.log(event);
-                    setSelectedEvent(event.id);
-                    setShowModal(true);
-                  }}
-                  startAccessor="start"
-                  endAccessor="end"
-                  eventPropGetter={eventStyleGetter}
-                  style={{ height: 500 }}
-                />
-                {/* generate react bootstrap modal like of google calendar event popup modal */}
-                <Modal
-                  show={showModal}
-                  onHide={() => setShowModal(false)}
-                  size="md"
-                  aria-labelledby="contained-modal-title-vcenter"
-                  centered
+      {/* {rooms.length > 0 ? ( */}
+      <div className="row">
+        <div className="col-12 col-md-12 p-3 pb-5">
+          <div className="info-box border d-flex flex-column justify-content-between p-4 h-100">
+            <div className="mt-auto contacts">
+              <h4 className="title-room text-center mb-3">
+                {selectedRoom
+                  ? `Reservations for <i>${selectedRoom.room_name}</i>`
+                  : "All Reservations"}
+              </h4>
+              {isAuthenticated && (
+                <button
+                  className="btn btn-primary mb-3"
+                  onClick={(e) => navigate("/bookingform")}
                 >
-                  <Modal.Body>
-                    <BookingModalDetails
-                      setShowModal={setShowModal}
-                      selectedEvent={selectedEvent}
-                      bookings={bookings}
-                      rooms={rooms}
-                      users={users}
-                      modules={modules}
-                      isAuthenticated={isAuthenticated}
-                    />
-                  </Modal.Body>
-                </Modal>
-              </div>
+                  New Schedule
+                </button>
+              )}
+              {/* use react calendar datepicker component to display dates and times booked */}
+              <Calendar
+                localizer={localizer}
+                events={events}
+                onDoubleClickEvent={(event) => {
+                  console.log(event);
+                  setSelectedEvent(event.id);
+                  setShowModal(true);
+                }}
+                startAccessor="start"
+                endAccessor="end"
+                eventPropGetter={eventStyleGetter}
+                style={{ height: 500 }}
+              />
+              {/* generate react bootstrap modal like of google calendar event popup modal */}
+              <Modal
+                show={showModal}
+                onHide={() => setShowModal(false)}
+                size="md"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+              >
+                <Modal.Body>
+                  <BookingModalDetails
+                    setShowModal={setShowModal}
+                    selectedEvent={selectedEvent}
+                    bookings={bookings}
+                    rooms={rooms}
+                    users={users}
+                    modules={modules}
+                    isAuthenticated={isAuthenticated}
+                  />
+                </Modal.Body>
+              </Modal>
             </div>
           </div>
         </div>
-      ) : (
+      </div>
+      {/* ) : (
         <div className="d-flex justify-content-center align-items-center">
           <CircularProgress />
         </div>
-      )}
+      )} */}
     </>
   );
 };

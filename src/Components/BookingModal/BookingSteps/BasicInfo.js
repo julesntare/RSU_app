@@ -105,12 +105,14 @@ const BasicInfo = ({
                   bookingData.error && !bookingData.recurrence ? "Required" : ""
                 }
                 onChange={(selectedOption) => {
+                  console.log(bookingData.activityStartDate);
                   switch (selectedOption.value) {
                     case "once":
                       setBookingData({
                         ...bookingData,
                         recurrence: selectedOption,
-                        activityEndDate: bookingData.activityStartDate,
+                        activityEndDate:
+                          bookingData.activityStartDate || new Date(),
                       });
                       break;
                     case "weekly":
@@ -118,7 +120,9 @@ const BasicInfo = ({
                         ...bookingData,
                         recurrence: selectedOption,
                         activityEndDate: new Date(
-                          new Date(bookingData.activityStartDate).setDate(
+                          new Date(
+                            bookingData.activityStartDate || new Date()
+                          ).setDate(
                             new Date(bookingData.activityStartDate).getDate() +
                               7
                           )
@@ -132,9 +136,12 @@ const BasicInfo = ({
                         ...bookingData,
                         recurrence: selectedOption,
                         activityEndDate: new Date(
-                          new Date(bookingData.activityStartDate).setMonth(
-                            new Date(bookingData.activityStartDate).getMonth() +
-                              1
+                          new Date(
+                            bookingData.activityStartDate || new Date()
+                          ).setMonth(
+                            new Date(
+                              bookingData.activityStartDate || new Date()
+                            ).getMonth() + 1
                           )
                         )
                           .toISOString()
@@ -144,7 +151,8 @@ const BasicInfo = ({
                     default:
                       setBookingData({
                         ...bookingData,
-                        activityEndDate: bookingData.activityStartDate,
+                        activityEndDate:
+                          bookingData.activityStartDate || new Date(),
                       });
                       break;
                   }

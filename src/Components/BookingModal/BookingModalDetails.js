@@ -45,7 +45,7 @@ const BookingModal = ({
       <div className="flex-container-body">
         <div className="flex-container-1">
           <img className="material-symbolseven" src={materialSymbolseven} />
-          <h4>{selectedDate.activity.activity_name}</h4>
+          <h4>{selectedDate.activity.activity_name} {selectedDate.flag === 0 && selectedDate.activity.activity_module}</h4>
         </div>
         <div className="descriptions">
           {selectedDate.activity.activity_description}
