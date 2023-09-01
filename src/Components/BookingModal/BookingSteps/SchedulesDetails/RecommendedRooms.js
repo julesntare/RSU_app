@@ -13,7 +13,6 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { AvailabilityCalendar } from "react-availability-calendar";
 import moment from "moment";
 import { Modal } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const msInHour = 60 * 60 * 1000;
 

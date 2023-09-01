@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./Bookings.scss";
+import "./bookings.scss";
 import "../BookingModal/BookingModalDetails.scss";
 import { Modal } from "react-bootstrap";
 import BookingModalDetails from "../BookingModal/BookingModalDetails";

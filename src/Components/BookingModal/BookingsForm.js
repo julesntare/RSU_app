@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getModule } from "../../redux/actions/ModuleActions";
 import { getRoom } from "../../redux/actions/RoomActions";
-import "../Bookings/Bookings.scss";
+import "../Bookings/bookings.scss";
 import BasicInfo from "./BookingSteps/BasicInfo";
 import BasicRequirements from "./BookingSteps/BasicRequirements";
 import SchedulesDetails from "./BookingSteps/SchedulesDetails/SchedulesDetails";

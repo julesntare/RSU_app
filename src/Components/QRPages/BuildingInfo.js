@@ -1,5 +1,4 @@
 import React from 'react'
-import 'BuildingInfo.scss';
 
 const BuildingInfo = () => {
   return (
