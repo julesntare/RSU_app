@@ -327,8 +327,8 @@ export default function Maps() {
 
   useEffect(() => {
     // add other building for each other locations
-    buildings.map((location, index) => {
-      map.current.addLayer({
+    buildings.map(async (location, index) => {
+      await map.current.addLayer({
         id: `point${index}`,
         type: "circle",
         source: {

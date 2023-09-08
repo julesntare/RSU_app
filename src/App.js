@@ -39,8 +39,6 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Landing />} />
           <Route path="/buildings" element={<Buildings />} />
-        </Routes>
-        <Routes>
           <Route
             exact
             path="/allrooms"
@@ -50,9 +48,6 @@ function App() {
               </AuthProvider>
             }
           />
-        </Routes>
-        {/* add route to /allrooms/:id */}
-        <Routes>
           <Route
             path="/allrooms/:id"
             element={
@@ -61,8 +56,6 @@ function App() {
               </AuthProvider>
             }
           />
-        </Routes>
-        <Routes>
           <Route
             path="/bookings"
             element={
@@ -71,17 +64,9 @@ function App() {
               </AuthProvider>
             }
           />
-        </Routes>
-        <Routes>
           <Route path="/maps/:id" element={<Maps />} />
-        </Routes>
-        <Routes>
           <Route path="/maps" element={<Maps />} />
-        </Routes>
-        <Routes>
           <Route path="/enquiry" element={<Enquiry />} />
-        </Routes>
-        <Routes>
           <Route
             path="/login"
             element={
@@ -90,8 +75,6 @@ function App() {
               </AuthProvider>
             }
           />
-        </Routes>
-        <Routes>
           <Route
             exact
             path="/bookingform"
@@ -101,8 +84,6 @@ function App() {
               </AuthProvider>
             }
           />
-        </Routes>
-        <Routes>
           <Route
             path="/bookingform/:id"
             element={

@@ -1,11 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const GET_BUILDING = 'GET_BUILDING';
-export const GET_BUILDING_BY_ID = 'GET_BUILDING_BY_ID';
-export const CREATE_BUILDING = 'CREATE_BUILDING';
-export const DELETE_BUILDING = 'DELETE_BUILDING';
-export const MODIFY_BUILDING = 'MODIFY_BUILDING';
-export const DELETE_ALL_BUILDING = 'DELETE_ALL_BUILDING';
+export const GET_BUILDING = "GET_BUILDING";
+export const GET_BUILDING_BY_ID = "GET_BUILDING_BY_ID";
+export const CREATE_BUILDING = "CREATE_BUILDING";
+export const DELETE_BUILDING = "DELETE_BUILDING";
+export const MODIFY_BUILDING = "MODIFY_BUILDING";
+export const DELETE_ALL_BUILDING = "DELETE_ALL_BUILDING";
 
 export const getBuilding = () => (dispatch) => {
   fetch(`${process.env.REACT_APP_RSU_API_URL}/building/all`)
@@ -30,7 +30,7 @@ export const getBuildingByID = (id) => (dispatch) => {
 };
 
 export const deleteBuilding = (id) => (dispatch) => {
-  axios.post('/api/building/delete', { id }).then((res) => {
+  axios.post("/api/building/delete", { id }).then((res) => {
     dispatch({
       type: DELETE_BUILDING,
       payload: res.data,
@@ -39,7 +39,7 @@ export const deleteBuilding = (id) => (dispatch) => {
 };
 
 export const deleteAllBuilding = () => (dispatch) => {
-  axios.post('/api/building/delete-all').then((res) => {
+  axios.post("/api/building/delete-all").then((res) => {
     dispatch({
       type: DELETE_ALL_BUILDING,
       payload: res.data,
@@ -49,10 +49,10 @@ export const deleteAllBuilding = () => (dispatch) => {
 
 export const createBuilding = (data) => (dispatch) => {
   fetch(`${process.env.REACT_APP_RSU_API_URL}/building`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('rsuToken')}`,
-      'Content-Type': 'application/json',
+      Authorization: `Bearer ${localStorage.getItem("rsuToken")}`,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       ...data,

@@ -53,6 +53,7 @@ const AllRooms = (props) => {
         ),
       ]);
     } else {
+      console.log(rooms);
       rooms.map((room) => {
         setCurrRooms((currRooms) => [...currRooms, room]);
         setFilteredRooms((currRooms) => [...currRooms, room]);
@@ -122,9 +123,7 @@ const AllRooms = (props) => {
           id={i}
         >
           <div className="card-body" id="card-body">
-            <div className="time-line-box">
-              {/* {getProgress(room)} */}
-            </div>
+            <div className="time-line-box">{/* {getProgress(room)} */}</div>
             <h3 className="room-name my-1 h4 d-flex justify-content-center align-items-center w-100 card-title">
               {room.room_name}
             </h3>
@@ -149,7 +148,7 @@ const AllRooms = (props) => {
                       {room.capacity}
                     </p>
                     <p>
-                      {room.room_status.value == 0 ? (
+                      {room.room_status && room.room_status.value == 0 ? (
                         <button className="text-danger danger-btn fw-bold btn w-100 btn-sm btn-light">
                           <i className="bi bi-exclamation-circle"></i> Occupied
                         </button>
