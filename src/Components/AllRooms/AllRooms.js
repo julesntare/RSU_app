@@ -34,26 +34,33 @@ const AllRooms = (props) => {
     if (hasParam) {
       setCurrRooms((currRooms) => [
         ...currRooms,
-        ...rooms.filter((room) => room.room_building._id === param.id),
+        ...rooms.filter(
+          (room) => room.room_building && room.room_building._id === param.id
+        ),
       ]);
       setFilteredRooms((currRooms) => [
         ...currRooms,
-        ...rooms.filter((room) => room.room_building._id === param.id),
+        ...rooms.filter(
+          (room) => room.room_building && room.room_building._id === param.id
+        ),
       ]);
       setCurrOffices((currOffices) => [
         ...currOffices,
         ...offices.filter(
-          (office) => office.office_building_location._id === param.id
+          (office) =>
+            office.office_building_location &&
+            office.office_building_location._id === param.id
         ),
       ]);
       setFilteredOffices((currOffices) => [
         ...currOffices,
         ...offices.filter(
-          (office) => office.office_building_location._id === param.id
+          (office) =>
+            office.office_building_location &&
+            office.office_building_location._id === param.id
         ),
       ]);
     } else {
-      console.log(rooms);
       rooms.map((room) => {
         setCurrRooms((currRooms) => [...currRooms, room]);
         setFilteredRooms((currRooms) => [...currRooms, room]);
